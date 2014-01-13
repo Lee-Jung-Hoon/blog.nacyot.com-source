@@ -1,0 +1,11 @@
+{
+  "name": "dev.study.site",
+  "dependencies": {
+    "bootstrap": "~3",
+    "angular": "*",
+    "angular-sanitize": "*",
+    "jquery": "*",
+    "font-awesome": "*",
+    "bootflat": "https://github.com/flathemes/bootflat.git"
+  }
+}
