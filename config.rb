@@ -41,7 +41,9 @@ end
 
 
 require "./helper/markdown_helper.rb"
+require "./helper/article_helper.rb"
 helpers MarkdownHelper
+helpers ArticleHelper
 
 # Markdown configure
 set :markdown_engine, :redcarpet
