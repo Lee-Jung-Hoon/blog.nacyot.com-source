@@ -7,6 +7,7 @@ env:
   - GIT_COMMITTER_EMAIL=propellerheaven@gmail.com
   - GIT_AUTHOR_NAME=nacyot
   - GIT_AUTHOR_EMAIL=propellerheaven@gmail.com
+  - secure: HqpsMb5NuCl+2QvJPFf1qKr7bjDqlJ+Lon+jgXmSGLbZ4KYy9lupB/RVTfpBUVeXEAOP16vmrDAqzyVUXVqvRyY+KZ8xCWzkwnbvNuPGhTy9VoPCxlP2FAuHYPc2WHNafIZH+YTDA9ijCX6MLRJXEVuwtHk+q9jgQ3tGQ2i+Kw0=
 before_script:
 - npm install -g bower
 - bower install
