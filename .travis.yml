@@ -7,7 +7,7 @@ env:
   - GIT_COMMITTER_EMAIL=propellerheaven@gmail.com
   - GIT_AUTHOR_NAME=nacyot
   - GIT_AUTHOR_EMAIL=propellerheaven@gmail.com
-  - secure: HqpsMb5NuCl+2QvJPFf1qKr7bjDqlJ+Lon+jgXmSGLbZ4KYy9lupB/RVTfpBUVeXEAOP16vmrDAqzyVUXVqvRyY+KZ8xCWzkwnbvNuPGhTy9VoPCxlP2FAuHYPc2WHNafIZH+YTDA9ijCX6MLRJXEVuwtHk+q9jgQ3tGQ2i+Kw0=
+  - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
 before_script:
 - npm install -g bower
 - bower install
@@ -17,4 +17,4 @@ after_success:
 - cd build
 - git add -A
 - git commit -m 'Update build files'
-- git push https://$GH_TOKEN@github.com/nacyot/blog.nacyot.com.git gh-pages
+- git push --quiet https://$GH_TOKEN@github.com/nacyot/blog.nacyot.com.git gh-pages
