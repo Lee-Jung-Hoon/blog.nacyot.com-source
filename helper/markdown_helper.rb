@@ -6,7 +6,8 @@ module MarkdownHelper
                             :fenced_code_blocks => true,
                             :strikethrough => true,
                             :space_after_headers => false,
-                            :underline => false                            
+                            :underline => false,
+                            :footnotes => true,
                             )
     
   end

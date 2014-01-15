@@ -22,7 +22,7 @@ gem "dotenv"
 gem "haml"
 gem 'therubyracer'
 gem "less"
-gem "redcarpet"
+gem "redcarpet", github: "vmg/redcarpet"
 gem "pygments.rb"
 
 # Watch gems

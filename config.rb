@@ -47,7 +47,7 @@ helpers ArticleHelper
 
 # Markdown configure
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+# set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 # Haml configure
 set :haml, { ugly: true }
