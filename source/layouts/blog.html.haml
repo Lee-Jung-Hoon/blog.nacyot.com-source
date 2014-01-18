@@ -1,4 +1,8 @@
-- article_body = markdown_engine.render(IO.read(current_article.source_file)).split("</h2>")[1]
+- content_for :title, " :: " + current_article.title
+- file_content = IO.read(current_article.source_file)
+- index = file_content.index("\n---") + 4
+- article_body = markdown_engine.render(file_content[index..-1])
+
 - wrap_layout :layout do
   .mini-wall
     .profile
@@ -18,7 +22,7 @@
           %hr
           .author
             %h1 nacyot
-            프로그래머(29)
+            = current_article.data.profile ? current_article.data.profile : "프로그래머(29)"
           .share
             %h1 Share this post
         %hr
