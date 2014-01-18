@@ -1,17 +1,26 @@
 ---
-published: false
+title: "AngularJs 스타일 가이드"
+date: 2013-10-30 12:00:00 +0900
+author: nacyot
+license: ""
+published: true
 ---
 
+이 글은 Minko Gechev 씨의 [AngularJS Style Guide][angular-style-guide] 문서를 [nacyot][nacyot]이 변역한 글입니다. 번역된 문서는 [Github 저장소][angular-style-guide-kr]에서 관리되고 있으며 원본은 [여기][angular-style-guide]에서 찾아볼 수 있습니다. 관련된 질문은 [GuestBook][guestbook]이나 [Email][email]으로 해주시기합니다.
 
-# AngularJs 스타일 가이드
+[angular-style-guide]: https://github.com/mgechev/angularjs-style-guide
+[angular-style-guide-kr]: https://github.com/nacyot/angularjs-style-guide
+[nacyot]: http://nacyot.com
+[guestbook]: http://nacyot.com/guestbook
+[email]: mailto:propellerheaven@gmail.com
 
-* 저자 : Minko Gechev
-* 원문 : https://github.com/mgechev/angularjs-style-guide
-* 번역 : 김대권(@nacyot, propellerheaven@gmail.com)
+<!--more-->
 
-#소개
+소개
+====
 
 이 스타일 가이드의 목표는 AngularJS 어플리케이션을 제작하는 데 있어서 현재의 베스트 프렉티스를 알려드리는 일입니다.
+
 이 문서의 베스트 프렉티스는 아래 자료들로부터 수집되었습니다.
 
 0. AngularJS 소스 코드
@@ -23,7 +32,7 @@ published: false
 이 스타일 가이드에서 자바스크립트 프로그래밍의 가이드라인을 제공하진 않습니다. 자바스크립트에 관련한 문서는 아래에서 찾을 수 있습니다.
 
 0. [구글 자바스크립트 스타일 가이드](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-0. [모질라 자바스크립트 스타일 가이](https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style)
+0. [모질라 자바스크립트 스타일 가이드](https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style)
 0. [GitHub's 자바스크립트 스타일 가이드](https://github.com/styleguide/javascript)
 0. [Douglas Crockford's 자바스크립트 스타일 가이드](http://javascript.crockford.com/code.html)
 
@@ -31,7 +40,9 @@ AngularJS 어플리케이션 제작에 있어서는 [구글 자바스크립트 �
 
 AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성한 관련된 부분이 있습니다. [여기](https://github.com/angular/angular.js/wiki)에서 확인하실 수 있습니다..
 
-#차례
+차례
+====
+
 * [일반](#general)
     * [디렉토리 구조](#directory-structure)
     * [Digest cycle 최적화](#optimize-the-digest-cycle)
@@ -46,16 +57,19 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 * [테스트](#testing)
 * [기여](#contribution)
 
-#일반
+일반
+====
 
-## 디렉토리 구조
+### 디렉토리 구조
 
 규모가 큰 AngularJS 어플리케이션엔 다수의 컴포넌트가 있으므로 디렉토리 계층 구조를 만드는 것이 좋습니다.
+
 주로 두 가지 접근법이 사용됩니다.
 
 * 컴포넌트 타입 별로 상위 디렉터리를 구성하고, 기능별로 하위 폴더를 구성.
 
 이러한 접근법을 사용한 디렉토리 구조는 다읍과 같습니다.
+
 
     .
     ├── app
@@ -86,9 +100,11 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
     ├── lib
     └── test
 
+
 * 기능 별로 상위 디렉토리를 나누고, 컴포넌트 타입 별로 하위 디렉토리를 구성.
 
 다음과 같은 디렉토리 구조가 됩니다.
+
 
     .
     ├── app
@@ -123,7 +139,9 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
     ├── lib
     └── test
 
+
 * 디렉티브 디렉토리를 만들 땐 디렉티브에 관련된 파일들(템플릿, CSS/SASS 파일, 자바스크립트)을 한 폴더에 모읍니다. 이런 방식으로 디렉토리를 구성한다면 프로젝트 어디서나 이 구조를 일관적으로 사용할 수 있습니다.
+
 
         app
         └── directives
@@ -136,9 +154,11 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
                 ├── directive2.js
                 └── directive2.sass
 
+
 이러한 디렉티브 디렉토리 구성은 위에서 제시한 두 가지 디렉토리 구성법에서 모두 사용할 수 있습니다.
 
 * 두 방식을 사용하는 데 있어서 또 하나 작은 선택지는 [ng-boilerplate](http://joshdmiller.github.io/ng-boilerplate/#/home)을 사용하는 것입니다. 특정 컴포넌트의 유닛 테스트는 컴포넌트와 같은 폴더에 저장합니다. 이를 통해 컴포넌트의 코드가 변경되었을 때 테스트 코드를 찾기 쉬우며, 테스트를 컴포넌트의 사용법을 다룬 문서처럼 사용할 수 있습니다.
+
 
         services
         ├── cache
@@ -148,6 +168,7 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
             ├── model1.js
             └── model1.spec.js
 
+            
 * `app.js` 파일에는 라우트 정의와 설정이 포함되어야 하며, 필요한 경우 초기화 작업을 해줍니다.
 * 각각의 자바스크립트 파일에는 오직 하나의 컴포넌트만을 포함하세요. 파일 이름은 컴포넌트의 이름과 같아야합니다.
 * [Yeoman](http://yeoman.io)이나 [ng-boilerplate](http://joshdmiller.github.io/ng-boilerplate/#/home)와 같은 Angular 프로젝트 구조 템플릿을 사용합니다.
@@ -156,12 +177,12 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 
 각 컴포넌트의 명명 규칙은 각 컴포넌트 절에서 설명합니다.
 
-## Digest cycle 최적화
+### Digest cycle 최적화
 
 * 가장 중요한 변수만 감시합니다(예를 들어 실시간 통신이 필요한 경우 각각의 메시지를 받을 때 digest loop를 일으키지 않아야합니다).
 * `$watch`는 가능한한 간단하게 작성합니다. 무겁과 느린 처리를 하나의 `$watch`에 집어넣으면 어플리케이션 전체를 느리게 만듭니다. (자바스크립트는 싱글 쓰레드에서 작동하므로 $digest 루프 또한 싱글 쓰레드로 작동합니다.)
 
-## 기타
+### 기타
 
 * 사용해야 함.
     * `setTimeout` 대신 `$timeout` 
@@ -184,7 +205,8 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 * [`nginit`보다 컨트롤러를 사용하세요](https://github.com/angular/angular.js/pull/4366/files). `ngInit`의 유일한 적절한 사용법은 `ngRepeat` 프로퍼티의 별칭을 만드는 일입니다. 이 외의 모든 경우엔 변수 범위(scope)를 초기화하는데 `ngInit` 대신 컨트롤러를 사용해야합니다.
 * 변수명, 프로퍼티명, 메소드명 앞에 `$`를 사용하지 않습니다. `$`를 앞에 붙이는 명명법은 AngularJS와 관련되어 특별한 의미로 사용됩니다.
 
-#모듈
+모듈
+====
 
 모듈의 구성은 일반적으로 두 가지 기준이 사용됩니다.
 
@@ -193,7 +215,8 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 
 두 접근법에 큰 차이는 없지만 첫번째 방법이 좀 더 깔끔합니다. 또한 (아직 AngularJS 로드맵에는 없습니다만) 모듈의 지연 로딩이 지원된다면 어플리케이션의 성능도 좋아질 것입니다.
 
-#컨트롤러
+컨트롤러
+========
 
 * 컨트롤러에서 DOM을 조작하지 마세요. 컨트롤러 대신 디렉티브를 사용하시기 바랍니다.
 * 컨터르롤러의 이름은 컨트롤러의 이름을 기준으로 지어야 하며(예를 들어 shopping cart, homepage, admin panel), 이름의 끝에는 `Ctrl`을 붙여줍니다. 컨트롤러 이름은 UpperCamelCase를 사용해 작성합니다(`HomePageCtrl`, `ShoppingCartCtrl`, `AdminPanelCtrl`, etc.).
@@ -243,7 +266,8 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
           //body...
         }]);
 
-#디렉티브
+디렉티브
+========
 
 * 디렉티브의 이름은 lowerCamelCase를 사용하세요.
 * link 함수에서 `$scope` 대신 `scope`를 사용하세요. complie이나 post/pre link 함수들에선 이미 함수가 불려졌을 때 넘어온 인수들이 정의되어있습니다. DI를 사용해 이것들을 변경할 수 없습니다. 이 스타일은 AngularJS 소스코드에서 사용하는 스타일입니다.
@@ -254,19 +278,22 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 * 디렉티브는 주석(comments)이나 클래스(clases)보단 요소(elements)나 속성(attributes)으로 사용하세요. 이는 코드의 가독성을 향상시켜줍니다.
 * 범위(scope)를 없앨 때는 `$scope.$on('$destroy', fn)`를 사용하세요. 이러한 접근은 특히 third-party 플러그인을 디렉티브로 감싸서 사용할 때 유용합니다.
 
-#필터
+필터
+====
 
 * 이름은 lowerCamelCase를 사용하세요
 * 필터는 가능한 한 가볍게 만들어주세요. 필터는 간혹 `$digest` 루프 내에서 호출될 수 있기 때문에 느린 필터는 어플리케이션 전체를 느리게 만들 수 있습니다.
 
-#서비스
+서비스
+======
 
 * 서비스명은 camelCase나 CamelCase로 작성.
 * 서비스엔 비지니스 로직을 캡슐화.
 * 비지니스 로직을 캡슐화하고 있는 서비스들은 `factory` 대신에 `service`를 선호합니다.
 * 세션 수준의 캐시는 `$cacheFactory`를 사용하세요. 이는 요청(request)나 무거운 처리를 캐시하고 싶을 때 사용합니다.
 
-#템플릿
+템플릿
+======
 
 * 문서가 반짝이는 현상을 방지하기 위해서 `{{}}` 대신에 `ng-bind`나 `ng-cloak`를 사용하세요.
 * 템플릿에서는 복잡한 코드 사용을 가능한 자제.
@@ -282,15 +309,18 @@ AngularJS GitHub 위키에는 [ProLoser](https://github.com/ProLoser)가 작성�
 
         <div ng-style="divStyle">IE에서도 작동하는 아름다운 스타일을 가진 div</div>;
 
-#라우팅
+라우팅
+======
 
 * view가 보여지기 전에 `resolve`를 사용해 의존관계를 해결해주세요.
 
-#테스트
+테스트
+======
 
 TBD
 
-#기여
+기여
+====
 
 이 문서는 communty-driven을 지향하며, 문서에 대한 기여는 언제든 대환영입니다.
 부족한 부분을 보충해주시거나 여러분이 사용하는 모국어로 문서를 번역해주셔도 좋습니다.

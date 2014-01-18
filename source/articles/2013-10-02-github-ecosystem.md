@@ -1,14 +1,12 @@
 ---
-published: false
+title: "Github을 둘러싼 유용한 서비스들"
+date: 2013-10-02 12:00:00 +0900
+author: nacyot
+profile: 공짜면 환장하는 프로그래머(29)
+published: true
 ---
 
-# Author
-
-* 작성자 : nacyot(Kim Daekwon\<propellerheaven@gmail.com\>)
-
-# Introduction
-
-소스 관리를 위해 Github와 바로 연동해서 사용할 수 있는 많은 좋은
+소스 관리를 위해 사용하는 Github와 바로 연동해서 사용할 수 있는 많은 좋은
 서비스들이 있습니다. 이러한 서비스들의 장점은 github와 바로 연동할 수
 있고 open-source에 대해서는 대개 무료로 사용할 수 있다는 점입니다. 이
 서비스들을 이용하지 않아도 어차피 내부적으로 다 사용해야만 하는
@@ -16,7 +14,9 @@ published: false
 검토해보셔도 좋을 듯 합니다. 적용이 쉬운 것부터 차례대로 소개하도록
 하겠습니다.
 
-# [Code climate](https://codeclimate.com/)
+<!--more-->
+
+## [Code climate](https://codeclimate.com/)
 Target : Ruby
 
 Ruby 언어의 코드 메트릭스(복잡도, 코드 스멜, 코드 중복 등)를 계산하고
@@ -34,7 +34,7 @@ Ruby 언어의 코드 메트릭스(복잡도, 코드 스멜, 코드 중복 등)�
 분석됩니다. 또한 오픈소스 프로젝트를 대상으로 하는 관계로 레포트
 내용은 전부 공개됩니다.
 
-# [Gemnasium](https://gemnasium.com/)
+## [Gemnasium](https://gemnasium.com/)
 Target : Ruby
 
 Gemnasium은 의존하고 있는 Library(Gem)의 최신버전 여부를 알려주는
@@ -48,7 +48,7 @@ Gemnasium은 의존하고 있는 Library(Gem)의 최신버전 여부를 알려�
 위 url로 접근하시면 github에 올라와있는 어떤 프로젝트든지 등록이
 가능합니다.
 
-# [Rubydoc.info](http://rubydoc.info/)
+## [Rubydoc.info](http://rubydoc.info/)
 Target : Ruby
 
 Rubydoc.info는 YARD를 지원해주는 루비 온라인 문서화 서비스입니다.
@@ -56,7 +56,7 @@ Rubydoc.info는 YARD를 지원해주는 루비 온라인 문서화 서비스입�
 문서가 자동적으로 생성됩니다. 대부분의 오픈소스 프로젝트에 있어
 로컬에서 문서를 만들어 사용하기보다는 이 사이트를 이용하고 있습니다.
 
-# [Travis](https://travis-ci.org/)
+## [Travis](https://travis-ci.org/)
 Target : -
 
 Travis는 CI서버입니다. 역시 오픈소스에 대해서는 무료로 사용할 수
@@ -67,7 +67,7 @@ apt-get을 통한 프로그램 설치도 할 수 있어 매우 다양한 일들�
 [CI Environment](http://about.travis-ci.org/docs/user/ci-environment/)
 문서를 참조해주시기 바랍니다.
 
-## Travis 연동
+### Travis 연동
 Github의 저장소를 Travis와 연동하기 위해서는 repository 설정에서
 Travis hook를 설정해줄 필요가 있습니다. 하지만 이 문제는 Travis 쪽에서
 Github 아이디로 로그인을 하고 연동하려는 저장소를 on으로 바꿔주면 바로
@@ -77,7 +77,7 @@ Github 아이디로 로그인을 하고 연동하려는 저장소를 on으로 �
 파일을 어플리케이션 루트 폴더에 만들어서 기술하고, 저장소에
 push해줍니다.
 
-## .travis.yml 예제
+### .travis.yml 예제
 현재 bbapi 저장소에 등록된 .travis.yml 예제입니다.
 
 ```yaml
@@ -139,7 +139,7 @@ before_script:
 실제로 실행될 스크립트를 작성합니다. 여기서는 우선 before_script가
 실행되고, script가 작동됩니다.
 
-## travis gem
+### travis gem
 ```
 $ gem install travis
 ```
@@ -157,7 +157,7 @@ build #3 passed
 
 와 같이 현재 저장소의 빌드 상황을 확인해 볼 수 있습니다.
 
-### 환경변수 암호화
+#### 환경변수 암호화
 다음은 환경변수를 암호화하는 예입니다.
 
 ```
@@ -169,7 +169,7 @@ FACEBOOK_API_KEY=<API_KEY>  --add
  플래그는 이 결과를 바로 .travis.yml에 추가하라는 의미를 가집니다.
  이러한 방식을 통해 API_KEY를 공개하지 않고 사용할 수 있습니다.
 
-### 전체 명령어
+#### 전체 명령어
 
 >        accounts     displays accounts and their subscription status
 >        branches     displays the most recent build for each branch
@@ -199,7 +199,7 @@ FACEBOOK_API_KEY=<API_KEY>  --add
 >        whoami       outputs the current user
 
 
-## travis-lint gem
+### travis-lint gem
 ```
 $ gem install travis-lint
 ```
@@ -211,7 +211,7 @@ $ travis-lint
 Hooray, /home/hsin/prog/_working/bbapi/.travis.yml seems to be solid!
 ```
 
-# [Coveralls](https://coveralls.io/)
+## [Coveralls](https://coveralls.io/)
 Target : -
 
 Coveralls는 Test Coverage를 자동적으로 측정해주는 서비스로 Ruby를
@@ -227,7 +227,7 @@ Coveralls는 Test Coverage를 자동적으로 측정해주는 서비스로 Ruby�
 과정에서 Test(spec)을 실행해줄 필요가 있습니다.
 
 
-## 저장소와 연동(Ruby 예제)
+### 저장소와 연동(Ruby 예제)
 Travis 설정 외에도 coveralls를 실제 프로젝트에 적용시키기 위해서는
 저장소에서 몇가지 설정을 해줄 필요가 있습니다. 먼저 Gemfile에
 coveralls를 추가해줍니다.

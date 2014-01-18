@@ -1,9 +1,13 @@
 ---
-published: false
+title: "Rspec과 Guard를 활용한 루비 테스트 자동화"
+date: 2013-10-02 12:00:00 +0900
+author: nacyot
+published: true
 ---
 
-## Author
-* 작성자 : nacyot(Kim Daekwon\<propellerheaven@gmail.com\>)
+루비 테스트로는 minitest와 Rspec이 많이 사용됩니다.. 저는 대부분 Rspec을 사용합니다만, 어느 쪽이건 이러한 테스트를 매번 직접 실행해주기는 매우 귀찮은 일입니다. 이러한 부분을 자동화하기 위해서 과거에는 Autotest 같은 툴이 사용되었습니다. Autotest는 특정 파일이 수정되면 테스트를 자동으로 실행하는 방식으로 작동합니다. 현재는 Autotest 대신에 Guard를 많이 사용하는데, Guard는 특정한 파일을 감시하다가 이러한 파일에 변화가 있을 때 특정한 명령어를 수행하는 좀 더 범용적인 툴이라고 생각하면 됩니다. 여기서는 Guard를 사용해 rspec 테스트를 자동화하는 법을 소개합니다.
+
+<!--more-->
 
 ## Spring
 
