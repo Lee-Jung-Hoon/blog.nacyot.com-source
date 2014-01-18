@@ -99,5 +99,3 @@ Rails 어플리케이션 루트의 .rspec 파일에 기록합니다.
   됩니다.
 --format d
 ```
-
-## spec_helper.rb
