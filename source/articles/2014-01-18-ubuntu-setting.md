@@ -38,7 +38,9 @@ sudo apt-get upgrade
 
 ## 그래픽 카드 설치
 
-이번에 설치한 그래픽 카드는 AMD A10 5800K(APU). 아마도 이런 모델이었던 것 같은데 맞는 지는 모르겠다. 일단 Ubuntu에서 기본적으로 지원하는 드라이버 Xorg로는 화면이 깨지는 현상이 있어서 AMD 쪽에서 나오는 서드파티 드라이버를 설치해야한다. `fglrx`를 설치하면 화면이 깨지는 현상은 사라지는데 마우스 커서가 없어지는 문제가 있어서 `fglrx-update`를 설치.
+### AMD A10 5800K(APU)
+
+일단 Ubuntu에서 기본적으로 지원하는 드라이버 Xorg로는 화면이 깨지는 현상이 있어서 AMD 쪽에서 나오는 서드파티 드라이버를 설치해야한다. `fglrx`를 설치하면 화면이 깨지는 현상은 사라지는데 마우스 커서가 없어지는 문제가 있어서 `fglrx-update`를 설치.
 
 `sudo apt-get install fglrx-update fglrx-update-dev`
 
@@ -46,7 +48,7 @@ sudo apt-get upgrade
 
 `sudo apt-get install fglrx fglrx-dev`
 
-### 듀얼 모니터 설정
+#### 듀얼 모니터 설정
 
 단 `fglrx-update`를 설치하니 듀얼모니터가 해상도 제한이 걸린다며 지정이 안 되는 문제가 발생했다.
 
@@ -57,9 +59,28 @@ sudo amdcccle
 
 설정을 알고 있다면 직접 xorg.conf 생성 후 직접 편집해도 되지만, 잘 모른다면 AMD 드라이버 설정 관리자(amdcccle)를 열어서 듀얼 모니터를 잡아주면 된다. 여기서 화면 회전이나 추가적인 설정 가능.
 
+### NVidia GTX 560Ti
+
+```
+sudo apt-add-repository ppa:xorg-edgers/ppa
+sudo apt-add-repository ppa:ubuntu-x-swat/x-updates
+sudo apt-get update
+sudo apt-get install nvidia-current
+```
+
+NVidia 카드의 경우 우분투 디폴트 그래픽 드라이버로도 사용은 가능하지만 부드럽지 못 하거나 느려서, Nvidia 전용 드라이버를 설치해주는 게 좋다. 위의 명령어들이 기본적인 설치 방법인데 설치할 수 있는 여러 버전들이 있으니 nvidia-current로 설치가 제대로 되지 않으면 버전명을 바꿔가며 설치해보는 게 좋다. 보통은 설치 후 재부팅이 필요하다.
+
+이 과정에서 드라이버가 제대로 작동하지 않아 화면이 먹통이 될 수 있는데, 이런 경우네 Alt + Ctrl + F1 을 눌러 가상 콘솔로 넘어가 터미널 환경에서 드라이버를 삭제하거나 다른 드라이버를 설치 후 재부팅하는 게 좋다. 이 외에도 공식 홈페이지에서 `.run` 확장자를 가진 드라이버를 제공하기도 하는데 이 드라이버를 설치하고자 할 때는 해당파일에 실행 권한을 주고 관리자 권한으로 실행하면 된다.
+
+#### QHD270
+
+* http://learnitwithme.com/wordpress/?p=342
+
+개인적으로 이 과정에서 공식 드라이버 설치시 화면이 먹통이 되는 문제로 한참을 방황했는데 이는 그래픽 드라이버가 아니라 모니터 문제였다. 한국에서 생산된 27인치 모니터 중 2560 * 1440에 최적화된 모니터의 경우 제대로 출력이 되지 않는 경우가 있다. 이런 경우엔 위 링크를 참조해 문제를 해결하면 된다.
+
 ### 참고
 
-일반적으로 어떤 그래픽 카드건 Software & Updates의 Additianal Drivers에서 사용가능한 드라이버를 확인할 수 있다. 문제가 있으면 여기에 뜨는 것들을 바꿔가며 테스트 해보고 구글링으로 해당하는 문제를 찾아보는 게 좋다.
+일반적으로 어떤 그래픽 카드건 Software & Updates의 Additianal Drivers에서 사용가능한 드라이버를 확인할 수 있다. 일반적으로 하드웨어 벤더에서 제공하는 독점 드라이버를 선택하는 게 안정성이나 성능 면에서 월등하다. 문제가 있으면 여기에 뜨는 것들을 바꿔가며 테스트 해보고 구글링으로 해당하는 문제를 찾아보는 게 좋다. 
 
 ## Nabi 설정
 
@@ -84,7 +105,9 @@ sudo apt-get install nabi
 ```
 sudo add-apt-repository ppa:mc3man/systray-white
 sudo apt-get update
+sudo apt-get upgrade
 gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+sudo reboot
 ```
 
 [^2]: 참조 http://www.ubuntu.or.kr/viewtopic.php?p=112275
@@ -94,16 +117,15 @@ gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
 ```
 sudo ufw enable
 sudo ufw allow 22/tcp
-sudo apt-get ssh-server
-sudo apt-get install ssh-server
+sudo apt-get install ssh
 ```
 
-외부 접속 위해서 ssh-server 설치해줘야 되는 건지 원래 되는 건지(설치 되어있는지) 정확히 기억이 안난다. `uft`은 방화벽 설정.
+외부 접속 위해서 ssh-server 설치해줘야 되는 건지 원래 되는 건지(설치 되어있는지) 정확히 기억이 안난다. `uft`은 방화벽 설정인데 기본적으로 포트가 다 열려있으므로, 사용하지 않는다면 생략해도 무방.
 
 ## ssh key 생성
 
 ```
-ssh-keygen -t rsa -C "propellerheaven@gmail.com"
+ssh-keygen -t rsa -C "<EmailAddress>
 ```
 
 ssh key 생성 후, `~/.ssh/id_rsa.pub` 파일 출력해서 github, bitbucket, gitlab에 등록 해 줌.
