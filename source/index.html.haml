@@ -10,19 +10,23 @@ per_page: 30
     nacyot의 프로그래밍 이야기
   .description  
 
-.main
-  .articles
-    - page_articles.each_with_index do |article, i|
-      .article
-        %span.date
-          = article.date.strftime('%b %e %Y')
-        %h2.title
-          = article_title_tag(article)
-        %div.summary= article.summary
-        %span.more= more_read_link_tag(article)
+.row
+  .col-lg-2.col-md-1.col-sm-1.col-xs-1
+  .col-lg-8.col-md-10.col-sm-10.col-xs-10
+    .main
+      .articles
+        - page_articles.each_with_index do |article, i|
+          .article
+            %span.date
+              = article.date.strftime('%b %e %Y')
+            %h2.title
+              = article_title_tag(article)
+            %div.summary= article.summary
+            %span.more= more_read_link_tag(article)
 
-  - if paginate
-    - if prev_page
-      = link_to 'Prev page', prev_page
-    - if next_page
-      = link_to 'Next page', next_page
+      - if paginate
+        - if prev_page
+          = link_to 'Prev page', prev_page
+        - if next_page
+          = link_to 'Next page', next_page
+  .col-lg-2.col-md-1.col-sm-1.col-xs-1

@@ -1,14 +1,15 @@
-.col-lg-12
-  %hr
-  .site-footer
-    %p
-      - if current_article and current_article.data.license
-        = current_article.data.license
-      - else
-        All content copyright 
-        %a{href: "http://nacyot.com"} nacyot
-        © 2014 • All rights reserved.
+.row
+  .col-lg-12
+    %hr
+    .site-footer
+      %p
+        - if current_article and current_article.data.license
+          = current_article.data.license
+        - else
+          All content copyright 
+          %a{href: "http://nacyot.com"} nacyot
+          © 2014 • All rights reserved.
 
 
-        
+
         
