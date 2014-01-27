@@ -6,9 +6,15 @@
         - if current_article and current_article.data.license
           = current_article.data.license
         - else
+          %a{href: "https://twitter.com/nacyo_t"}
+            %i.fa-twitter.fa.fa-3x
+          = "&nbsp;&nbsp;&nbsp;"
           All content copyright 
           %a{href: "http://nacyot.com"} nacyot
           © 2014 • All rights reserved.
+          = "&nbsp;&nbsp;&nbsp;"
+          %a{href: "https://github.com/nacyot"}
+            %i.fa-github.fa.fa-3x
 
 
 
