@@ -44,6 +44,21 @@
               <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
               <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
+          .navigation
+            .prevnav
+              - prev_article = current_article.previous_article
+              
+              - if prev_article
+                .fa.fa-chevron-left 
+                이전 글
+                %a{ :rel => "prev", :href => prev_article.url }= prev_article.title
+            .nextnav
+              - next_article = current_article.next_article
+              - if next_article
+                .fa.fa-chevron-right 
+                다음 글:
+                %a{ :rel => "next", :href => next_article.url }= next_article.title      
+
 
             %br{style: "clear:both"}
     .col-lg-2.col-md-1.col-sm-1.col-xs-1

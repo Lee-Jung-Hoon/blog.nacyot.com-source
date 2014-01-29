@@ -6,15 +6,19 @@
         - if current_article and current_article.data.license
           = current_article.data.license
         - else
-          %a.icon{href: "https://twitter.com/nacyo_t"}
-            %i.fa-twitter.fa.fa-2x
-          = "&nbsp;&nbsp;&nbsp;"
+
           All content copyright 
           %a{href: "http://nacyot.com"} nacyot
           © 2014 • All rights reserved.
           = "&nbsp;&nbsp;&nbsp;"
+          %a.icon{href: "http://nacyot.com"}
+            %i.fa-home.fa.fa-2x
+          %a.icon{href: "https://twitter.com/nacyo_t"}
+            %i.fa-twitter.fa.fa-2x
           %a.icon{href: "https://github.com/nacyot"}
             %i.fa-github.fa.fa-2x
+          %a.icon{href: "/feed.xml", style: "color: orange"}
+            %i.fa-rss.fa.fa-2x
 
 
 
