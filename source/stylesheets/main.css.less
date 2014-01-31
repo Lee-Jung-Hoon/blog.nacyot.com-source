@@ -2,8 +2,12 @@ h1, h2, h3, h4, h5, h6{
     font-weight: 900;
 }
 
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .main{
-    width: 60%;
     margin: auto;
     margin-top: 60px;
     text-align: left;
@@ -65,8 +69,12 @@ h1, h2, h3, h4, h5, h6{
         }
 
         .summary{
-            font-size: 1.2em;
-            line-height: 1.7em;
+            font-size: 1.3em;
+            line-height: 2em;
+        }
+
+        img{
+          max-width: 100%;
         }
 
         .body{
@@ -75,8 +83,8 @@ h1, h2, h3, h4, h5, h6{
                 margin-bottom: 15px;
             }
 
-            font-size: 1.2em;
-            line-height: 1.7em;
+            font-size: 1.3em;
+            line-height: 2em;
 
             p{
                 margin-bottom: 25px;
@@ -116,7 +124,7 @@ h1, h2, h3, h4, h5, h6{
                     font-weight: 900;
                 }
             }
-            
+
             .share{
                 float: left;
                 width: 25%;
@@ -129,32 +137,37 @@ h1, h2, h3, h4, h5, h6{
             }
         }
     }
+
+    .navigation{
+      font-size: 1.5em;
+      line-height: 2em;
+      
+      .prevnav{
+      }
+
+      .nextnav{
+      }
+      
+    }
 }
 
 .site-footer{
     margin-top: 40px;
     margin-bottom: 60px;
     text-align: center;
+
+    a{
+      color: black;
+    }
+
+    a:visited{
+    }
+            
+
 }
 
 hr{
 
 }
 
-.highlight pre > span:before {
-  font-size: .9em;
-  color: #aaa;
-  content: counter(linenumbers);
-  counter-increment: linenumbers;
-  left: -3.2ex;
-  position: absolute;
-  text-align: right;
-  width: 2.5ex;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 

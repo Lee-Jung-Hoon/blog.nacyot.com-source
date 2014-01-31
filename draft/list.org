@@ -1,0 +1,21 @@
+* Travis와 Github Page를 활용한 Middleman 어플리케이션 배포
+* 요맨(Yeoman) 생성기로 생성한 Angular 프로젝트 구조의 이해
+* Padrino 튜토리얼
+
+* Gemfile의 이해
+* 루비 2.0과 2.1에서 변경된 주요 사항들
+
+* 리눅스 개발환경
+** Emacs
+** 우분투
+** 터미네이터
+
+
+* 도커
+** 도커(Docker) 치트시트
+** 도커(Dockerfile)로 설치하는 오픈소스 웹 어플리케이션
+** Dockerfile의 이해
+** 도쿠(Dokku)로 만드는 미니 헤로쿠 : 레일즈 어플리케이션 배포하기
+
+
+* 블로그 기능
