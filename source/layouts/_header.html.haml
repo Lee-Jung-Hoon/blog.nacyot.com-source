@@ -1,11 +1,13 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top{ role: "navigation" }
+%nav.navbar.navbar-fixed-top{ role: "navigation" }
   %div.navbar-header
-    = link_to "Nacyot blog", "/index.html", class: "navbar-brand"
+    %a{href: "http://nacyot.com", class: "navbar-brand"} nacyot
   %div.collapse.navbar-collapse
     %ul.nav.navbar-nav
       %li
+        %a{href: "http://blog.nacyot.com"}
+          %i.fa.fa-comment 프로그래밍 이야기
       %li
-      %li
-      %li
-      -#   = link_to "<i class='fa fa-comment'></i> About", "/pages/about.html"
-      %li
+        %a{href: "http://wiki.nacyot.com"}
+          %i.fa.fa-comment 낰욧[nacyot] 위키
+
+

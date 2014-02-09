@@ -39,7 +39,6 @@ after_configuration do
   sprockets.append_path File.join(File.expand_path(File.dirname(__FILE__)), 'assets', 'components')
 end
 
-
 require "./helper/markdown_helper.rb"
 require "./helper/article_helper.rb"
 helpers MarkdownHelper

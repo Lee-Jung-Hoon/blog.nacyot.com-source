@@ -51,11 +51,14 @@ IaaS나 Paas는 이보다 좀 더 낮은 단계의 추상화를 제공합니다.
 $ wget -qO- https://raw.github.com/progrium/dokku/v0.2.1/bootstrap.sh | sudo DOKKU_TAG=v0.2.1 bash
 ```
 
-현재 최신 안정 버진인 `0.2.1`을 설치합니다. 도쿠 공식 문서에 따르면 우분투 12.04에서는 `python-software-properties` 패키지가 필요할 지도 모른다고 이야기하고 있습니다. 설치가 제대로 진행되지 않는다면 아래 명령어로 이 패키지를 설치해 주시기바랍니다.
+현재 최신 안정 버진인 `0.2.1`을 설치합니다. 도쿠 공식 문서에 따르면 우분투 12.04에서는 `python-software-properties` 패키지가 필요할 지도 모른다고 이야기하고 있습니다. 아래와 같은 메시지가 뜨면서 설치가 실패하는 경우가 있습니다.
 
 ```
-$ apt-get install -y python-software-properties`
+/var/lib/dokku/plugins/nginx-vhosts/install: line 5: add-apt-repository: command not found
+make: *** [plugins] Error 127
 ```
+
+이때는 `apt-get install python-software-properties`를 실행시켜 필요한 패키지를 설치해주세요.
 
 설치가 끝났으면 제대로 설치가 되었는지 확인해봅니다.
 
