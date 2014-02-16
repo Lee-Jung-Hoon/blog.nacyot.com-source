@@ -6,6 +6,8 @@ author: nacyot
 
 [도커][docker]는 리눅스 위에서 격리된 또 다른 리눅스 환경을 구축할 수 있도록 해주는 가상화 어플리케이션입니다. 기존의 가상화 어플리케이션에서 하드웨어 전체를 가상화하는 것과 달리 리눅스 컨테이너를 활용하고 있는 도커는 아주 빠르고 쉽게 가상화 환경을 사용할 수 있도록 해줍니다. 이전 [도커(Docker) 소개 글][docker_introduction]을 올린 바 있습니다만, 바로 얼마 전 도커가 0.8로 업데이트되었습니다. 0.8에서 가장 큰 변화중 하나는 맥을 지원하는 부분입니다. 여기서는 어떤 방식으로 맥을 지원하는 지 알아보고 실제로 설치하는 법에서 다루도록 하겠습니다.
 
+<!--more-->
+
 [docker]: http://docker.io
 [docker_introduction]: http://blog.nacyot.com/articles/2014-01-27-easy-deploy-with-docker/
 
