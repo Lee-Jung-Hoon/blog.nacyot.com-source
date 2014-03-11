@@ -10,7 +10,7 @@ env:
   - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
 before_script:
 - npm install -g bower
-- bower install
+- yes no | bower install
 - git clone https://github.com/nacyot/blog.nacyot.com.git build
 script: bundle exec middleman build
 after_success:
