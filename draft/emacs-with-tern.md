@@ -109,7 +109,7 @@ lib에는 tern에서 미리 정의해놓고 있는 [JSON type definitions][typed
 
 예를 들어 `underscore`를 사용하면 다음과 같이 자동 완성이 되는 것을 볼 수 있습니다.
 
-![]()
+![Underscore auto complate](/images/2014-03-12-emacs-with-tern/underscore.png)
 
 loadEagerly는 프로젝트 아래에서 미리 읽어둘 파일을 지정할 수 있습니다. 예를 들어 d3js를 bower로 설치하고 다음과 같이 프로젝트를 설정합니다.
 
@@ -129,7 +129,7 @@ loadEagerly는 프로젝트 아래에서 미리 읽어둘 파일을 지정할 �
 
 이를 통해서 d3js 라이브러리에 관련된 자동 완성이나 `tern-find-definition`과 같은 기능을 사용할 수 있게됩니다. `**`와 같은 패턴 매치도 사용가능하니 자바스크립트를 모아놓는 디렉토리를 미리 불러오는 것도 가능합니다.
 
-![]()
+![d3js auto complate](/images/2014-03-12-emacs-with-tern/d3js.png)
 
 이외에도 Node.js 플러그인, RequireJS 플러그인, Angular.js 플러그인 등 추가적인 확장을 사용할 수 있습니다. 이에 대한 자세한 설명은 공식 문서의 [서버 플러그인 섹션][plugin]을 참조하시기 바랍니다.
 
