@@ -6,9 +6,6 @@ author: nacyot
 
 vim.sexy의 emacs판인 emacs.sexy를 번역했습니다. 저 또한 한 명의 행복한 이맥스 사용자이기에 >_<
 
-* http://emacs.sexy (원본)
-* http://sexy.emacs.kr (한국어 사이트)
-
 <blockquote class="twitter-tweet" lang="ko"><p><a href="http://t.co/NrSRaEXMWO">http://t.co/NrSRaEXMWO</a> <a href="http://t.co/3YY2lCXkLd">http://t.co/3YY2lCXkLd</a> 한국어 번역</p>&mdash; nacyot (@nacyo_t) <a href="https://twitter.com/nacyo_t/statuses/445030787130200064">2014년 3월 16일</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
