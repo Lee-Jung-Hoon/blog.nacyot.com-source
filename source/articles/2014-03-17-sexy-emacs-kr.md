@@ -1,5 +1,5 @@
 ---
-title: "emacs.sexy 한글 번역 및 OmegaT + Travis + Rake + Github Pages를 활용한 번역"
+title: "emacs.sexy 한국어 번역 및 OmegaT + Travis + Rake + Github Pages를 활용한 번역"
 date: 2014-03-17 00:20:00 +0900
 author: nacyot
 ---
