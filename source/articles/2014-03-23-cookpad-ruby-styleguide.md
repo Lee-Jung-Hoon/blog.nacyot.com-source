@@ -6,7 +6,7 @@ license: cc-by
 published: true
 ---
 
-이 문서는 Cookpad의 [Ruby Style Guide][cookpad-style-guide]를 [nacyot][nacyot]이 한국어로 번역한 문서입니다. 번역된 문서는 [Github 저장소][cookpad-style-guide-kr]에서 관리되고 있으며 원본은[여기][cookpad-style-guide]에서 찾아볼 수 있습니다. 이 문서는 [cc-by][cc-by] 라이센스를 따릅니다.
+이 문서는 Cookpad의 [Ruby Style Guide][cookpad-style-guide]를 [nacyot][nacyot]이 한국어로 번역한 문서입니다. 번역된 문서는 [Github 저장소][cookpad-style-guide-kr]에서 관리되고 있으며 원본은 [여기][cookpad-style-guide]에서 찾아볼 수 있습니다. 이 문서는 [cc-by][cc-by] 라이센스를 따릅니다.
 
 [cookpad-style-guide]: https://github.com/cookpad/styleguide
 [cookpad-style-guide-kr]: https://github.com/nacyot/styleguide
@@ -41,7 +41,7 @@ published: true
 ## 시작하며
 
 이 문서는 주식회사 쿡패드(Cookpad)의 루비 코드 표준 스타일을 정의한 문서입니다.
-이 문서에서는 최소한 실력을 갖춘 Ruby 프로그래머라면 누구라도 읽기 쉬운 코드가 되도록 가독성과 일관성에 무게를 둔 스타일을 정의하고 있습니다. 'bad'가 붙어있는 예제는 사용해서는 안 되는 표현이 아니라 일관성을 위해 지양해야할 표현입니다.
+이 문서에서는 최소한 실력을 갖춘 Ruby 프로그래머라면 누구라도 읽기 쉬운 코드가 되도록 가독성과 일관성에 무게를 둔 스타일을 정의하고 있습니다. 'bad'가 붙어있는 예제는 사용해서는 안 되는 표현이란 의미보다 일관성을 위해 지양해야할 표현들입니다.
 
 <a name="ruby-version"></a>
 
@@ -53,8 +53,8 @@ published: true
 
 ## 들여쓰기
 
-- **[MUST]** 한 단계의 들여쓰기는 두 번의 스페이스를 사용한다.들여쓰기에 탭을 사용하지 않는다.
-- **[MUST]** 메소드 체인이 길어진 상황에서 마지막 메소드에 블록을 넘겨야한다면, 마지막 메소드를 받는 리시버를 별도의 로컬 변수에 대입하고 이 변수에 메소드를 호출하면서 블록을 넘겨준다.
+- **[MUST]** 한 단계 들여쓰기는 스페이스 두 번을 사용한다. 들여쓰기로 탭을 사용하지 않는다.
+- **[MUST]** 메소드 체인이 졌을 때 마지막 메소드에 블록을 넘겨야한다면, 마지막 메소드를 받는 리시버를 별도의 로컬 변수에 대입하고 이 변수에 메소드를 호출하면서 블록을 넘겨준다.
 
     ```ruby
     # good
@@ -75,7 +75,7 @@ published: true
       end
     ```
 
-- **[SHOULD]** 식이 완결되지 않고 줄바꿈이 이루어질 때는 줄바꿈된 줄부터는 이전의 행보다 한 단계 더 들여쓴다.
+- **[SHOULD]** 식이 완결되지 않고 줄바꿈이 이루어질 때 줄바꿈된 줄부터는 이전의 행보다 한 단계 더 들여쓴다.
 
     ```ruby
     # good
@@ -117,8 +117,8 @@ published: true
 
 ## 한 줄의 글자수 제한
 
-- **[SHOULD]** 특별한 이유가 없다면 한 줄은 80자 이하로 작성한다. 이 때 전각 문자는 2글자로 계산한다.
-- **[MUST]** 어떠한 경우에도 한 줄은 128자 이하로 작성한다.
+- **[SHOULD]** 특별한 이유가 없다면 한 줄은 80자 이하로 작성한다. 이 때 전각 문자는 2글자로 취급한다.
+- **[MUST]** 어떠한 경우에도 한 줄은 128자 이내로 작성한다.
 
 <a name="numbers"></a>
 
@@ -149,7 +149,7 @@ published: true
     OPEN_PARENTHESES = %!({[!    
     ```
 
-- **[MUST]** 문자열 보간을 사용할 때 단지 `Object#to_s`를 호출하지 않는다.예) `"#{obj.to_s}"` -> `obj.to_s`
+- **[MUST]** `Object#to_s`만 호출하는 용도로 위해 문자열 보간(interpolation)을 사용하지 않는다.예) `"#{obj.to_s}"` -> `obj.to_s`
 - **[MUST]** 문자열 보간을 사용할 때 중괄호를 생략할 수 있는 경우가 있지만, 생략하지 않고 반드시 중괄호를 사용한다.
 - **[SHOULD]** (Ruby 1.9+) Unicode 문자를 이스케이스 시켄스로 입력할 때는 `"\xE3\x8C\xB3"` 방식이 아니라 `"\u{3333}"`와 같이 `\u`를 사용한다.루비 1.8 버전을 지원해야하는 스크립트라면 적용하지 않는다.
 - **[SHOULD]** 루프에서 문자열 리터럴을 사용하지 말 것.여기서 루프란 `while`, `until`, `for`을 비롯해 `each`와 같은 블록을 사용하는 반복자 표현을 의미한다.
