@@ -9,7 +9,12 @@ env:
   - GIT_AUTHOR_EMAIL=propellerheaven@gmail.com
   - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
 before_install:
-  - sudo apt-get install -qq -y ipython
+  - sudo apt-get install python-dev python-setuptools
+  - sudo apt-get install -qq -y pandoc
+  - sudo apt-get install -qq -y libzmq-dev
+  - sudo apt-get install -qq -y python-matplotlib
+  - sudo pip nose tornado jinja2 sphinx pyzmq
+  - sudo pip install ipython
 before_script:
   - npm install -g bower
   - yes no | bower install
