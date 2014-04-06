@@ -9,7 +9,7 @@ env:
   - GIT_AUTHOR_EMAIL=propellerheaven@gmail.com
   - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
 before_install:
-  - sudo apt-get install ipython ipython-notebook
+  - sudo apt-get install -qq -y ipython
 before_script:
   - npm install -g bower
   - yes no | bower install
