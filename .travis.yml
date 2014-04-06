@@ -8,13 +8,16 @@ env:
   - GIT_AUTHOR_NAME=nacyot
   - GIT_AUTHOR_EMAIL=propellerheaven@gmail.com
   - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
+before_install:
+  - apt-get install ipython ipython-notebook
 before_script:
-- npm install -g bower
-- yes no | bower install
-- git clone https://github.com/nacyot/blog.nacyot.com.git build
-script: bundle exec middleman build
+  - npm install -g bower
+  - yes no | bower install
+  - git clone https://github.com/nacyot/blog.nacyot.com.git build
+script:
+  - bundle exec middleman build
 after_success:
-- cd build
-- git add -A
-- git commit -m 'Update build files'
-- git push --quiet https://$GH_TOKEN@github.com/nacyot/blog.nacyot.com.git gh-pages
+  - cd build
+  - git add -A
+  - git commit -m 'Update build files'
+  - git push --quiet https://$GH_TOKEN@github.com/nacyot/blog.nacyot.com.git gh-pages

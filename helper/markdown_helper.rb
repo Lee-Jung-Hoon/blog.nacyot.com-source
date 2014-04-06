@@ -8,7 +8,6 @@ module MarkdownHelper
                             :underline => false,
                             :footnotes => true,
                             )
-    
   end
 end
 
@@ -17,11 +16,14 @@ class HTMLwithPygments < Redcarpet::Render::HTML
     Pygments.highlight(code, :lexer => language, options: {linespans: 'line'})
   end
 
-  def preprocess(document)
+  def postprocess(document)
     document.gsub!(/\[\[ipython:(.*?)\]\]/) do |m|
       cmd = "ipython nbconvert --to html --template basic ./source/iruby/#{$1}.ipynb --output ./source/iruby/#{$1}"
       system(cmd)
-      File.read("./source/iruby/#{$1}.html")
+
+      File.read("./source/iruby/#{$1}.html").
+        gsub(/In&nbsp;\[(.*?)\]:/){  "#{$1}번째 입력:" }.
+        gsub(/Out\[(.*?)\]:/){ "#{$1}번째 평가:" }
     end
 
     document
