@@ -27,7 +27,9 @@ class HTMLwithPygments < Redcarpet::Render::HTML
       File.read(target).
         gsub(/In&nbsp;\[(.*?)\]:/){  "#{$1}번째 입력:" }.
         gsub(/Out\[(.*?)\]:/){ "#{$1}번째 평가:" }.
-        gsub(/<span class="ansigrey".*?<\/span>.*?\n/, "")
+        gsub(/<span class="ansigrey".*?<\/span>.*?\n/, "").
+        gsub("\n\n</pre>", "\n</pre>").
+        gsub("output_stdout\">\n<pre>","output_stdout\">\n<div class=\"prompt output_prompt\">출력:</div><pre>")
     end
 
     document
