@@ -1,5 +1,5 @@
 ---
-title: "루비의 꽃 열거자 Enumerable 모듈"
+title: "루비의 꽃, 열거자 Enumerable 모듈"
 date: 2014-04-19 18:53:32 +0900
 author: nacyot
 ---
