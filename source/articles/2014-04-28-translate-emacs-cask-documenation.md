@@ -8,6 +8,7 @@ published: true
 * [http://cask.emacs.kr/][cask]
 
 > Emacs を使い始めてはや15年、ようやくまともな elisp 管理ができるようになった。
+
 > Emacs를 사용하기 시작한 지 벌써 15년, 드디어 제대로 된 elisp 관리가 가능하게 되었다. 
 
 [cask]: http://cask.emacs.kr
