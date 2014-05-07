@@ -1,7 +1,8 @@
 ---
 title: "도쿠(Dokku)에서 Procfile 사용하기"
-date: Fri May  2 22:29:23 KST 2014
+date: 2014-05-02 22:29:23 KST 2014
 author: nacyot
+published: false
 ---
 
 도쿠에서는 기본적으로 Procfile을 지원하고 있습니다. 따라서 어플리케이션 빌드하고 만들어지는 도커(Docker) 이미지의 기본 실행파일은 Procfile의 `web`에 지정된 명령어가 됩니다.
