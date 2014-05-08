@@ -1,6 +1,6 @@
 ---
 title: "도커 레지스트리(Docker Registry) 설치하기 + S3 연동"
-date: 2014-05-08 10:00:03
+date: 2014-05-08 10:00:03 +0900
 author: nacyot
 ---
 
