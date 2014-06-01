@@ -1,0 +1,27 @@
+Operationalisation of Machine Learning Techniqs
+
+강원식
+
+데이터 분석
+자동화된 기계 학습은 초보적인 단계
+
+High risk => accept high false positve
+Low risk => accept few misses to minimise false
+
+대규모 사회 연계 분석
+
+supervised learning
+decision tree
+앙상블 부트스트랩 랜덤 포레스트
+
+unsupervised
+pca k-means
+
+profile 생성 자동화
+
+데이터
+2차 변수 생성(필요없는 것 조합)
+fuzzy matching
+
+
+
