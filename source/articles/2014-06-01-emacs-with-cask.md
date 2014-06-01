@@ -1,6 +1,6 @@
 ---
 title: "캐스크(Cask)로 이맥스(Emacs) 환경설정 관리하기"
-date: 2014-05-01 23:30:03 +0900
+date: 2014-06-01 23:30:03 +0900
 author: nacyot
 published: true
 ---
