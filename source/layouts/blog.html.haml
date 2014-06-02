@@ -28,6 +28,18 @@
                 = current_article.data.profile ? current_article.data.profile : "프로그래머(29)"
               .share
                 %h1 Share this post
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_facebook"></a>
+                <a class="addthis_button_twitter"></a>
+                <a class="addthis_button_google_plusone_share"></a>
+                <a class="addthis_button_pocket"></a>
+                <a class="addthis_button_print"></a>
+                <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+                </div>
+                <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ffce6f41e2b5e2"></script>
+                <!-- AddThis Button END -->
             %hr
             #disqus_thread
               :javascript
@@ -46,18 +58,20 @@
           .navigation
             .prevnav
               - prev_article = current_article.previous_article
-              
               - if prev_article
                 .fa.fa-chevron-left 
                 이전 글
                 %a{ :rel => "prev", :href => prev_article.url }= prev_article.title
+                - content_for :prev_url, prev_article.url
+                - content_for :prev_title, prev_article.title
             .nextnav
               - next_article = current_article.next_article
               - if next_article
                 .fa.fa-chevron-right 
                 다음 글:
-                %a{ :rel => "next", :href => next_article.url }= next_article.title      
-
+                %a{ :rel => "next", :href => next_article.url }= next_article.title
+                - content_for :next_url, next_article.url
+                - content_for :next_title, next_article.title
 
             %br{style: "clear:both"}
     .col-lg-2.col-md-1.col-sm-1.col-xs-1

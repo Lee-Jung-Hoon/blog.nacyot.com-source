@@ -1,10 +1,43 @@
+- def external_data(name) ; yield_content(name) ? yield_content(name) : ""; end
+
 !!!
 %html{"ng-app" => "devstudy"}
   %head
+    = "<!--"
+    = "⣀⡀ ⢀⣀ ⢀⣀ ⡀⢀ ⢀⡀ ⣰⡀"
+    = "⠇⠸ ⠣⠼ ⠣⠤ ⣑⡺ ⠣⠜ ⠘⠤"
+    = ""
+    = "Copyright © 2013- nacyot<Daewkon Kim> All Rights Reserved."
+    = "-->"
+
     %meta{"http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8"}
     %meta{name: "google-site-verification", content: "83PoUYOY-K48booDuuM95hVy0Mboaaw6yBbJJTzGGSk"}
 
-    %title= "nacyot의 프로그래밍 이야기" + (yield_content(:title) ? yield_content(:title) : "")
+    %link{rel: "canonical", href: config[:domain] + "/" + (request.path == 'index.html'? '' : request.path.split("index.html")[0])}
+    %link{rel: "alternative", type: "application/rss+xml", href: config[:domain] + "/feed.xml"}
+
+    - if yield_content(:prev_url)
+      %link{rel: "prev", href: external_data(:prev_url), title: external_data(:prev_title)}
+
+    - if yield_content(:next_url)
+      %link{rel: "next", href: external_data(:next_url), title: external_data(:next_title)}
+
+    - if yield_content(:description)
+      %meta{name: "description", content: external_data(:description)}
+
+    -# Google Authorship
+    %link{rel: "author", href: "https://plus.google.com/+KimDaekwon"}
+    %link{rel: "publisher", href: "https://plus.google.com/+KimDaekwon"}
+
+    -# Twitter Card
+    %meta{name: "twitter:card", content: "summary"}
+    %meta{name: "twitter:title", content: config[:site_title] + external_data(:title)}
+    %meta{name: "twitter:description", content: external_data(:description)}
+    %meta{name: "twitter:site", content: config[:author_twitter]}
+    %meta{name: "twitter:creator", content: config[:author_twitter]}
+    %meta{name: "twitter:image", content: external_data(:title_image)}
+
+    %title= config[:site_title] + external_data(:title)
     = stylesheet_link_tag    "all", :media => "all"
     = javascript_include_tag "all"
   %body
@@ -20,5 +53,3 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-46785477-2', 'nacyot.com');
       ga('send', 'pageview');
-
-
