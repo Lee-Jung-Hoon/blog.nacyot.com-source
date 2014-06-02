@@ -7,6 +7,7 @@ gem "middleman-blog", "~> 3.5.1"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+gem "jbuilder"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
@@ -22,7 +23,8 @@ gem "dotenv"
 gem "haml"
 gem 'therubyracer'
 gem "less"
-gem "redcarpet", github: "vmg/redcarpet"
+# gem "redcarpet", github: "vmg/redcarpet"
+gem "redcarpet", "=3.1.1"
 gem "pygments.rb"
 
 # Watch gems

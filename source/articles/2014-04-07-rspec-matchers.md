@@ -8,4 +8,4 @@ author: nacyot
 
 <!--more-->
 
-[[ipython:rspec_matchers]]
+{{ipython:rspec_matchers}}

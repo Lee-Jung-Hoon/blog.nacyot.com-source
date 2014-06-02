@@ -8,7 +8,7 @@ author: nacyot
 
 <!--more-->
 
-[[ipython:ruby_enumerable]]
+{{ipython:ruby_enumerable}}
 
 ## 결론
 

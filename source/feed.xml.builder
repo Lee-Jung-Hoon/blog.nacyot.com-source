@@ -18,9 +18,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.updated File.mtime(article.source_file).iso8601
       xml.author { xml.name "nacyot(Daekwon Kim)" }
       # xml.summary article.summary, "type" => "html"
-      file_content = IO.read(article.source_file)
-      index = file_content.index("\n---") + 4
-      article_body = markdown_engine.render(file_content[index..-1])  
+      article_body = ArticleWithCustomEngine.new(article.source_file).body  
       xml.content article_body, "type" => "html"
     end
   end

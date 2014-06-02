@@ -1,9 +1,14 @@
 body{
-  padding-top: 35px;
+  padding-top: 60px;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-weight: 900;
+}
+
+a[name]{
+  padding-top: 100px;
+  margin-top: -100px;
 }
 
 .row{
@@ -13,13 +18,32 @@ h1, h2, h3, h4, h5, h6{
 
 .main{
     margin: auto;
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: left;
+}
+
+nav{
+  padding-right: 25px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  .profile{
+  }
+  
+  a{
+    font-size: 1.3em;
+
+    .twitter{
+    }
+
+    .github{
+    }
+  }
 }
 
 .navbar{
   background-color: white;
-  border-bottom: 2px dashed gray;
+  border-bottom: 1px solid lightgray;
 }
 
 .mini-wall{
@@ -87,10 +111,30 @@ h1, h2, h3, h4, h5, h6{
           max-width: 100%;
         }
 
+        .toc{
+          font-size: 1.3em;
+          padding: 15px 25px;
+          margin: 35px auto;
+          width: 90%;
+          line-height: 1.7em;
+
+          ul{
+            list-style-type: upper-roman;
+          }
+
+          ul ul, ul ul ul, ul ul ul ul{
+            list-style-type: lower-alpha;
+          }
+        }
+
         .body{
             h1, h2, h3, h4, h5, h6{
                 margin-top: 45px;
                 margin-bottom: 15px;
+            }
+
+            .to_toc{
+              font-size: 0.5em;
             }
 
             font-size: 1.3em;
@@ -112,7 +156,19 @@ h1, h2, h3, h4, h5, h6{
                 margin-bottom: 10px; 
               }
             }
+            
+            .live_link a{
+              color: blue;
+              text-decoration: underline;
+            }
 
+            .dead_link a{
+              color: black;
+              text-decoration: underline;
+              pointer-events: none;
+              cursor: default;
+            }
+            
         }
         
         .more{

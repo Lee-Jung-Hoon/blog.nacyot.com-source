@@ -1,7 +1,5 @@
 - content_for :title, " :: " + current_article.title
-- file_content = IO.read(current_article.source_file)
-- index = file_content.index("\n---") + 4
-- article_body = markdown_engine.render(file_content[index..-1])
+- article = ArticleWithCustomEngine.new(current_article.source_file)
 
 - wrap_layout :layout do
   .mini-wall
@@ -16,11 +14,20 @@
         .articles
           .article
             %span.date
+              %i.fa.fa-calendar
               = current_article.date.strftime('%b %e %Y')
+            %span.tags
+              - current_article.tags.each do |tag|
+                %i.fa.fa-tag
+                %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
+            %a{name: "toc"}
             %h1.title
               = link_to current_article.title, current_article
+            - unless article.toc =~ /^\s*$/
+              .toc
+                = article.toc
             .body
-              = article_body
+              = article.body
             .footer
               %hr
               .author

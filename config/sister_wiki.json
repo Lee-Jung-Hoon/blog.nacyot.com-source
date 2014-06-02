@@ -1,0 +1,16 @@
+{
+  "sisters": [
+    {
+      "name": "default",
+      "url": "http://wiki.nacyot.com",
+      "base_url": "http://wiki.nacyot.com/documents/",
+      "documents": "http://wiki.nacyot.com/index/documents.simple.json"
+    },
+    {
+      "name": "nacyot_wiki",
+      "url": "http://wiki.nacyot.com",
+      "base_url": "http://wiki.nacyot.com/documents/",
+      "documents": "http://wiki.nacyot.com/index/documents.simple.json"
+    }
+  ]
+}

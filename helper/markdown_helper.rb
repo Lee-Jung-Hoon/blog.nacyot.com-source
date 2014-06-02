@@ -1,6 +1,6 @@
 module MarkdownHelper
   def markdown_engine
-    Redcarpet::Markdown.new(HTMLwithPygments,
+    Redcarpet::Markdown.new(::HTMLwithPygments.new(:with_toc_data => true),
                             :autolink => true,
                             :space_after_headers => true,
                             :fenced_code_blocks => true,
@@ -9,6 +9,10 @@ module MarkdownHelper
                             :footnotes => true,
                             )
   end
+
+  def toc_engine
+    return Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC)
+  end
 end
 
 class HTMLwithPygments < Redcarpet::Render::HTML
@@ -16,8 +20,32 @@ class HTMLwithPygments < Redcarpet::Render::HTML
     Pygments.highlight(code, :lexer => language, options: {linespans: 'line'})
   end
 
+  def preprocess(document)
+    render_sister_wiki document
+  end
+
+  def render_sister_wiki(document)
+    wiki = SisterWiki.new
+
+    document.gsub(/\[\[([.a-zA-Zㄱ-힣|\-_][.a-zA-Zㄱ-힣|\-_0-9]*?)\]\]/) do |m|
+      match = $1
+      if match =~ /\|/
+        name, filename = match.split("|").map{|item| item.downcase}
+        wiki.link(filename, name)
+      else
+        wiki.link(match.downcase, match)
+      end
+    end
+  end
+
   def postprocess(document)
-    document.gsub!(/\[\[ipython:(.*?)\]\]/) do |m|
+    document = render_ipython(document)
+    document = render_toc(document)
+    document
+  end
+
+  def render_ipython(document)
+    document.gsub(/\{\{ipython:(.*?)\}\}/) do |m|
       filename = $1
       render_ipynb filename
       
@@ -31,8 +59,12 @@ class HTMLwithPygments < Redcarpet::Render::HTML
         gsub("\n\n</pre>", "\n</pre>").
         gsub("output_stdout\">\n<pre>","output_stdout\">\n<div class=\"prompt output_prompt\">출력:</div><pre>")
     end
-
-    document
+  end
+  
+  def render_toc(document)
+    document.gsub(/<h([1-6]) id=['"](.*?)['"]>(.*?)<\/h[1-6]>/) do |m|
+      "<h#{$1}><a name='#{$2}'>#{$3}</a> <span class='to_toc'><a href='#toc'><i class='fa fa-flag'></i></a></span></h#{$1}>"
+    end
   end
 
   def render_ipynb(filename)

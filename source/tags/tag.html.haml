@@ -1,13 +1,13 @@
 ---
 pageable: true
-per_page: 30
+per_page: 12
 ---
 .wall
   .profile
     = link_to "/" do 
       %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-  %h1.title
-    nacyot의 프로그래밍 이야기
+  %h1.title= "태그 > #{tagname}"
+
   .description  
 
 .row
@@ -15,3 +15,5 @@ per_page: 30
   .col-lg-8.col-md-10.col-sm-10.col-xs-10
     = partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
   .col-lg-2.col-md-1.col-sm-1.col-xs-1
+
+

@@ -17,7 +17,8 @@ activate :blog do |blog|
   blog.layout = "layouts/blog"
   blog.permalink = "articles/:title"
   blog.sources = "articles/:title.html"
-  blog.tag_template = "tag.html"
+  blog.taglink = "tags/{tag}.html"
+  blog.tag_template = "tags/tag.html"
   blog.calendar_template = "calendar.html"
 
   # Enable pagination
@@ -39,8 +40,10 @@ after_configuration do
   sprockets.append_path File.join(File.expand_path(File.dirname(__FILE__)), 'assets', 'components')
 end
 
-require "./helper/markdown_helper.rb"
-require "./helper/article_helper.rb"
+load "./helper/markdown_helper.rb"
+load "./helper/article_helper.rb"
+load "./lib/sister_wiki.rb"
+load "./lib/article_with_custom_engine.rb"
 helpers MarkdownHelper
 helpers ArticleHelper
 
@@ -67,3 +70,38 @@ set :author_twitter, "@nacyo_t"
 configure :build do
   activate :relative_assets
 end
+
+class Middleman::Application
+  def count_links(file)
+    live_links = File.open(file).
+      each_line.
+      to_a.
+      map(&:chop).
+      group_by{|item|item}.
+      map{|key,value| {key.to_sym => value.count / 2}}.
+      inject({}){|sum, item| sum.merge(item)}.
+      to_json
+  end
+
+  def remove_tmps
+    FileUtils.rm(Dir["./tmp/*"])  
+  end
+end
+
+before do
+end
+
+after_build do
+  live_links = count_links("./tmp/live_links")
+  File.open("./build/live_links.json", "w+") do |file|
+    file.write(live_links)
+  end
+
+  dead_links = count_links("./tmp/dead_links")
+  File.open("./build/dead_links.json", "w+") do |file|
+    file.write(dead_links)
+  end
+
+  remove_tmps
+end
+

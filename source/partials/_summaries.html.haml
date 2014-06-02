@@ -1,0 +1,10 @@
+.main
+  .articles
+    - page_articles.each do |article|
+      = partial "partials/summary", locals: {article: article}
+
+  - if paginate
+    - if prev_page
+      = link_to 'Prev page', prev_page
+    - if next_page
+      = link_to 'Next page', next_page
