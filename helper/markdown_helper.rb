@@ -27,7 +27,7 @@ class HTMLwithPygments < Redcarpet::Render::HTML
   def render_sister_wiki(document)
     wiki = SisterWiki.new
 
-    document.gsub(/\[\[([.a-zA-Zㄱ-힣|\-_][.a-zA-Zㄱ-힣|\-_0-9]*?)\]\]/) do |m|
+    document.gsub(/\[\[([.a-zA-Zㄱ-힣|\-_ ][.a-zA-Zㄱ-힣|\-_0-9 ]*?)\]\]/) do |m|
       match = $1
       if match =~ /\|/
         name, filename = match.split("|").map{|item| item.downcase}
