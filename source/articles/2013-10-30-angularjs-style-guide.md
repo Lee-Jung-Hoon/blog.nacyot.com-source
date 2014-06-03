@@ -1,8 +1,9 @@
 ---
-title: "AngularJs 스타일 가이드"
+title: "AngularJs 스타일 가이드 번역"
 date: 2013-10-30 12:00:00 +0900
 author: nacyot
 license: ""
+tags: angularjs, 앵귤러JS, javascript, 자바스크립, github, 번역, Minko Gechev
 published: true
 ---
 

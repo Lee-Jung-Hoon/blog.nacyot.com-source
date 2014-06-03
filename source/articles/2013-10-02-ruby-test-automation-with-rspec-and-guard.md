@@ -2,10 +2,11 @@
 title: "Rspec과 Guard를 활용한 루비 테스트 자동화"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
+tags: 테스트, rspec, minitest, guard, autotest, ruby, 루비
 published: true
 ---
 
-루비 테스트로는 minitest와 Rspec이 많이 사용됩니다.. 저는 대부분 Rspec을 사용합니다만, 어느 쪽이건 이러한 테스트를 매번 직접 실행해주기는 매우 귀찮은 일입니다. 이러한 부분을 자동화하기 위해서 과거에는 Autotest 같은 툴이 사용되었습니다. Autotest는 특정 파일이 수정되면 테스트를 자동으로 실행하는 방식으로 작동합니다. 현재는 Autotest 대신에 Guard를 많이 사용하는데, Guard는 특정한 파일을 감시하다가 이러한 파일에 변화가 있을 때 특정한 명령어를 수행하는 좀 더 범용적인 툴이라고 생각하면 됩니다. 여기서는 Guard를 사용해 rspec 테스트를 자동화하는 법을 소개합니다.
+루비 테스트로는 [[minitest]]와 [[Rspec]]이 많이 사용됩니다. 저는 대부분 Rspec을 사용합니다만, 어느 쪽이건 이러한 테스트를 매번 직접 실행해주기는 매우 귀찮은 일입니다. 이러한 부분을 자동화하기 위해서 과거에는 [[Autotest]] 같은 툴이 사용되었습니다. Autotest는 특정 파일이 수정되면 테스트를 자동으로 실행하는 방식으로 작동합니다. 현재는 Autotest 대신에 Guard를 많이 사용하는데, Guard는 특정한 파일을 감시하다가 이러한 파일에 변화가 있을 때 특정한 명령어를 수행하는 좀 더 범용적인 툴이라고 생각하면 됩니다. 여기서는 [[Guard]]를 사용해 rspec 테스트를 자동화하는 법을 소개합니다.
 
 <!--more-->
 
@@ -14,7 +15,7 @@ published: true
 먼저 테스트 속도 향상을 위해 Rails preloader인
 [spring](https://github.com/jonleighton/spring)을 설정해 두었습니다.
 자세한 사항은 spring github 페이지를 참조하시면 됩니다. 간단한
-사용법은 spring을 앞에 붙여주면 됩니다. 별도로 spring server 실행
+사용법은 [[spring]]을 앞에 붙여주면 됩니다. 별도로 spring server 실행
 명령어를 사용할 필요가 없으며, 명령어를 처음 실행할 때 자동으로
 실행됩니다.
 
@@ -70,17 +71,17 @@ guard :rspec, :spring => true do
 bundle exec guard
 ```
 
-보통은 tmux나 screen에서 하나의 윈도우를 할당해놓고 사용하는 게
+보통은 [[tmux]]나 [[screen]]에서 하나의 윈도우를 할당해놓고 사용하는 게
 일반적입니다. 이렇게 해두면 다른 윈도우나 텍스트 에디터에서 Rails
 어플리케이션 파일이나 테스트 파일을 변경하면 guard가 자동으로 캐치해서
 해당하는 부분의 spec 테스트를 실행시켜줍니다. 이런 식으로 테스트
 결과를 계속 확인하면서 작업할 수 있습니다. 또한 guard 프로그램 내에서
 여러가지 명령어를 실행시킬 수 있으며, 명령어 없이 엔터를 눌러주면 전체
 테스트를 실행시켜 줍니다. guard는 단순히 rspec 자동화를 위해 만들어 진
-gem은 아니라, cucumber나 서버 재실행 등 다른 작업을 실행시키는 데도
+[[gem]]은 아니라, [[cucumber]]나 서버 재실행 등 다른 작업을 실행시키는 데도
 확장해서 사용할 수 있습니다.
 
-테스트 결과에 대한 알림은 Ubuntu 같은 경우는 notification을 시스템
+테스트 결과에 대한 알림은 [[Ubuntu]] 같은 경우는 notification을 시스템
 쪽으로 자동으로 주는 것 같고, Mac 같은 경우는 growl과 연동해서
 사용하는 게 보통입니다. 다양한 notification 지원에 대해서는 Guard
 github 페이지에 좀 더 자세히 나와있으니 참조하시면 될 것 같습니다.

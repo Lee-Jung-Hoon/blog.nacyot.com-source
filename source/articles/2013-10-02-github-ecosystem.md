@@ -3,10 +3,11 @@ title: "Github을 둘러싼 유용한 서비스들"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
 profile: 공짜면 환장하는 프로그래머(29)
+tags: github, travis, ruby, code climate, gemnasium, rubydoc.info, coveralls, 루비
 published: true
 ---
 
-소스 관리를 위해 사용하는 Github와 바로 연동해서 사용할 수 있는 많은 좋은
+소스 관리를 위해 사용하는 [[Github]]와 바로 연동해서 사용할 수 있는 많은 좋은
 서비스들이 있습니다. 이러한 서비스들의 장점은 github와 바로 연동할 수
 있고 open-source에 대해서는 대개 무료로 사용할 수 있다는 점입니다. 이
 서비스들을 이용하지 않아도 어차피 내부적으로 다 사용해야만 하는
@@ -19,7 +20,7 @@ published: true
 ## [Code climate](https://codeclimate.com/)
 Target : Ruby
 
-Ruby 언어의 코드 메트릭스(복잡도, 코드 스멜, 코드 중복 등)를 계산하고
+[[Code Climate|code_climate]]는 [[Ruby]] 언어의 [[코드 메트릭스|code_metrics]](복잡도, 코드 스멜, 코드 중복 등)를 계산하고
 보고서를 작성해줍니다. 프로젝트 등록은 정말 쉽습니다.
 
 > https://codeclimate.com/github/signup
@@ -37,7 +38,7 @@ Ruby 언어의 코드 메트릭스(복잡도, 코드 스멜, 코드 중복 등)�
 ## [Gemnasium](https://gemnasium.com/)
 Target : Ruby
 
-Gemnasium은 의존하고 있는 Library(Gem)의 최신버전 여부를 알려주는
+[[Gemnasium]]은 의존하고 있는 Library([[Gem]])의 최신버전 여부를 알려주는
 서비스입니다. 역시 오픈소스는 무료로 사용할 수 있으며 매우 쉽게
 연동시킬 수 있습니다. 사이트로 들어가셔서 github 아이디로 로그인
 하시고, 필요한 저장소를 연동해주면 됩니다. 사실 저장소 등록에 직접적인
@@ -51,7 +52,7 @@ Gemnasium은 의존하고 있는 Library(Gem)의 최신버전 여부를 알려�
 ## [Rubydoc.info](http://rubydoc.info/)
 Target : Ruby
 
-Rubydoc.info는 YARD를 지원해주는 루비 온라인 문서화 서비스입니다.
+[[Rubydoc.info]]는 [[YARD]]를 지원해주는 루비 온라인 문서화 서비스입니다.
 사이트에 들어가셔서 오른쪽의 add project를 해주시면 해당하는 저장소의
 문서가 자동적으로 생성됩니다. 대부분의 오픈소스 프로젝트에 있어
 로컬에서 문서를 만들어 사용하기보다는 이 사이트를 이용하고 있습니다.
@@ -68,17 +69,17 @@ apt-get을 통한 프로그램 설치도 할 수 있어 매우 다양한 일들�
 문서를 참조해주시기 바랍니다.
 
 ### Travis 연동
-Github의 저장소를 Travis와 연동하기 위해서는 repository 설정에서
+Github의 저장소를 [[Travis]]와 연동하기 위해서는 repository 설정에서
 Travis hook를 설정해줄 필요가 있습니다. 하지만 이 문제는 Travis 쪽에서
 Github 아이디로 로그인을 하고 연동하려는 저장소를 on으로 바꿔주면 바로
 연동이 됩니다. 여기까지만 해도 Push가 일어나면 Travis 쪽으로 빌드
 요청이 보내지고, 자동적으로 빌드를 수행합니다. 하지만 아직까지는 어떤
-일을 하라고 지정된 바가 없기 때문에 이에 대해서는 별개로 .travis.yml
+일을 하라고 지정된 바가 없기 때문에 이에 대해서는 별개로 [[.travis.yml]]
 파일을 어플리케이션 루트 폴더에 만들어서 기술하고, 저장소에
 push해줍니다.
 
 ### .travis.yml 예제
-현재 bbapi 저장소에 등록된 .travis.yml 예제입니다.
+현재 [[bbapi]] 저장소에 등록된 .travis.yml 예제입니다.
 
 ```yaml
 language: ruby
@@ -113,7 +114,7 @@ rvm:
 어떤 버전의 Ruby를 사용할 지 지정합니다. Travis에서는 매우 다양한
 버전의 Ruby를 지원하고 있어 여러한 환경에서 테스트해볼 수 있습니다.
 이런 식으로 버전이 지정되어 있는 경우 Push가 일어났을 때 두 환경
-모두에 대해서 빌드를 수행합니다. 이 때 Gemfile에 Ruby version을
+모두에 대해서 빌드를 수행합니다. 이 때 [[Gemfile]]에 Ruby version을
 명시하면 이 설정과 충돌이 일어나므로 유의가 필요합니다.
 
 ```yaml
@@ -204,7 +205,7 @@ FACEBOOK_API_KEY=<API_KEY>  --add
 $ gem install travis-lint
 ```
 
-travis-lint 프로그램을 사용해 설정파일이 정상적인지를 확인해볼 수 있습니다.
+[[travis-lint]] 프로그램을 사용해 설정파일이 정상적인지를 확인해볼 수 있습니다.
 
 ```
 $ travis-lint                                                                                            
@@ -214,8 +215,8 @@ Hooray, /home/hsin/prog/_working/bbapi/.travis.yml seems to be solid!
 ## [Coveralls](https://coveralls.io/)
 Target : -
 
-Coveralls는 Test Coverage를 자동적으로 측정해주는 서비스로 Ruby를
-비롯해 python, php, node.js, javascript, c, c++, java, sacala 등
+[[Coveralls]]는 Test Coverage를 자동적으로 측정해주는 서비스로 Ruby를
+비롯해 [[python]], [[php]], [[node.js]], [[javascript]], [[c]], c++, [[java]], [[sacala]] 등
 다양한 언어에서 사용할 수 있습니다. Test coverage란 테스트를 실행하는
 과정에서 실제 어플리케이션 코드가 알마만큼 실행되었는지를 %로 나타낸
 수치입니다.

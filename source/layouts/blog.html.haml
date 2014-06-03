@@ -13,13 +13,15 @@
       .main
         .articles
           .article
-            %span.date
-              %i.fa.fa-calendar
-              = current_article.date.strftime('%b %e %Y')
-            %span.tags
-              - current_article.tags.each do |tag|
-                %i.fa.fa-tag
-                %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
+            %div
+              %span.date
+                %i.fa.fa-calendar
+                = current_article.date.strftime('%b %e %Y')
+            %div
+              %span.tags
+                - current_article.tags.sort.each do |tag|
+                  %i.fa.fa-tag
+                  %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
             %a{name: "toc"}
             %h1.title
               = link_to current_article.title, current_article

@@ -3,6 +3,7 @@ title: "알아두면 도움이 되는 55가지 루비 기법"
 date: 2013-11-24 12:00:00 +0900
 author: nacyot
 license: <a href="http://creativecommons.org/licenses/by-nc/2.1/jp/"><imgsrc="http://i.creativecommons.org/l/by-nc/2.1/jp/88x31.png" title="cc-by-nc"></a>
+tags: ruby, 루비, 프로그래밍 언어, 번역, kyoendo
 profile: Ruby 보급에 앞장서는 프로그래머(29)
 ---
 

@@ -3,11 +3,12 @@ title: "우분투 13.10 개발환경 세팅"
 date: 2014-01-18 00:00:00 +0900
 author: nacyot
 profile: 우분투 쓰는 루비 프로그래머(29)
+tags: 우분투, ubuntu, ruby, terminator, nabi, nvidia, 나비, emacs, zsh, bash, QD270, openvpn, hub, wine, 카카오톡
 ---
 
-Ubuntu 13.10 개발 환경 세팅 정리. 서버면 자동화시키는 것도 좋은 방법일 듯 한데, 데스크탑은 그래픽 드라이버 같은 부분이 컴퓨터마다 다르다 보니 완전히 자동화하는 건 쉽지 않은 것 같다. 지난 번까지 우분투 13.04 써왔는데(지금 노트북도 13.04), 이번에 새로 13.10에 도전해봤다. 사실 그래픽 드라이버 문제로 13.04로 낮추고 싶었으나, 조만간 지원이 끝난다고 하길래 맘 잡고 13.10으로 개발환경 정리를 했다. 금요일 오전 내내 걸렸으니까 전체 세팅하는데 4~5시간 정도 걸린 것 같다. 이걸로 기본적인 부분은 정리가 된 듯 싶고, 어디까지나 앞으로 삽질 방지용 포스트.
+[[Ubuntu]] 13.10 개발 환경 세팅 정리. 서버면 자동화시키는 것도 좋은 방법일 듯 한데, 데스크탑은 그래픽 드라이버 같은 부분이 컴퓨터마다 다르다 보니 완전히 자동화하는 건 쉽지 않은 것 같다. 지난 번까지 우분투 13.04 써왔는데(지금 노트북도 13.04), 이번에 새로 13.10에 도전해봤다. 사실 그래픽 드라이버 문제로 13.04로 낮추고 싶었으나, 조만간 지원이 끝난다고 하길래 맘 잡고 13.10으로 개발환경 정리를 했다. 금요일 오전 내내 걸렸으니까 전체 세팅하는데 4~5시간 정도 걸린 것 같다. 이걸로 기본적인 부분은 정리가 된 듯 싶고, 어디까지나 앞으로 삽질 방지용 포스트.
 
-참고로 본인은 Ubuntu / Terminator(터미널 프로그램) / Emacs(에디터) / Dvorak(키보드 레이아웃) 사용자.
+참고로 본인은 [[Ubuntu]] / [[Terminator]](터미널 프로그램) / [[Emacs]](에디터) / [[Dvorak]](키보드 레이아웃) 사용자.
 
 <!--more-->
 
@@ -27,7 +28,7 @@ Ubuntu 13.10 개발 환경 세팅 정리. 서버면 자동화시키는 것도 �
 0. Software & Updates
 0. Ubuntu Software 탭에서 Download from : http://ftp.daum.net/ubuntu
 
-APT 다운로드 서버 설정. 자세히 알고 있다면 `/etc/apt`에 설정 파일들을 직접 편집해도 되지만 보통 시스템 설정을 사용하는 게 편리하다. 디폴트로 잡혀있는 kr.archive.ubuntu.com은 많이 느린 편이고, 한국에서는 Daum이나 Neowiz 서버가 빠르긴한데 업데이트가 느리거나 불안정하다는 얘기가 있다. 한국 미러에 문제가 있는 경우, 일본에서 빠른 서버 찾아서 사용하면 된다. jaist를 많이 사용하는 것 같다.
+[[APT]] 다운로드 서버 설정. 자세히 알고 있다면 `/etc/apt`에 설정 파일들을 직접 편집해도 되지만 보통 시스템 설정을 사용하는 게 편리하다. 디폴트로 잡혀있는 kr.archive.ubuntu.com은 많이 느린 편이고, 한국에서는 Daum이나 Neowiz 서버가 빠르긴한데 업데이트가 느리거나 불안정하다는 얘기가 있다. 한국 미러에 문제가 있는 경우, 일본에서 빠른 서버 찾아서 사용하면 된다. jaist를 많이 사용하는 것 같다.
 
 0. 터미널에서 업데이트 진행(Software & Updates 윈도우에서 진행해도 무관하다).
 
@@ -40,7 +41,7 @@ sudo apt-get upgrade
 
 ### AMD A10 5800K(APU)
 
-일단 Ubuntu에서 기본적으로 지원하는 드라이버 Xorg로는 화면이 깨지는 현상이 있어서 AMD 쪽에서 나오는 서드파티 드라이버를 설치해야한다. `fglrx`를 설치하면 화면이 깨지는 현상은 사라지는데 마우스 커서가 없어지는 문제가 있어서 `fglrx-update`를 설치.
+일단 Ubuntu에서 기본적으로 지원하는 드라이버 [[Xorg]]로는 화면이 깨지는 현상이 있어서 AMD 쪽에서 나오는 서드파티 드라이버를 설치해야한다. `fglrx`를 설치하면 화면이 깨지는 현상은 사라지는데 마우스 커서가 없어지는 문제가 있어서 `fglrx-update`를 설치.
 
 `sudo apt-get install fglrx-update fglrx-update-dev`
 
@@ -138,7 +139,7 @@ sudo apt-get install openvpn
 sudo service openvpn restart
 ```
 
-개인적으로는 로컬 서버에서 돌리는 것들이 있어서 openvpn 열어서 사용중. 필요하면 /etc/openvpn디렉토리에서 설정.
+개인적으로는 로컬 서버에서 돌리는 것들이 있어서 [[openvpn]] 열어서 사용중. 필요하면 /etc/openvpn디렉토리에서 설정.
 
 ## Unix 설정 파일 Clone
 
@@ -156,7 +157,7 @@ git clone git@<GIT_SERVER>:configuration/unix-config.git conf
 sudo apt-get install terminator
 ```
 
-터미네이터 설정 파일은 `.config/terminator/config`. 보통은 scp로 원래 쓰던 거 가져다가 세팅했는데,이번엔 [terminator-solarized](https://github.com/ghuntley/terminator-solarized) 테마도 같이사용해봤다.사용해보진 않았는데 Mac 쓰던 경우엔 [이 gist](https://gist.github.com/olistik/3894072)도좋을 듯.
+터미네이터 설정 파일은 `.config/terminator/config`. 보통은 [[scp]]로 원래 쓰던 거 가져다가 세팅했는데,이번엔 [terminator-solarized](https://github.com/ghuntley/terminator-solarized) 테마도 같이사용해봤다.사용해보진 않았는데 [[Mac]] 쓰던 경우엔 [이 gist](https://gist.github.com/olistik/3894072)도좋을 듯.
 
 ## Eamcs 설치
 
@@ -165,7 +166,7 @@ sudo apt-get install emacs24 emacs24-common
 git clone git@<GIT_SERVER>:configuration/emacs-config.git .emacs.d
 ```
 
-ubuntu 13.10에서는 emacs24를 바로 설치해서 사용 가능. 환경 설정에 기존에 사용하던 거 그대로 가져와서 사용.
+ubuntu 13.10에서는 [[emacs24]]를 바로 설치해서 사용 가능. 환경 설정에 기존에 사용하던 거 그대로 가져와서 사용.
 
 ### the silver seacher 설치
 
@@ -202,7 +203,7 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 ```
 
-rbenv 설치. 기본적으로 README에는 bash 기준으로 설정이 되어있는데, 자신이 사용하는 쉘 설정 파일에 집어넣어준다(여기선 zsh). 필요하면 설정하고 쉘을 다시 실행시켜준다.
+[[rbenv]] 설치. 기본적으로 README에는 [[bash]] 기준으로 설정이 되어있는데, 자신이 사용하는 쉘 설정 파일에 집어넣어준다(여기선 [[zsh]]). 필요하면 설정하고 쉘을 다시 실행시켜준다.
 
 ```
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -213,7 +214,7 @@ rbenv install 1.9.3-p484
 rbenv global 2.1.0
 ```
 
-ruby-build는 rbenv에서 루비 빌드를 하기 위한 플러그인. 위에서 설치하는 패키지들은 루비 빌드에 사용되는 패키지들.
+[[ruby-build]]는 rbenv에서 루비 빌드를 하기 위한 플러그인. 위에서 설치하는 패키지들은 루비 빌드에 사용되는 패키지들.
 
 ```
 gem install travis middleman middleman-blog rails heroku --verbose
@@ -245,7 +246,7 @@ compdef git=hub
 
 ## Wine 카카오톡 설치
 
-현재 팀에서 사용하고 있는 메신저가 카카오톡이라 Wine로 카카오톡 설치 시도. 
+현재 팀에서 사용하고 있는 메신저가 카카오톡이라 [[Wine]]로 카카오톡 설치 시도. 
 
 ```
 sudo add-apt-repository ppa:ubuntu-wine/ppa
@@ -307,4 +308,4 @@ curl -s https://get.docker.io/ubuntu/ | sudo sh
 
 ## 정리
 
-일단 중요한 부분은 다 정리한 듯. 이외에도 VirtualBox, Vagrant, Pandoc, Tex, python, 등등 설치해야되지만, 필요해지면 설치할 예정.
+일단 중요한 부분은 다 정리한 듯. 이외에도 [[VirtualBox]], [[Vagrant]], [[Pandoc]], [[Tex]], [[python]], 등등 설치해야되지만, 필요해지면 설치할 예정.

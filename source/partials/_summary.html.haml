@@ -1,11 +1,13 @@
 .article
-  %span.date
-    %i.fa.fa-calendar
-    = article.date.strftime('%b %e %Y')
-  %span.tags
-    - article.tags.each do |tag|
-      %i.fa.fa-tag
-      %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
+  %div
+    %span.date
+      %i.fa.fa-calendar
+      = article.date.strftime('%b %e %Y')
+  %div
+    %span.tags
+      - article.tags.sort.each do |tag|
+        %i.fa.fa-tag
+        %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
 
   %h2.title
     = article_title_tag(article)
