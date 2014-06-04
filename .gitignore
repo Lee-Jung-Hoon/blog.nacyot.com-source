@@ -23,3 +23,9 @@
 #*
 \#*
 .#*
+
+/assets
+/tmp/default
+/tmp/live_links
+/tmp/dead_links
+

@@ -6,6 +6,7 @@
     "angular-sanitize": "*",
     "jquery": "*",
     "font-awesome": "*",
-    "bootflat": "https://github.com/flathemes/bootflat.git"
+    "bootflat": "https://github.com/flathemes/bootflat.git",
+    "masonry": "*"
   }
 }

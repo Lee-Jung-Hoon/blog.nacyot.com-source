@@ -1,5 +1,5 @@
 .main
-  .articles
+  #container.js-masonry{"data-masonry-options" => '{ "isFitWidth": true, "gutter": 10,"itemSelector": ".summary_card"}'}
     - page_articles.each do |article|
       = partial "partials/summary", locals: {article: article}
 
