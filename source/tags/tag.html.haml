@@ -1,6 +1,6 @@
 ---
 pageable: true
-per_page: 12
+per_page: 30
 ---
 .wall
   .profile
@@ -10,10 +10,7 @@ per_page: 12
 
   .description  
 
-.row
-  .col-lg-2.col-md-1.col-sm-1.col-xs-1
-  .col-lg-8.col-md-10.col-sm-10.col-xs-10
-    = partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
-  .col-lg-2.col-md-1.col-sm-1.col-xs-1
+= partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
+
 
 

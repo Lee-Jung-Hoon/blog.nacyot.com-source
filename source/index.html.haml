@@ -10,6 +10,4 @@ per_page: 30
     nacyot의 프로그래밍 이야기
   .description  
 
-.row
-  .col-lg-12.col-md-12.col-sm-12.col-xs-12
-    = partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
+= partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
