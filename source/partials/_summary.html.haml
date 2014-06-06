@@ -8,7 +8,7 @@
     = article_title_tag(article)
   %div.summary
     = article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2')
-  %span.more= more_read_link_tag(article)
+  %span.more= more_read_link_tag(article) + " ->"
   .tags
     - article.tags.sort.each do |tag|
       %i.fa.fa-tag
