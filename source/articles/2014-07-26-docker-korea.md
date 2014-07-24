@@ -6,7 +6,7 @@ tags:
 published: false
 ---
 
-* http://www.shomney.com
+* [함께 쓰는 가계부 Shomney](http://www.shomney.com)
 
 현재 저는 Remotty라는 프로그래밍 모임에 속해있습니다. Remotty는 작년 다른 스터디 그룹에서 파생된 작은 팀으로 2014년에는 계속 Shomney라는 공동 가계부 웹앱을 만들어왔습니다. 다들 바쁜 시간을 쪼개고, 다른 일에 치이다 보니(저는 거의 참여도 하지 못 했고...) 7월에서야 겨우 빚을 보았습니다.
 
