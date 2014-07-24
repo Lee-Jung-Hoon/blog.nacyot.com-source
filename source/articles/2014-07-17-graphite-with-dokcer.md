@@ -3,7 +3,7 @@ title: 그라파이트(Grahpite) + 그라파나(Grafana) 모니터링 시스템 
 author: nacyot
 date: 2014-07-25 12:20:03 +0900
 publshed: true
-tags: 
+tags: graphite, grafana, docker, 볼륨 컨테이너, 도커, 그라파이트, 그라파나, elasticsearch, kibana, carbon, whisper, 모니터링, 시계열 데이터베이스, 대시보드
 ---
 
 시스템 [[모니터링|monitoring]]에 대해서 리뷰하거나, 직접 시스템 모니터링을 해봤다면 아래 그림과 같은 [[rrdtool]]로 만들어진 그래프를 자주 만나게 될 것입니다. rrdtool은 여전히 시스템 모니터링에 있어서 강자입니다만, 이 세계에 단지 rrdtool만 있는 것은 아닙니다. 특히 시계열 데이터 수집에 최적화된 타임시리즈 데이터베이스의 일종인 Graphite는 시스템 정보([[metrics]]) 수집에 있어 꽤나 매력적인 도구 중 하나입니다.
