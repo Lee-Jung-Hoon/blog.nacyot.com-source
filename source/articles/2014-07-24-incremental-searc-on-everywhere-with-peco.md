@@ -2,7 +2,7 @@
 title: 페코(Peco)로 어디서나 셸 어디서나 증분 검색하기
 author: nacyot
 date: 2014-07-23 10:00:03 +0900
-publshed: false
+published: false
 tags: 
 ---
 
