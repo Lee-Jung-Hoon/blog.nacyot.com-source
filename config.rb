@@ -36,6 +36,8 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+Time.zone = 'Seoul'
+
 after_configuration do
   sprockets.append_path File.join(File.expand_path(File.dirname(__FILE__)), 'assets', 'components')
 end
