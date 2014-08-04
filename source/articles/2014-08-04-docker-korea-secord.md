@@ -2,7 +2,7 @@
 title: Docker Korea 스터디 그룹 두번째 모임
 author: nacyot
 date: 2014-08-05 00:15:03 +0900
-tags: docker, Docker Korea, 도커, 스터디, Remotty, 스페이스 노아, Shomney, 포럼, immutable infrastructure
+tags: Docker, Docker Korea, 도커, 스터디, Remotty, 스페이스 노아, 포럼, 토즈, 리모티, Service Discovery, Ghost, 고스트, 메트릭스, 로그, Graphite, Grafana, Elasticsearch, Kibana, 파이썬, consul, CoreOS, etcd, Fleet
 published: true
 ---
 
