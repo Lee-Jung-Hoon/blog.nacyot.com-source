@@ -1,22 +1,25 @@
 ---
-title: "도커(Docker)로 루비 온 레일스 어플리케이션 배포하기"
-date: 2014-06-16 12:00:00 +0900
+title: "도커(Docker)로 루비 온 레일스 어플리케이션 배포하기 (1) 어플리케이션 이미지 만들기"
+date: 2014-08-08 05:10:00 +0900
 author: nacyot
-tags: ruby, docker, rails, deploy, devops, haproxy, digital ocean, dockerfile, 루비, 도커, 레일스, 배포, 서버, 서버 운영
-published: false
+tags: ruby, docker, rails, deploy, devops, dockerfile, 루비, 도커, 레일스, 배포, 서버, 서버 운영, The Twelve Factor App
+published: true
 ---
 
-이 글은 지난 6월 10일 RORLab에서 발표한 '도커(Docker)로 루비 온 레일스 어플리케이션 배포하기'를 정리한 문서입니다. 먼지 이미지와 컨테이너 소개 및 이미지 생성에 대해서 다룬 앞 부분은 이전에 작성했던 문서 '[도커(Docker) 튜토리얼 : 깐 김에 배포까지][docker_introduction]'로 대체합니다.
+이 글은 지난 6월 10일 [[RORLab]]에서 발표한 '도커(Docker)로 루비 온 레일스 어플리케이션 배포하기'를 정리한 문서입니다. 발표 자료는 [페이스북 페이지][facebook]를 참조해주세요. 먼저 이미지와 컨테이너 소개 및 이미지 생성에 대해서 다룬 앞 부분은 이전에 작성했던 문서 '[도커(Docker) 튜토리얼 : 깐 김에 배포까지][docker_introduction]'로 대체합니다.
 
 [docker_introduction]: http://blog.nacyot.com/articles/2014-01-27-easy-deploy-with-docker/
+[facebook]: https://www.facebook.com/naverd2/posts/505653179563380
+
+이 글은 두 편으로 나눠서 공개할 예정입니다. 먼저 이 글에서는 Docker를 사용해 Ruby on Rails 어플리케이션을 도커 이미지화하는 법에 대해서 다룹니다. 그리고 다음 글에서는 이미지화한 어플리케이션을 실제로 어떻게 배포하는 지와 간단한 스케일 아웃 예제를 소개합니다.
 
 <!--more-->
 
 ## 도커로 어플리케이션 배포하기
 
-도커는 다양한 용도로 사용 가능하지만, 가장 원초적인 목적은 어플리케이션 배포에 있다. 또한 이미지를 기반으로 한 도커의 방식에 따라 도커를 통해 어플리케이션을 배포한다는 의미는 개발한 어플리케이션과 어플리케이션을 둘러싼 어플리케이션이 실행가능한 환경 전체를 이미지화한다는 의미를 가지고 있다.
+[[도커|docker]]는 다양한 용도로 사용 가능하지만, 가장 원초적인 목적은 어플리케이션 배포에 있다. 또한 이미지를 기반으로 한 도커의 방식에 따라 도커를 통해 어플리케이션을 배포한다는 의미는 개발한 어플리케이션과 어플리케이션을 둘러싼 어플리케이션이 실행가능한 환경 전체를 이미지화한다는 의미를 가지고 있다.
 
-이 과정에서 기존의 서버를 운영하는 것과 마찬가지로 기본적으로는 일련의 명령어를 실행시키거나 쉘스크립트를 실행시킨다. 이러한 일련의 과정을 도커에서는 Dockerfile 이라는 독자적인 포맷(DSL)을 통해서 기술하고, 이 Dockerfile을 빌드해서 이미지를 생성한다.
+이 과정에서 기존의 서버를 운영하는 것과 마찬가지로 기본적으로는 일련의 명령어를 실행시키거나 쉘스크립트를 실행시킨다. 이러한 일련의 과정을 도커에서는 [[Dockerfile]] 이라는 독자적인 포맷(DSL)을 통해서 기술하고, 이 Dockerfile을 빌드해서 이미지를 생성한다.
 
 아쉽지만 같은 Dockerfile 이라도 빌드가 항상 성공한다는 보장은 물론 없다. 즉, Dockefile을 통해 이미지 생성 과정을 재현할 수 있지만, 이 과정이 완벽하다고는 할 수 없다. 예를 들어 네트워크가 불안정해서 관련된 빌드 과정에 문제가 생길 수도 있고, 시스템 라이브러리에 중요한 보안 패치가 있어서 어플리케이션 실행에 영향을 줄 수도 있다. 재현은 불완전하다. 하지만 일반적으로 빌드에 성공한 이미지는 그 시점이 언제인지가 큰 상관만 없다면 완결된 이미지로서 정상적으로 완결되어있다고 봐도 무방하다.
 
@@ -59,7 +62,7 @@ drwxrwxr-x 10 nacyot nacyot 4096 Jun 11 21:08 rails-new-dockerfile
 
 ## v0.0 
 
-`docker-sample-project`는 `rails new` 명령어로 생성되었다. 레일스를 사용해본 사람이라면 바로 이해하겠지만 `rails new` 명령어는 레일스 프로젝트의 뼈대를 만들어준다. 프로그래머는 이 뼈대에 자신이 필요한 것들을 붙여나가면서 어플리케이션을 만들어나간다.
+`docker-sample-project`는 `rails new` 명령어로 생성되었다. [[레일스|ruby_on_rails]]를 사용해본 사람이라면 바로 이해하겠지만 `rails new` 명령어는 레일스 프로젝트의 뼈대를 만들어준다. 프로그래머는 이 뼈대에 자신이 필요한 것들을 붙여나가면서 어플리케이션을 만들어나간다.
 
 `v0.0`은 아직 아무것도 수정하지 않은 상태이다. 실제 이미지 생성은 `v0.1`부터 진행한다.
 
@@ -74,7 +77,7 @@ bin  config  db         Gemfile  lib           public  README.rdoc  tmp
 
 익숙한 레일스 프로젝트를 볼 수 있다.
 
-## v0.1 Procfile & serve_static_assets
+## v0.1 Procfile & serve static assets 옵션
 
 먼저 처음으로 배포할 태그 `v0.1`은 `rails new`로 프로젝트를 생성한 이후 약간의 수정을 거쳤다.
 
@@ -104,15 +107,15 @@ $ cat Procfile
 web: bundle exec rails server -p 60005
 ```
 
-Procfile은 어플리케이션의 실행단위를 정의한다. 예를 들어 하나의 어플리케이션은 여러개의 프로세스로 구성될 수 있다. 가장 기본적인 프로세스는 단연 웹 서버일 것이다. 부가적으로 백그라운드 작업을 하는 sidekiq이 있을 수도 있고, 중간 cache_db가 있을 수도 있다. 일반적인 서버 운영시에는 필요한 프로세스를 각각 실행시킨다. 하지만 이러한 프로세스들은 하나로 모아야만 하나의 어플리케이션이 정상적으로 실행될 수 있다면, 그것들을 한꺼번에 실행시키는 것이 더 합리적일 것이다. Procfile에는 바로 이러한 어플리케이션 실행 단위를 정의한다. 여기서는 아직 레일스 기본 웹서버밖에 없으므로 특별한 내용은 없다.
+[[Procfile]]은 어플리케이션의 실행단위를 정의한다. 예를 들어 하나의 어플리케이션은 여러개의 프로세스로 구성될 수 있다. 가장 기본적인 프로세스는 단연 웹 서버일 것이다. 부가적으로 백그라운드 작업을 하는 [[sidekiq]]이 있을 수도 있고, 중간 cache_db가 있을 수도 있다. 일반적인 서버 운영시에는 필요한 프로세스를 각각 실행시킨다. 하지만 이러한 프로세스들은 하나로 모아야만 하나의 어플리케이션이 정상적으로 실행될 수 있다면, 그것들을 한꺼번에 실행시키는 것이 더 합리적일 것이다. Procfile에는 바로 이러한 어플리케이션 실행 단위를 정의한다. 여기서는 아직 레일스 기본 웹서버밖에 없으므로 특별한 내용은 없다.
 
 참고로 포트를 60005번으로 지정한 것은 3000번 포트를 자주 사용하므로 편의상 이동시킨 것뿐이고, 특별한 의미는 없다.
 
-이 Procfile은 루비의 foreman이라는 Gem을 사용해서 실행한다. 이는 뒤에서 Dockerfile을 검토할 때 다룬다.
+이 Procfile은 루비의 [[foreman]]이라는 Gem을 사용해서 실행한다. 이는 뒤에서 Dockerfile을 검토할 때 다룬다.
 
-### serve_static_assets
+### serve static assets 옵션
 
-두번째로 변경한 부분은 `produciton.rb`(프로덕션 환경 설정)에서 `serve_static_assets` 옵션을 `true`로 지정한 부분이다. 개발(development) 모드에서는 레일스 서버가 `./public` 디렉토리 아래의 파일들을 직접 응답해준다. 하지만 프로덕션 환경에서는 그렇지 않다. 이는 실제 프로덕션 환경에서는 이러한 정적 파일들을 레일스 서버가 아니라 nginx나 apache와 같은 이런 역할에 좀 더 충실한 서버들을 활용해서 전달될 것을 기대하기 때문이다. 그리고 실제로 그렇게 사용하는 것이 정상적인 구성이다. 하지만 여기서는 해당하는 구성을 하지 않으므로 에러 페이지를 비롯한 기본적인 정적 파일에 응답하기 위해 이 옵션을 활성화한다.
+두번째로 변경한 부분은 `produciton.rb`(프로덕션 환경 설정)에서 `serve_static_assets` 옵션을 `true`로 지정한 부분이다. 개발(development) 모드에서는 레일스 서버가 `./public` 디렉토리 아래의 파일들을 직접 응답해준다. 하지만 프로덕션 환경에서는 그렇지 않다. 이는 실제 프로덕션 환경에서는 이러한 정적 파일들을 레일스 서버가 아니라 [[nginx]]나 [[apache]]와 같은 이런 역할에 좀 더 충실한 서버들을 활용해서 전달될 것을 기대하기 때문이다. 그리고 실제로 그렇게 사용하는 것이 정상적인 구성이다. 하지만 여기서는 해당하는 구성을 하지 않으므로 에러 페이지를 비롯한 기본적인 정적 파일에 응답하기 위해 이 옵션을 활성화한다.
 
 ### v0.1 이미지 생성하기
 
@@ -175,7 +178,7 @@ FROM dockerfile/ubuntu
 
 `FROM`은 이 Dockerfile을 빌드할 때 사용할 베이스 이미지를 지정한다. 지정 방식은 이미지를 나타내는 해시값이나 이름을 지정할 수 있다.
 
-여기서 사용한 `dockerfile/ubuntu`는 공식 `ubuntu:14.04`에 약간의 기본적인 설정이 가미된 이미지이다. [Dockerfile Project][dockerfile_project]는 비슷한 종류의 확장 기본 이미지를 다수 제공한다.
+여기서 사용한 `dockerfile/ubuntu`는 공식 `ubuntu:14.04`에 약간의 기본적인 설정이 가미된 이미지이다. [Dockerfile Project][dockerfile_project]는 비슷한 종류의 확장된 기본 이미지를 다수 제공한다.
 
 [dockerfile_project]: http://dockerfile.github.io/#/ubuntu
 
@@ -225,15 +228,15 @@ RUN apt-get install -qq -y libsqlite3-dev
 RUN apt-get install -qq -y nodejs
 ```
 
-여기에는 함정에 빠진 초보 레일스 개발자를 구해줄 마법같은 명령어들이 있다. 레일스는 특별히 설정하지 않으면 기본적으로 sqlite3를 사용한다. 그런데 `bundle install`을 실행하면 sqlite3 Gem 부분에서 에러가 나는 경우가 많다. 위의 패키지를 설치하면 해당하는 문제가 마법같이 해결된다.
+여기에는 함정에 빠진 초보 레일스 개발자를 구해줄 마법같은 명령어들이 있다. 레일스는 특별히 설정하지 않으면 기본적으로 [[sqlite3]]를 사용한다. 그런데 `bundle install`을 실행하면 sqlite3 Gem 부분에서 에러가 나는 경우가 많다. 위의 패키지를 설치하면 해당하는 문제가 마법같이 해결된다.
 
-아래 nodejs 패키지도 마찬가지다. nodejs 패키지 설치없이 `bundle install`을 설치하면 시스템에 자바스크립트 런타임이 없다는 이유로 bundle이 제대로 이루어지지 못 한다. nodejs를 설치하면 이러한 문제가 해결된다.
+아래 [[nodejs]] 패키지도 마찬가지다. nodejs 패키지 설치없이 `bundle install`을 설치하면 시스템에 자바스크립트 런타임이 없다는 이유로 bundle이 제대로 이루어지지 못 한다. nodejs를 설치하면 이러한 문제가 해결된다.
 
 ```
 RUN gem install foreman compass
 ```
 
-추가적으로 루비 패키지들을 설치해준다. foreman은 앞서서 소개한 Procfile을 실행시켜주는 Gem이다. compass는 에셋 컴파일에 사용된다.
+추가적으로 루비 패키지들을 설치해준다. foreman은 앞서서 소개한 Procfile을 실행시켜주는 Gem이다. [[compass]]는 에셋 컴파일에 사용된다.
 
 #### 레일스 어플리케이션 설치하기
 
@@ -388,11 +391,11 @@ v0.1
 
 ## v0.2 rails_12factor
 
-히로쿠(heroku)를 사용해본 적이 있다면 히로쿠의 배포 방식이 기존의 배포 방식과는 상당히 다르다는 것을 알 수 있다. 클라우드로 따지자면 Infrastructure as a Service와 Platform as a Service의 차이라고 단순히 말할 수도 있겠지만, 그러한 환경을 구현하기 위해서 많은 것이 달라진다. 그리고 그러한 변화에 대응하기 위해 적용되는 라이브러리가 `rails_12factor`라는 gem이다.
+[[히로쿠(heroku)|heroku]]를 사용해본 적이 있다면 히로쿠의 배포 방식이 기존의 배포 방식과는 상당히 다르다는 것을 알 수 있다. 클라우드로 따지자면 Infrastructure as a Service와 Platform as a Service의 차이라고 단순히 말할 수도 있겠지만, 그러한 환경을 구현하기 위해서 많은 것이 달라진다. 그리고 그러한 변화에 대응하기 위해 적용되는 라이브러리가 `rails_12factor`라는 gem이다.
 
 분명 잘은 모르겠지만,
 
-Heroku에서는 이 gem을 설치하라고 하고, 이 gem을 설치하면 뭔가 문제가 생기된 게 해결된다. 하지만 마법과 같은 이 Gem이 무엇을 하는 지까지 관심을 가지는 경우는 드물다. 이번에는 이 gem 을 설치하고 그 궁금증을 해소해본다.
+Heroku에서는 이 gem을 설치하라고 하고, 이 gem을 설치하면 뭔가 문제가 생기던 게 해결된다. 하지만 마법과 같은 이 Gem이 무엇을 하는 지까지 관심을 가지는 경우는 드물다. 이번에는 이 gem 을 설치하고 그 궁금증을 해소해본다.
 
 ### 프로젝트 변경사항
 
@@ -403,7 +406,7 @@ $ cat Gemfile | grep 12
 (standard input):13:gem 'rails_12factor'
 ```
 
-프로젝트에 변경되는 부분은 거의 없다. 단지 gem에 rails_12factor를 추가했을 뿐이다.
+프로젝트에 변경되는 부분은 거의 없다. 단지 gem에 [[rails_12factor]]를 추가했을 뿐이다.
 
 ### Dockerfile
 
@@ -503,7 +506,7 @@ $ docker logs v0.2
 
 이는 도커의 컨테이너 환경을 이해하는데 핵심적인 역할을 하는 문제이다. 잠깐 히로쿠 이야기로 돌아가보자. 일반적으로 운영체제에서 할 수 있는 모든 것을 할 수 있는 가상머신인 IaaS와 어플리케이션 코드만으로 실행 가능한 PaaS는 근본적으로 많은 부분에서 다르다. 예를 들어 히로쿠에는 서버 관리라는 개념이 없다. 히로쿠를 써봤다면 알겠지만, 히로쿠에 git 저장소를 만들어놓고 이 저장소에 어플리케이션을 push하면 어플리케이션이 빌드되고 자동으로 실행된다. 여기서 중요한 점은 heroku에서 실행되고 있는 서버에 접근해서 어떠한 명령어를 실행시키는 게 거의 불가능하다는 점이다(혹은 매우 제한적이다). 사용자는 히로쿠의 서버를 운영하지 않는다. 그런 면에서 볼 때 PaaS란 단순히 IaaS의 일부 역할을 대체한다고 말할 수가 없어진다. 어플리케이션을 운영해본 사람이라면 알겠지만 어플리케이션과 직접 관련이 없더라도 어플리케이션 운영중에 서버 상에서 여러가지 작업을 필요로 하는 경우는 흔한 일이다. 히로쿠에서는 그런 종류의 작업이 거의 불가능하다.
 
-단지 어플리케이션이 실행되고 있을 뿐이다.
+단지 어플리케이션이 실행되고 있을 뿐이고, 히로쿠가 하는 일은 어플리케이션이 실행되어있다는 것을 보장해주는 것 뿐이다.
 
 따라서 PaaS에서 어플리케이션을 운영하는 모델은 IaaS에서 해오던 것과는 전혀 다르다. 바로 이 지점에서 단순한 범위 차이 이상의 차이가 발생한다. 이러한 차이는 최적화의 문제이기도 하고, 패러다임의 문제이기도 하다. 예를 들어 TDD를 적용해 프로그래밍을 하면 단순히 테스트를 습관화들이는 것뿐만 아니라, 어플리케이션을 설계하는 데 있어서도 테스트가 더 편하게 가능한 설계를 고민하게 된다는 이야기와 비슷하다. PaaS는 기존의 어플리케이션을 그대로 옮겨둘 수도 있겠지만, PaaS 방식에 맞는 어플리케이션을 요구한다. 여기서 어플리케이션이란 단순히 실제 어플리케이션 코드만을 이야기하는 것은 아니다. 어플리케이션과 그것을 운영하고 관리하는 방식 전체를 통틀어서의 이야기이다.
 
@@ -521,7 +524,7 @@ $ docker logs v0.2
 
 아, 여기서 `rails_12factor`의 정체가 명확해진다. `rails_12factor`은 다름 아닌 The Twelve-Factor App의 실천사항의 일부를 실제로 구현해주는 gem이다. 소개가 늦었다. The Twelve-Factor App은 위에서 이야기한 PaaS의 패러다임에 해당하는 이야기를 히로쿠의 프로그래머가 정리한 문서이다.
 
-도커는 어렵다. 도커를 가상화 기술이라고 소개할 때 VMWare나 VirtualBox와 같은 툴들과 상당한 차이를 지니고 있다. 이는 단순히 하드웨어 에뮬레이션 정도의 차이가 아니라, 어플리케이션을 다루는 방식 전반에 걸친 차이가 존재하기 때문이다. 그리고 컨테이너라는 개념과 이러한 차이를 이해하는 게 도커를 활용하는 지름길이라고 할 수 있다. 컨테이너는 단지 하나의 프로세스이고, 이 하나의 프로세스로 어플리케이션을 운영해야한다는 점에서는 VMWare의 가상머신보다는 히로쿠의 어플리케이션에 한없이 가깝다. 따라서 The twelve-Factor App의 원칙들은 컨테이너를 유연하게 사용하는데 좋은 지침이 된다. 이는 2가지 면에서 좋은 지침이 되어주는데, 도커에서 어플리케이션을 어떻게 실행 관리되는 지를 알려주고, 두번째로 `Build once, Run anywhere`를 실현할 수 있는 전략들을 알려준다.
+도커는 어렵다. 도커를 가상화 기술이라고 소개할 때 [[VMWare]]나 [[VirtualBox]]와 같은 툴들과 상당한 차이를 지니고 있다. 이는 단순히 하드웨어 에뮬레이션 정도의 차이가 아니라, 어플리케이션을 다루는 방식 전반에 걸친 차이가 존재하기 때문이다. 그리고 컨테이너라는 개념과 이러한 차이를 이해하는 게 도커를 활용하는 지름길이라고 할 수 있다. 컨테이너는 단지 하나의 프로세스이고, 이 하나의 프로세스로 어플리케이션을 운영해야한다는 점에서는 VMWare의 가상머신보다는 히로쿠의 어플리케이션에 한없이 가깝다. 따라서 The twelve-Factor App의 원칙들은 컨테이너를 유연하게 사용하는데 좋은 지침이 된다. 이는 2가지 면에서 좋은 지침이 되어주는데, 도커에서 어플리케이션을 어떻게 실행 관리되는 지를 알려주고, 두번째로 `Build once, Run anywhere`를 실현할 수 있는 전략들을 알려준다.
 
 물론 도커의 컨테이너를 가상머신처럼 다루는 게 불가능하지는 않다. 컨테이너를 실행할 때 sshd 데몬을 같이 띄운다거나 log가 저장되는 디렉토리 자체를 어플리케이션에 이미지와 별개로 마운트시키는 방식으로 log 파일을 관리하는 게 가능하기는 하다. 하지만 그런 방식이 도커에서 딱히 권장되지는 않는다.
 
@@ -591,7 +594,7 @@ $ diff Dockerfile ../v0.2/Dockerfile
 < 
 ```
 
-mysql에 필요한 시스템 패키지를 설치하고 v0.3으로 체크아웃 하는 정도이다.. 시스템 라이브러리를 설치하는 부분은 레일스를 처음 사용할 때 겪는 함정으로 해당하는 패키지가 없으면 `bundle install`에 실패한다.
+[[mysql]]에 필요한 시스템 패키지를 설치하고 v0.3으로 체크아웃 하는 정도이다.. 시스템 라이브러리를 설치하는 부분은 레일스를 처음 사용할 때 겪는 함정으로 해당하는 패키지가 없으면 `bundle install`에 실패한다.
 
 ### 이미지 빌드하기
 
@@ -775,6 +778,8 @@ mysql> exit
 
 먼저 sqlite3는 파일 하나로 구성되는 데이터베이스이다. 이는 임시로 사용하기에는 편리하지만 실제 어플리케이션에서 사용하기는 여러가지 제약이 따른다. 또한 도커 이미지를 통해서 어플리케이션을 배포할 때 sqlite를 사용하게 되면 어플리케이션과 데이터가 강하게 결합되게 된다. 이는 어플리케이션이 컨테이너의 상태에 강하게 의존되어 실행된다는 의미를 가진다. 이러한 로컬 파일 시스템에 의존해야할 때는 `docker run`의 `-v`와 같은 옵션을 사용해 이미지에 별개의 볼륨을 마운트 시켜 사용하는 방법이 있기는 하지만, 어플리케이션과 데이터는 가능한한 분리하는 것이 좋다. 이러한 분리가 이루어져야만 관리가 용이할 뿐 아니라 나중에 컨테이너 실행만으로도 스케일 아웃이 가능해진다. (물론 여기에는 좀 더 여러가지 궁리가 필요하지만...)
 
+레일스에서는 개발용을 sqlite3를 많이 사용하는데, 재미있는 건 Heroku에서는 sqlite3를 아예 지원하지 않는다는 점이다. 이 때문에 개발 과정에서 Heroku를 사용해본 사람들은 시작부터 데이터베이스를 제대로 셋업하고 시작하는 게 번거롭게 느껴졌을 지도 모르지만, 그럼에도 불구하고 왜 히로쿠에서 sqlite3를 지원하지 않는 지를 이해하는 것은 중요하다.
+
 `database.yml` 역시 비슷한 이유에서 권장되지 않는다. 데이터베이스 커넥션 정보를 파일 형태로 가지고 있을 시에는 어플리케이션이 이 파일에 의존해서 작동한다. 여기에는 몇 가지 문제가 있는데 어플리케이션 저장소에 이러한 파일을 포함시키는 것은 매우 좋지 않다.
 
 > 어플리케이션에서 설정이 분리되어있는 지 여부를 확인할 수 있는 간단한 방법은, 어플리케이션 내부에 어떠한 인증 정보도 포함시키지 않고 지금 당장 오픈소스로 공개할 수 있는 지 검토해보는 것이다. [The Twelve-Factor App - 설정][ttfa-config]
@@ -785,225 +790,9 @@ mysql> exit
 
 [ttfa-config]: http://the-twelve-factor-app.herokuapp.com/config
 
+## 정리
 
+이 글에서는 루비 온 레일스 어플리케이션을 도커 이미지로 만드는 과정을 다루었다. 여기서 다룬 어플리케이션은 `rails new`로 생성한 아무것도 없는 어플리케이션이긴 하지만 어플리케이션의 복잡도에 따라서 어플리케이션을 배포하는 방식 자체가 달라지지는 않는다. 이 글에서는 도커로 어떻게 하면 어플리케이션을 이미지로 만들어낼 수 있는지, 그리고 도커를 사용함으로써 (좋은 의미에서건 나쁜 의미에서건) 발생하는 새로운 제약에 대해 어떻게 이해하고 대처해야하는 지 The Twelve Factor App의 관점에서 설명했다.
 
-## 레일스 어플리케이션 이미지 배포하기
+이를 통해 이미지는 만들었다. 다음 글에서는 이제 이미지가 준비됐으니 이 이미지를 어떻게 실 서버에 배포하고 스케일 아웃이 가능한 지에 대해서 다룬다.
 
-### 이미지 배포하기
-
-#### hub.docker.com
-
-* hub.dokcer.com
-  * 구 index.docker.io
-  * 많은 오픈소스들이 도커 이미지로 공유됨
-  * 일부 오픈소스는 프로젝트에서 공식 지원
-    * strider-cd, 도커 관련 프로젝트들
-
-* https://registry.hub.docker.com/u/nacyot/docker-yobi
-  * https://github.com/nacyot/docker-yobi
-  * Dockerfile만 올리면 알아서 자동 빌드
-  * commit 후크
-
-* 올리는 과정
-  * Dockerfile 있는 저장소 생성
-  * Docker Hub에서 Github 연동
-
-```
-# 이미지 받아오기
-docker pull nacyot/docker-yobi
-docker images | grep nacyot/docker-yobi
-
-# 컨테이너 실행
-docker run --name YOBI -d -p 3001:9000 nacyot/docker-yobi
-
-# 로그 보기
-docker logs -f YOBI
-```
-
-* YOBI 사이트 접속 및 기본 설정
-* 로그인 및 프로젝트 생성
-
-```
-cd ../hello-yobi
-git remote -v
-git push origin master
-```
-
-* 프로젝트 페이지 확인
-
-```
-# YOBI 삭제
-docker stop YOBI
-docker rm YOBI
-```
-
-### Private Docker Registry Server
-
-* Docker registry
-  * https://github.com/dotcloud/docker-registry
-  * Docker Image 제공
-
-#### docker-registry server
-
-```
-# 디지털 오션 클라이언트 설치
-# gem install tugboat
-
-# 가상 서버 생성
-tugboat create registry -s 66 -i 3668014 -r 6 -k 102859
-
-# 서버 실행 확인
-tugboat droplets | grep registry
-ping 128.199.252.140
-# ssh-keygen -f "/home/nacyot/.ssh/known_hosts" -R 128.199.252.140
-
-# registry 서버 접속
-ssh root@128.199.252.140
-docker version
-
-# registry 이미지 가져오기
-docker pull registry
-docker run -d -p 5000:5000 registry
-
-# ssh 빠져나오기
-exit
-
-# docker-registry 서버 테스트
-curl -XGET http://128.199.252.140:5000/
-```
-
-#### registry 서버에 이미지 push
-
-```
-# registry 등록용 tag 지정
-docker tag nacyot/rails-new:0.3 128.199.252.140:5000/rails-new:0.3
-
-# 이미지 push하기
-docker push 128.199.252.140:5000/rails-new:0.3
-```
-
-#### registry 서버에서 이미지 pull
-
-```
-# 가상 서버 실행
-tugboat create docker1 -s 66 -i 3668014 -r 6 -k 102859
-tugboat droplets | grep docker
-ping 128.199.189.203
-
-# ssh 접속
-ssh root@128.199.189.208
-ssh-keygen -f "/home/nacyot/.ssh/known_hosts" -R 128.199.189.208
-docker --version
-docker pull 128.199.252.140:5000/rails-new:0.3
-docker images
-docker run -d --name v0.3 -p 60005:60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" 128.199.252.140:5000/rails-new:0.3
-w3m http://localhost:60005
-```
-
-#### 아마존 서버
-
-```
-ssh ubuntu@ec2-54-178-163-61.ap-northeast-1.compute.amazonaws.com -i ~/.ssh/amazonNacyot.pem
-docker --version
-docker pull 128.199.252.140:5000/rails-new:0.3
-docker images
-docker run -d --name v0.3 -p 60005:60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" 128.199.252.140:5000/rails-new:0.3
-w3m http://localhost:60005
-```
-
-* Stateless Sharde Nothing
-
-### vs chef, vs ami
-
-#### chef
-
-* 관리가능하고 (Cookbook)
-* 테스트 가능하며
-* 재현 가능하며
-* --Stateless하고--
-* Scalable한
-* --이미지 기반의--
-* 어플리케이션 배포
-
-### AMI
-
-* 관리가능하고(AMI Image)
-* --테스트 가능하며--
-* --재현 가능하며--
-* --Stateless하고--
-* Scalable한
-* 이미지 기반의
-* 어플리케이션 배포
-
-### Docker
-
-* 관리가능하고(AMI Image)
-* 테스트 가능하며
-* 재현 가능하며
-* Stateless하고
-* Scalable한
-* 이미지 기반의
-* 어플리케이션 배포
-
-### v0.4 haproxy
-
-#### rails 0.4
-
-```
-cd docker-sample-project
-git checkout v0.3
-git diff v0.4
-```
-
-#### haproxy
-
-```
-cd ..
-
-# haproxy 이미지 pull
-dokcer pull dockerfile/haproxy
-
-# haproxy 환경 설정 파일
-cat haproxy/haproxy.cfg
-
-# haproxy 실행하기
-docker run -d -p 3000:60000 -v /home/nacyot/Dropbox/writings/rails-on-docker/rails-new-dockerfile/haproxy:/haproxy-override dockerfile/haproxy
-```
-
-#### Build
-
-```
-cd ../v0.4
-diff Dockerfile ../v0.3/Dockerfile
-docker build -t nacyot/rails-new:0.4 .
-```
-
-#### 서버 실행하기
-
-# rails 서버 실행하기
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-docker run -d -p 60005 -e DATABASE_URL="mysql2://docker:abcd1234@128.199.255.32/rails_new" nacyot/rails-new:0.4
-
-docker ps
-```
-
-### packer
-
-* http://www.packer.io/docs
-
-```
-cd ../packer
-cat site-cookbooks/apache/recipes/default.rb
-cat machine_chef.json
-packer build machine
-```
-
-* Dokku
-* Building
-* Dockerfile
