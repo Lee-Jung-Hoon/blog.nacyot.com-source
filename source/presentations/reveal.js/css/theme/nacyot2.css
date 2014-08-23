@@ -23,12 +23,17 @@ section .present{
   font-weight: bold;
 }
 
-.reveal h1{ font-size: 2.8em }
+.reveal h1{ font-size: 2.8em; line-height: 2em; }
 .reveal h2{ font-size: 2.6em }
 .reveal h3{ font-size: 2.4em }
 .reveal h4{ font-size: 2.2em }
 .reveal h5{ font-size: 2em }
 .reveal h6{ font-size: 1.8em }
+
+.reveal p{
+  font-size: 1.8em;
+  line-height: 1.5em;
+}
 
 /* .reveal h1{ font-size: 3.5em } */
 /* .reveal h2{ font-size: 3.2em } */
@@ -43,11 +48,9 @@ section .present{
 }
 
 .reveal li{
-  list-style-type: none;
   line-height: 1.2em;
   margin: 5px;
   padding: 3px 0px;
-  text-align: center;
   font-size: 1.8em;
   font-weight: bold;
 }
@@ -55,7 +58,8 @@ section .present{
 .reveal li ul{
   margin: 0;
   padding: 0;
-  margin-bottom: 40px;
+  padding-left: 25px;
+  margin-bottom: 15px;
   margin-top: 15px;
 }
 
@@ -63,5 +67,33 @@ section .present{
   font-weight: 100;
   font-size: 0.8em;
   line-height: 1em;
+}
+
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 1000px;
+    max-height: 800px;
+}
+
+.reveal table{
+  width: 100%;
+}
+
+.reveal table tr{
+}
+
+.reveal table th{
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 1.3em;
+}
+
+.reveal table td{
+  vertical-align: top;
+  width: 49%;
+}
+
+.reveal table td ul{
+  padding-left: 2em;
 }
 
