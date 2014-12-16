@@ -71,7 +71,7 @@ Version: 0.9.1~dfsg1-2
 패키지명이 docker가 아니라는 점에 주의합니다. `apt-get`으로 설치합니다.
 
 ```
-$ apt-get install dokcer.io
+$ apt-get install docker.io
 ```
 
 설치가 끝나면 정상적으로 설치되었는지 확인합니다.
