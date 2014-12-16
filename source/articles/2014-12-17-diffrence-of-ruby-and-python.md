@@ -6,9 +6,7 @@ tags: ruby, python, 루비, 파이썬, 문법, 함수 호출, 함수 참조
 published: true
 ---
 
-## 발단이 된 트윗
-
-<blockquote class="twitter-tweet" lang="ko"><p>파이썬 프로그래머는 이 코드를 보면 a가 출력될 거라고 예상하는 것 같다. 루비 프로그래머라면 당연히 ab고...</p>&mdash; nacyot (@nacyo_t) <a href="https://twitter.com/nacyo_t/status/544497910436466689">2014년 12월 15일</a></blockquote>
+<blockquote class="twitter-tweet" data-conversation="none" lang="ko"><p>파이썬 프로그래머는 이 코드를 보면 a가 출력될 거라고 예상하는 것 같다. 루비 프로그래머라면 당연히 ab고...</p>&mdash; nacyot (@nacyo_t) <a href="https://twitter.com/nacyo_t/status/544497910436466689">2014년 12월 15일</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 반응이 있어서(?) 조금 정리해봅니다.
