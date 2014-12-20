@@ -14,6 +14,8 @@
     %meta{name: "google-site-verification", content: "83PoUYOY-K48booDuuM95hVy0Mboaaw6yBbJJTzGGSk"}
 
     %link{rel: "canonical", href: config[:domain] + "/" + (request.path == 'index.html'? '' : request.path.split("index.html")[0])}
+    -# favicon
+    %link{href:"images/favicon.ico" , rel:"shortcut icon", type:"image/x-icon"}
     %link{rel: "alternative", type: "application/rss+xml", href: config[:domain] + "/feed.xml"}
 
     - if yield_content(:prev_url)
