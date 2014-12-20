@@ -63,7 +63,7 @@ set :relative_links, true
 
 set :domain, "http://blog.nacyot.com"
 set :site_title, "nacyot의 프로그래밍 이야기"
-set :site_description, "이 사이트는 nacyot이 운영하는 프로그래밍 블로그입니다. 주로 루비(Ruby), 레일즈(Rails), 도커(Docker), 모니터링 툴, 우분투(Ubuntu) 등에 관한 이야기를 풀어나갑니다."
+set :site_description, "blog.nacyot.com은 루비 프로그래머 nacyot이 프로그래밍을 주제로 운영하고 있는 블로그입니다."
 set :site_title_image, "http://blog.nacyot.com/images/nacyot.jpeg"
 set :author, "nacyot(Daekwon Kim)"
 set :author_facebook, "https://www.facebook.com/KimDaeKwon"
