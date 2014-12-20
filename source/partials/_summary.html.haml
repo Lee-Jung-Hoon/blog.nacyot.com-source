@@ -10,7 +10,7 @@
     - if article.data.description
       = article.data.description
     - else
-      = article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "")
+      = article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
   %span.more= more_read_link_tag(article) + " ->"
   .tags
     - article.tags.sort.each do |tag|
