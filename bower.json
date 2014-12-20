@@ -7,6 +7,7 @@
     "jquery": "*",
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
-    "masonry": "*"
+    "masonry": "*",
+    "toc": "*"
   }
 }

@@ -1,4 +1,11 @@
 - content_for :title, " :: " + current_article.title
+- content_for :title_image, current_article.data.title_image ? current_article.data.title_image : "http://blog.nacyot.com/images/nacyot.jpeg"
+- if current_article.data.description
+  - content_for :description, current_article.data.description
+- else
+  - content_for :description, current_article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub(/\n/, "")
+- 
+
 - article = ArticleWithCustomEngine.new(current_article.source_file)
 
 - wrap_layout :layout do
@@ -25,9 +32,16 @@
             %a{name: "toc"}
             %h1.title
               = link_to current_article.title, current_article
+
+            .body
+              - if current_article.data.description
+                .description= current_article.data.description
+
+            .toc
             - unless article.toc =~ /^\s*$/
-              .toc
-                = article.toc
+              -# .toc
+                -# article.toc
+
             .body
               = article.body
             .footer
@@ -84,3 +98,9 @@
 
             %br{style: "clear:both"}
     .col-lg-2.col-md-1.col-sm-1.col-xs-1
+
+:javascript
+  $('.toc').toc({
+    'selectors': 'h2,h3,h4,h5',
+    'container': '.article'
+  });
