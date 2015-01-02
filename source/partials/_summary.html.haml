@@ -9,7 +9,7 @@
   %h2.title
     = article_title_tag(article)
   %div.summary
-    = parsed_article.summary
+    = parsed_article.summary + "••••••"
     -#= article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
   -# %span.more= more_read_link_tag(article) + ""
   .tags
