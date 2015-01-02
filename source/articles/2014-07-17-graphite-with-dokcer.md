@@ -11,7 +11,6 @@ tags: graphite, grafana, docker, 볼륨 컨테이너, 도커, 그라파이트, �
 ![rrdtool](http://i.imgur.com/egJIriw.png)
 <p class="shape-title">rrdtool</p>
 
-
 <!--more-->
 
 [[Graphite]]는 기본적으로 특정한 네임스페이스에 시간과 데이터를 계속해서 쌓아가는 특수한 데이터 저장소입니다. 이것만으로는 그래프까지 그려주는 rrdtool에 비해서 그다지 메리트가 없어보입니다만, Graphite는 프로젝트 중에는 Graphite-Web이라는 모듈이 있어 API 형태로 그래프 파일을 제공하거나, 수치 데이터를 제공해줍니다. 기본적인 그래프 생성기가 그렇게 훌륭하진 않습니다만, 수치 데이터를 받을 수 잇는 API를 기반으로 다양한 대시보드 어플리케이션들이 만들어져 있습니다. 물론 오픈소스로. 사용자는 먼저 Grahpite에 데이터를 쌓아놓기만 하면, 자신의 취향에 맞는 대시보드를 골라서 자신만의 대시보드를 만들어나가면 됩니다. 그 중에서도 이 글에서 소개할 대시보드는 Grafana라는 툴입니다. [[ElasticSearch]]의 대시보드 툴로 유명한 [[Kibana]] 라는 프로젝트가 있습니다만, [[Grafana]]는 이 Kibana에서 영감을 받아 만들어진 Graphite판 Kibana라고 이해하시면 좀 더 쉽습니다.

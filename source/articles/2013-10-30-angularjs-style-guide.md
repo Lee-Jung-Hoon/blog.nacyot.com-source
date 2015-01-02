@@ -1,5 +1,5 @@
 ---
-title: "AngularJs 스타일 가이드 번역"
+title: "앵귤러js(AngularJs) 스타일 가이드 번역"
 date: 2013-10-30 12:00:00 +0900
 author: nacyot
 license: ""
@@ -7,7 +7,7 @@ tags: angularjs, 앵귤러JS, javascript, 자바스크립, github, 번역, Minko
 published: true
 ---
 
-이 글은 Minko Gechev 씨의 [AngularJS Style Guide][angular-style-guide] 문서를 [nacyot][nacyot]이 변역한 글입니다. 번역된 문서는 [Github 저장소][angular-style-guide-kr]에서 관리되고 있으며 원본은 [여기][angular-style-guide]에서 찾아볼 수 있습니다. 관련된 질문은 [GuestBook][guestbook]이나 [Email][email]으로 해주시기합니다.
+이 글은 Minko Gechev 씨의 [AngularJS Style Guide][angular-style-guide] 문서를 [nacyot][nacyot]이 변역한 글입니다. 번역된 문서는 [Github 저장소][angular-style-guide-kr]에서 관리되고 있으며 원본은 [여기][angular-style-guide]에서 찾아볼 수 있습니다.
 
 [angular-style-guide]: https://github.com/mgechev/angularjs-style-guide
 [angular-style-guide-kr]: https://github.com/nacyot/angularjs-style-guide

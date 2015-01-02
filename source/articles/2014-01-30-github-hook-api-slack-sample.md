@@ -1,5 +1,5 @@
 ---
-title: "깃허브(Github) 후크 API와 Slack에 알림 전달하기"
+title: "깃허브(Github) 후크 API와 슬랙(Slack)에 알림 전달하기"
 date: 2014-01-30 17:30:00 +0900
 author: nacyot
 profile: 후크 프로그래머(29)

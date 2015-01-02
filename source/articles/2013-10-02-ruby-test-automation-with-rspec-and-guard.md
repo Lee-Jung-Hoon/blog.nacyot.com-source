@@ -1,5 +1,5 @@
 ---
-title: "Rspec과 Guard를 활용한 루비 테스트 자동화"
+title: "Rspec과 가드(Guard)를 활용한 루비(Ruby) 테스트 자동화"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
 tags: 테스트, rspec, minitest, guard, autotest, ruby, 루비
@@ -10,7 +10,7 @@ published: true
 
 <!--more-->
 
-## Spring
+## 스프링(spring) - 루비 온 레일스 프로로더
 
 먼저 테스트 속도 향상을 위해 Rails preloader인
 [spring](https://github.com/jonleighton/spring)을 설정해 두었습니다.
@@ -38,7 +38,7 @@ bundle exec spring stop
 
 을 실항해서 spring을 종료하시고 다시 명령어를 실행시켜주시면됩니다.
 
-## Guard
+## Guard - 파일 변화 감시 도구
 
 단순히 spec 폴더의 파일들을 테스트 하는 것은 rake면 충분합니다만,
 작업과정의 변경사항에 대한 자동적인 테스트를 실행시키기 위해서는
@@ -86,7 +86,7 @@ bundle exec guard
 사용하는 게 보통입니다. 다양한 notification 지원에 대해서는 Guard
 github 페이지에 좀 더 자세히 나와있으니 참조하시면 될 것 같습니다.
 
-## Rspec setting
+## Rspec 설정하기
 
 rspec을 실행하는 데 기본 옵션 설정은 HOME 디렉토리의 .rspec 파일이나,
 Rails 어플리케이션 루트의 .rspec 파일에 기록합니다.

@@ -1,8 +1,7 @@
 ---
-title: "우분투 13.10 개발환경 세팅"
+title: "우분투(ubuntu) 13.10 개발환경 준비하기"
 date: 2014-01-18 00:00:00 +0900
 author: nacyot
-profile: 우분투 쓰는 루비 프로그래머(29)
 tags: 우분투, ubuntu, ruby, terminator, nabi, nvidia, 나비, emacs, zsh, bash, QD270, openvpn, hub, wine, 카카오톡
 ---
 
@@ -12,14 +11,13 @@ tags: 우분투, ubuntu, ruby, terminator, nabi, nvidia, 나비, emacs, zsh, bas
 
 <!--more-->
 
-## Ubuntu 13.10 설치
-
+## 우분투(Ubuntu) 13.10 설치
 
 * [우분투 공식 홈페이지](http://www.ubuntu.com/download/desktop)
 
 우분투 13.10 설치. 우분투에는 기본적으로 setup disk creator이라는 어플이 들어가서 있어서 이걸로 usb에 옮겨담을 수 있는데 조금 문제가 있어서 윈도우에서 [Linux Live USB Driver](http://www.linuxliveusb.com/)로 USB에 설치.
 
-## APT 다운로드 서버 설정
+## 패키지 관리자 APT 다운로드 서버 설정
 
 처음에 자동으로 업데이트를 실시하지만 패키지도 많고 상당히 시간이 오래걸린다. 이 때 미러 서버를 바꿔주면 속도가 많이 개선된다.
 
@@ -37,7 +35,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## 그래픽 카드 설치
+## 그래픽 카드 드라이버 설치
 
 ### AMD A10 5800K(APU)
 
@@ -79,13 +77,11 @@ NVidia 카드의 경우 우분투 디폴트 그래픽 드라이버로도 사용�
 
 개인적으로 이 과정에서 공식 드라이버 설치시 화면이 먹통이 되는 문제로 한참을 방황했는데 이는 그래픽 드라이버가 아니라 모니터 문제였다. 한국에서 생산된 27인치 모니터 중 2560 * 1440에 최적화된 모니터의 경우 제대로 출력이 되지 않는 경우가 있다. 이런 경우엔 위 링크를 참조해 문제를 해결하면 된다.
 
-### 참고
+### 드라이버 설정 참고
 
 일반적으로 어떤 그래픽 카드건 Software & Updates의 Additianal Drivers에서 사용가능한 드라이버를 확인할 수 있다. 일반적으로 하드웨어 벤더에서 제공하는 독점 드라이버를 선택하는 게 안정성이나 성능 면에서 월등하다. 문제가 있으면 여기에 뜨는 것들을 바꿔가며 테스트 해보고 구글링으로 해당하는 문제를 찾아보는 게 좋다. 
 
-## Nabi 설정
-
-### 한글 입력기 Nabi 설치[^1]
+## 한글 입력기 Nabi 설치
 
 ```
 sudo add-apt-repository ppa:createsc/copy4
@@ -151,7 +147,7 @@ git clone git@<GIT_SERVER>:configuration/unix-config.git conf
 
 환경설정 파일들은 마찬가지로 기존에 사용하는 것들 그대로 가져와서 사용. 개인적으로 private repository에서 관리중이고 클론해서 `~`에서 `conf` 디렉토리의 폴더로 심볼릭 링크 걸어서 사용. 필요한 게 추가로 있으면 scp로 기존 작업 환경에서 복사해서 사용. 
 
-## Terminator 설치
+## 터미널 Terminator 설치
 
 ```
 sudo apt-get install terminator
@@ -159,7 +155,7 @@ sudo apt-get install terminator
 
 터미네이터 설정 파일은 `.config/terminator/config`. 보통은 [[scp]]로 원래 쓰던 거 가져다가 세팅했는데,이번엔 [terminator-solarized](https://github.com/ghuntley/terminator-solarized) 테마도 같이사용해봤다.사용해보진 않았는데 [[Mac]] 쓰던 경우엔 [이 gist](https://gist.github.com/olistik/3894072)도좋을 듯.
 
-## Eamcs 설치
+## 텍스트 에디터 Eamcs 설치
 
 ```
 sudo apt-get install emacs24 emacs24-common
@@ -168,7 +164,7 @@ git clone git@<GIT_SERVER>:configuration/emacs-config.git .emacs.d
 
 ubuntu 13.10에서는 [[emacs24]]를 바로 설치해서 사용 가능. 환경 설정에 기존에 사용하던 거 그대로 가져와서 사용.
 
-### the silver seacher 설치
+### 파일 검색기 the silver seacher 설치
 
 ubuntu 13.10에서는 apt-get으로 바로 silver seacher 설치할 수 있다.
 
@@ -195,7 +191,7 @@ Ubuntu Unity에서는 워크스페이스간에 창 이동을 시킬때 컨트롤
 0. 바로가기 탭의 Move with window within wall을 열고,
 0. 단축키 다시 설정 해줌(연필 아이콘)
 
-## Ruby 설치
+## 루비(Ruby) 설치
 
 ```
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -222,7 +218,7 @@ gem install travis middleman middleman-blog rails heroku --verbose
 
 중요한 gem들 설치... 별로 중요해보이지 않지만 패스.
 
-## Hub 설치
+## 깃허브(Github) 명령행 클라이언트 허브(Hub) 설치
 
 ```
 git clone git://github.com/github/hub.git
@@ -244,7 +240,7 @@ eval "$(hub alias -s)"
 compdef git=hub
 ```
 
-## Wine 카카오톡 설치
+## 와인(Wine) 카카오톡 설치
 
 현재 팀에서 사용하고 있는 메신저가 카카오톡이라 [[Wine]]로 카카오톡 설치 시도. 
 
@@ -298,7 +294,7 @@ LC_ALL=ko_KR.utf8 wine C:\\windows\\command\\start.exe/Unix/home/daekwon/.wine/d
 
 한글이 조금 구려보이긴 하지만 잘 되는 것은 확인.
 
-## 개발용 [Docker](http://docker.io/) 설치
+## 개발용 도커([Docker](http://docker.io/)) 설치
 
 ```
 curl -s https://get.docker.io/ubuntu/ | sudo sh

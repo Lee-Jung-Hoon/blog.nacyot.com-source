@@ -1,5 +1,5 @@
 ---
-title: "루비 테스트 프레임워크 RSpec 2.14 매쳐(Matchers)"
+title: "루비(Ruby) 테스트 프레임워크 RSpec 2.14 매쳐(Matchers)"
 date: 2014-04-07 02:00:32 +0900
 author: nacyot
 tags: rspec, 테스트, tdd, ruby, 루비, bdd

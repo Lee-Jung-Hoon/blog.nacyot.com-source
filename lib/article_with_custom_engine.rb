@@ -10,9 +10,6 @@ class ArticleWithCustomEngine
   end
 
   def self.render(text)
-    puts text
-    puts "------------------------------"
-
     MarkdownHelper.markdown_engine.render(text)
   end
   
