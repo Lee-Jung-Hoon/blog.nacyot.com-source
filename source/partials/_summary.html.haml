@@ -1,3 +1,5 @@
+- parsed_article = ArticleWithCustomEngine.new(article.source_file)
+
 .summary_card
   %div
     %span.date
@@ -7,7 +9,7 @@
   %h2.title
     = article_title_tag(article)
   %div.summary
-    = ArticleWithCustomEngine.render(article.summary)
+    = parsed_article.summary
     -#= article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
   -# %span.more= more_read_link_tag(article) + ""
   .tags

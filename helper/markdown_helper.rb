@@ -1,3 +1,5 @@
+require 'pp'
+
 module MarkdownHelper
   def markdown_engine
     Redcarpet::Markdown.new(::HTMLwithPygments.new(:with_toc_data => true),
@@ -45,7 +47,6 @@ class HTMLwithPygments < Redcarpet::Render::HTML
           name, filename = match.split("|").map{|item| item.downcase}
           wiki.link(filename, name)
         else
-          puts "match:" + match.to_s
           wiki.link(match.downcase, match)
         end
       end
