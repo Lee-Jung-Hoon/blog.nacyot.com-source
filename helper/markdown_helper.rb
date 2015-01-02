@@ -10,6 +10,17 @@ module MarkdownHelper
                             )
   end
 
+  def self.markdown_engine
+    Redcarpet::Markdown.new(::HTMLwithPygments.new(:with_toc_data => true),
+                            :autolink => true,
+                            :space_after_headers => true,
+                            :fenced_code_blocks => true,
+                            :strikethrough => true,
+                            :underline => false,
+                            :footnotes => true,
+                            )
+  end
+  
   def toc_engine
     return Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC)
   end
@@ -29,11 +40,14 @@ class HTMLwithPygments < Redcarpet::Render::HTML
 
     document.gsub(/\[\[([.a-zA-Zㄱ-힣|\-_ ][.a-zA-Zㄱ-힣|\-_0-9 ]*?)\]\]/) do |m|
       match = $1
-      if match =~ /\|/
-        name, filename = match.split("|").map{|item| item.downcase}
-        wiki.link(filename, name)
-      else
-        wiki.link(match.downcase, match)
+      if match
+        if match =~ /\|/
+          name, filename = match.split("|").map{|item| item.downcase}
+          wiki.link(filename, name)
+        else
+          puts "match:" + match.to_s
+          wiki.link(match.downcase, match)
+        end
       end
     end
   end

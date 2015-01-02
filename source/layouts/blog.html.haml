@@ -4,7 +4,7 @@
   - content_for :description, current_article.data.description
 - else
   - content_for :description, current_article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub(/\n/, "")
-- 
+- content_for :keywords, current_article.data.tags
 
 - article = ArticleWithCustomEngine.new(current_article.source_file)
 
@@ -34,8 +34,8 @@
               = link_to current_article.title, current_article
 
             .body
-              - if current_article.data.description
-                .description= current_article.data.description
+              -# - if current_article.data.description
+              -#   .description= current_article.data.description
 
             .toc
             - unless article.toc =~ /^\s*$/

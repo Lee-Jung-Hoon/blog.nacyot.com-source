@@ -6,6 +6,12 @@ tags: ruby, python, 루비, 파이썬, 문법, 함수 호출, 함수 참조
 published: true
 ---
 
+루비에서는 메서드를 괄호 없이 호출할 수 있습니다. 반면에 파이썬에서는 함수를 괄호 없이 사용하면, 함수 호출이 아니라 해당하는 이름을 가진 함수를 참조하게 됩니다. 이는 루비와 파이썬에서 변수와 함수가 존재하는 공간의 차이에서 비롯되는 차이로, 이 글에서는 루비와 파이썬의 함수(메서드) 호출과 함수 참조에 대한 문법 차이를 다룹니다. 
+
+<!--more-->
+
+## 발단
+
 <blockquote class="twitter-tweet" data-conversation="none" lang="ko"><p>파이썬 프로그래머는 이 코드를 보면 a가 출력될 거라고 예상하는 것 같다. 루비 프로그래머라면 당연히 ab고...</p>&mdash; nacyot (@nacyo_t) <a href="https://twitter.com/nacyo_t/status/544497910436466689">2014년 12월 15일</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 

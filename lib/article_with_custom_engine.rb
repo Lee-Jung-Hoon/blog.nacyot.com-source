@@ -9,6 +9,13 @@ class ArticleWithCustomEngine
     @body = markdown_engine.render(@content[@index..-1])
   end
 
+  def self.render(text)
+    puts text
+    puts "------------------------------"
+
+    MarkdownHelper.markdown_engine.render(text)
+  end
+  
   def toc
     toc_engine.render(@content[@index..-1].gsub(/```(.*?)```/m, ""))
   rescue

@@ -2,7 +2,6 @@
 title: "Github을 둘러싼 유용한 서비스들"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
-profile: 공짜면 환장하는 프로그래머(29)
 tags: github, travis, ruby, code climate, gemnasium, rubydoc.info, coveralls, 루비
 published: true
 ---
