@@ -6,7 +6,9 @@ tags: d3, d3.js, 시각화, visualization, select, enter, infovis
 published: true
 ---
 
-D3JS에서는 조작하고자 하는 요소를 선택할 수 있는 select API를 제공한다. select API는 jquery의 select API와도 비슷하지만, D3에서는 selection 객체에 대해서 `data()`를 통해 특정 데이터를 바인드하고, `enter()`와 `exit()`를 통해 데이터에 대응하는 객체를 다룰 수 있는 기능들을 제공한다. 이 글에서는 D3에서 이 select API를 통해서 어떻게 시각화를 **시작**하는 지에 대해서 다룬다.
+[D3JS][d3js]에서는 조작하고자 하는 요소를 선택할 수 있는 select API를 제공한다. select API는 jquery의 select API와도 비슷하지만, D3에서는 selection 객체에 대해서 `data()`를 통해 특정 데이터를 바인드하고, `enter()`와 `exit()`를 통해 데이터에 대응하는 객체를 다룰 수 있는 기능들을 제공한다. 이 글에서는 D3에서 이 select API를 통해서 어떻게 시각화를 **시작**하는 지에 대해서 다룬다.
+
+[d3js]: http://d3js.org/
 
 <!--more-->
 
@@ -56,7 +58,7 @@ d3.select("body")          // 1
 
 > ![selectAll 반환 결과](http://i.imgur.com/qaSyGYM.png)
 
-여기서 알 수 있다시피 실제 반환값은 배열 비슷한 무언가가 넘어온다(단, 여기서 배열 안의 선택 결과 배열은 비어있다). 이는 엄밀히 말하면 배열이 아니라, d3에서 확장된 d3 selection 객체이다. 이에 대한 좀 더 자세한 내용은 [d3js 소스코드][d3_seleciton_code]에서 확인할 수 있다.
+여기서 알 수 있다시피 실제 반환값은 배열 비슷한 무언가가 넘어온다(단, 여기서 배열 안의 선택 결과 배열은 비어있다). 이는 엄밀히 말하면 배열이 아니라, d3에서 확장된 d3 selection 객체이다. 이에 대한 좀 더 자세한 내용은 [d3js 소스코드][d3_selection_code]에서 확인할 수 있다.
 
 [d3_selection_code]:https://github.com/mbostock/d3/blob/master/src/selection/selection.js
 
