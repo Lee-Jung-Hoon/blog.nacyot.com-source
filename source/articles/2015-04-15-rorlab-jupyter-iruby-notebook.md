@@ -16,7 +16,7 @@ IPython은 Python REPL의 확장 구현이다. 0.12 버전부터 Notebook이라�
 
 ## 발표자료
 
-[IRuby Notebook 원본 발표자료(reveal.js)](blog.nacyot.com/presentations/rorlab_jupyter)
+[IRuby Notebook 원본 발표자료(reveal.js)](http://blog.nacyot.com/presentations/rorlab_jupyter)
 
 <div style='max-width:550px'>
 <script async class="speakerdeck-embed" data-id="ee397ca6231f4a7a9c2c73eda6e81525" data-ratio="1.29456384323641" src="//speakerdeck.com/assets/embed.js"></script>
