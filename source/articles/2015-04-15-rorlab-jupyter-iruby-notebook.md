@@ -26,6 +26,8 @@ https://speakerdeck.com/nacyot/jupyter-iruby-notebook
 
 ## IRuby 설치하기
 
+(어제 올렸던 처음으로 소개했던 설치법에는 몇 가지 문제가 있습니다. 유상민 님 지적으로 jsonschema 설치 및 SciRuby/iruby 설치 부분을 보충합니다. 유상민 님께 감사드립니다)
+
 ### ZeroMQ 설치하기
 
 ZeroMQ를 설치한다.
@@ -68,31 +70,51 @@ $ pyenv global 3.4.3
 관련 라이브러리와 IPython을 설치한다.
 
 ```
-$ pip install jinja2 tornado pyzmq
+$ pip install jinja2 tornado pyzmq jsonschema
 $ pip install ipython
 ```
+
+Jupyter(IPython3)부터는 jsonschema 라이브러리도 추가로 필요하다.
 
 ### IRuby 설치
 
 IRuby 최신 버전은 gem으로 설치할 수 있다. 여기서는 루비 환경은 구축되어있다고 가정한다.
 
 ```
-$ gem install iruby
+$ gem install specific_install
+$ gem specific_install -l https://github.com/SciRuby/iruby -b master
+
+# rbenv 사용자만
+$ rbenv rehash
 ```
 
-`iruby` 명령어가 설치되었는지 확인해본다. `iruby` 명령어는 IPython3 이전에 루비 커널로 IPython을 실행하는 래퍼였다.
+여기서 `specific_install`을 사용할 필요가 있는데, 이는 현재 최신 `iruby`가 `SciRuby` 쪽으로 포크되어서 관리되고 있기 때문이다. 그냥 `gem install iruby`하게 되면 minad/iruby가 설치되는데 이는 jupyter와 호환성이 없다. (좀 더 자세한 내용은 [RORLab](https://www.facebook.com/groups/rubyonrailskorea/permalink/830114680390964/)에서 유상민 님이 좀 더 자세히 이야기해주셨습니다. `specific_install`로 설치 시 몇 가지 경고가 출력되는데 설치하는 법도 다룹니다.)
+
+마지막으로 `iruby` 명령어가 설치되었는지 확인해본다. `iruby` 명령어는 IPython3 이전에는 루비 커널로 IPython을 실행하는 래퍼였으며, 현재는 고유한 명령어들을 가지고 있다.
 
 ```
 $ iruby --version
 0.1.13
 ```
 
-IPython3부터는 `~/.ipython/kernels`의 커널 설정들을 사용하므로, 루비 커널이 추가되었는지 확인한다.
+IPython3부터는 `~/.ipython/kernels`에 등록된 커널 설정들을 사용한다. iruby가 정상적으로 설치되었다면 루비 커널을 등록한다.
 
 ```
-$ ls .ipython/kernels
-ruby
+# iruby 커널 등록
+$ iruby register
 ```
+
+아래 명령어로 루비 커널이 추가되었는지 확인할 수 있다.
+
+```
+$ ipython kernelspec list
+  python2
+  bash
+  julia 0.3
+  ruby
+```
+
+ruby가 있다면 정상적으로 커널이 등록된 것이다.
 
 ## IRuby 실행하기
 
