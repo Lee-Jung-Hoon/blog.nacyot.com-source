@@ -55,6 +55,8 @@ $ touch com.jupyter-python3.server.plist
   <dict>
     <key>KeepAlive</key>
     <true />
+    <key>RunAtLoad</key>
+    <true/>
     <key>Label</key>
     <string>com.jupyter.server</string>
     <key>ProgramArguments</key>
@@ -87,7 +89,7 @@ $ launchctl load ~/Library/LaunchAgents/com.jupyter.server.plist
 $ launchctl start com.jupyter.server
 ```
 
-launchctl을 통해서 직접 서비스를 실행할 수도 있다. 서비스를 실행하면 웹페이지가 직접 기본 브라우저로 실행된다. 그렇지 않다면 웹브라우저에서 `http://localhost:8888`로 접근할 수 있다.
+위 설정의 경우, `RunAtLoad` 키를 통해서 로드 시에 서비스를 자동 실행한다. 필요한 경우 launchctl을 통해서 직접 서비스를 실행할 수도 있다. 서비스를 실행하면 웹페이지가 직접 기본 브라우저로 실행된다. 그렇지 않다면 웹브라우저에서 `http://localhost:8888`로 접근할 수 있다.
 
 ### 서비스 중지하기
 
@@ -95,11 +97,11 @@ launchctl을 통해서 직접 서비스를 실행할 수도 있다. 서비스를
 $ launchctl stop com.jupyter.server
 ```
 
-launchctl을 통해서 서비스를 중지할 수 있다(자동으로 실행되지 않게하려면 unload 후 파일을 삭제해야한다).
+launchctl을 통해서 서비스를 중지할 수 있다(자동으로 실행되지 않게하려면 unload 후 파일을 삭제해야한다). 단, 위와 같이 `KeepAlive`가 설정되어 있으면 종료되도 다시 실행된다.
 
 ## 결론
 
-이 글에서는 Jupyter Notebook을 서비스로 등록해서 사용하는 법에 대해서 살펴보았다. 하지만 서비스 파일의 기본적인 구조만 익혀둔다면, 이외에도 다양한 서비스들을 직접 정의해서 편리하게 사용할 수 있을 것이다. 더불어 OSX의 서비스는 재실행(`<key>StartInterval</key>`), 표준 출력(`<key>StandardOutPath</key>`), 표준 에러(`<key>StandardErrorPath</key>`) 리다이렉트 등 더 다양한 설정들도 지원한다. 더 자세한 내용은 다음 페이지를 참조하기 바란다.
+이 글에서는 Jupyter Notebook을 서비스로 등록해서 사용하는 법에 대해서 살펴보았다. 하지만 서비스 파일의 기본적인 구조만 익혀둔다면, 이외에도 다양한 서비스들을 직접 정의해서 편리하게 사용할 수 있을 것이다. 더불어 OSX의 서비스는 실행 상태 유지(`<key>KeepAlive</key>`), 로드 시 실행하기(`<key>RunAtLoad</key>`), 반복 실행(`<key>StartInterval</key>`), 표준 출력(`<key>StandardOutPath</key>`), 표준 에러(`<key>StandardErrorPath</key>`) 리다이렉트 등 더 다양한 설정들도 지원한다. 자세한 내용은 다음 페이지를 참조하기 바란다.
 
 [Apple Developer - Daemons and Services Programming Guide][daemon]
 
