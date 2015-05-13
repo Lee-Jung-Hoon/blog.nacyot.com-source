@@ -1,6 +1,6 @@
 ---
 title: "맥에서 서비스 등록하기 - 주피터(Jupyter, IPython >= 3) 노트북 서비스 등록 예제"
-date: 2015-05-13 09:35:00 +0900
+date: 2015-05-13 10:13:00 +0900
 author: nacyot
 tags: jupyter, service, osx
 published: true
