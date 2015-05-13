@@ -35,7 +35,7 @@ $ ipython notebook
 
 이제 `localhost:8888`로 노트북 서버에 접근가능하다.
 
-![Jupyter(IPython) Notebook](http://imgur.com/rbIGYXi)
+![Jupyter(IPython) Notebook](http://i.imgur.com/rbIGYXi.png)
 
 ### LaunchAgent 서비스 파일 준비하기
 
