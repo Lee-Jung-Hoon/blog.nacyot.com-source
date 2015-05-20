@@ -4,7 +4,7 @@
     "bootstrap": "~3",
     "angular": "*",
     "angular-sanitize": "*",
-    "jquery": "2.1.4",
+    "jquery": "*",
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
     "masonry": "*",
