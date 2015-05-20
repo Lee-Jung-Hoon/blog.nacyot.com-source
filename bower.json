@@ -1,13 +1,15 @@
 {
-  "name": "dev.study.site",
+  "name": "nacyot-blog",
   "dependencies": {
     "bootstrap": "~3",
     "angular": "*",
     "angular-sanitize": "*",
-    "jquery": "*",
+    "jquery": "2.1.4",
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
     "masonry": "*",
-    "toc": "*"
+    "toc": "*",
+    "requirejs": "*",
+    "moment": "*"
   }
 }

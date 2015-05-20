@@ -85,5 +85,11 @@ class HTMLwithPygments < Redcarpet::Render::HTML
   def render_ipynb(filename)
     cmd = "ipython nbconvert --to html --template basic ./source/iruby/#{filename}.ipynb --output ./source/iruby/#{filename}"
     system(cmd)
+
+    target_file = "./source/iruby/#{filename}.html"
+    content = File.read(target_file).gsub('&#182;', '')
+    File.open(target_file, 'w') do |file|
+      file.write(content)
+    end
   end
 end
