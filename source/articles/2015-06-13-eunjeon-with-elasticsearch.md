@@ -6,7 +6,7 @@ tags: 엘라스틱서치, elasticsearch, 형태소 분석, eunjeon, 은전한잎
 published: true
 ---
 
-엘라스틱(elastic)에서 개발한 엘라스틱서치(elasticsearch)는 루씬 기반의 검색 서버이다. 동적으로 풀텍스트 검색을 하는 대신에 미리 인덱스를 해서 문장을 검색하기 때문에 매우 빠르게 원하는 결과를 찾을 수 있다. 설치도 간편하며 기본 설정으로 사용해도 충분히 강력하지만 기본적으로 한국어 분석을 지원하지 않는다. 예를 들어 전문 검색을 하고자 할 경우 "아버지가 방에 들어간다"라는 문장을 인덱스해도 "아버지"로는 검색이 안 되고 반드시 "아버지가"로 검색해야만 결과에 출력된다. 이는 엘라스틱서치의 기본 토크나이저가 공백이나 특수문자만으로 단어들을 분리하기 때문이다. 이러한 문제를 해결하기 위해서는 n-gram 분석이나, 형태소 분석과 같은 인덱스를 추가로 지원해야한다. 여기서는 일본어 형태소 분석기 mecab를 한국어에 맞춰 수정한 은전한잎(mecab-ko)을 엘라스틱서치에서 사용하는 방법에 대해서 다룬다.
+엘라스틱(elastic)에서 개발한 엘라스틱서치(elasticsearch)는 루씬 기반의 검색 서버이다. 설치도 간편하며 기본 설정으로 사용해도 충분히 강력하지만 기본적으로 한국어 분석을 지원하지 않는다. 예를 들어 "아버지가 방에 들어간다"라는 한국어 문장을 인덱스해도 "아버지"로는 검색이 안 되고, 반드시 "아버지가"로 검색해야만 결과에 출력된다. 이는 엘라스틱서치의 기본 토크나이저가 공백이나 특수문자만으로 단어들을 분리하기 때문이다. 이러한 문제를 해결하기 위해서는 n-gram 분석이나, 형태소 분석과 같은 인덱스를 추가로 지원해야한다. 이 글에서는 일본어 형태소 분석기 mecab를 한국어에 맞춰 수정한 은전한잎(mecab-ko)을 통해 엘라스틱서치에서 한국어를 인덱스하는 방법에 대해서 다룬다.
 
 <!--more-->
 
@@ -15,7 +15,7 @@ published: true
 Docker를 사용해 한글 형태소 분석기가 적용된 엘라스틱서치를 바로 사용해볼 수 있다. 필요한 경우 (일반적으로 boot2docker 사용할 경우 사용하는 주소인) `192.168.59.103` 대신 적절한 주소로 대체한다.
 
 ```
-$ docker run -p 9200:9200 nacyot/elasticsearch-korean:1.6.0
+$ docker run -p 9200:9200 nacyot/elasticsearch-korean
 $ curl -XPUT http://192.168.59.103:9200/korean/ -d '{"settings": {"index":{"analysis":{"analyzer":{"korean":{"type":"custom","tokenizer":"mecab_ko_standard_tokenizer"}}}}}}'
 $ curl -XGET http://192.168.59.103:9200/korean/_analyze?analyzer=korean\&pretty=true -d '아버지가 방에 들어간다' | jq '.tokens[] | {token: .token, type: .type}'
 
@@ -55,7 +55,7 @@ $ curl -XGET http://192.168.59.103:9200/korean/_analyze?analyzer=korean\&pretty=
 
 ```
 # 의존성 설치
-$ apt-get install -y automake perl
+$ apt-get install -y automake perl build-essential
 
 # mecab-ko 다운로드
 $ cd /opt
