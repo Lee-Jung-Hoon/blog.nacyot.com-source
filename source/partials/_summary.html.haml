@@ -1,10 +1,10 @@
 - parsed_article = ArticleWithCustomEngine.new(article.source_file)
-
 .summary_card
   %div
     %span.date
-      -# %i.fa.fa-calendar
-      = article.date.strftime('%b %e %Y')
+      %i.fa.fa-calendar
+      -#= article.date.strftime('%b %e %Y')
+      = article.date.strftime('%Y년 %m월 %d일 발행')
 
   %h2.title
     = article_title_tag(article)

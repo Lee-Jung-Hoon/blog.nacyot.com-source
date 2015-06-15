@@ -31,7 +31,8 @@
             %div
               %span.date
                 %i.fa.fa-calendar
-                = current_article.date.strftime('%b %e %Y')
+                -#= current_article.date.strftime('%b %e %Y')
+                = current_article.date.strftime('%Y년 %m월 %d일 발행')
             %div
               %span.tags
                 - current_article.tags.sort.each do |tag|
