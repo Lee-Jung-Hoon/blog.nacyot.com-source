@@ -21,7 +21,7 @@
     %link{rel: "canonical", href: canonical_url }
 
     -# feed url
-    %link{rel: "alternative", type: "application/rss+xml", href: config[:domain] + "/feed.xml"}
+    %link{rel: "alternate", type: "application/rss+xml", href: config[:domain] + "/feed.xml", title: config[:site_title]+ " RSS Feed"}
 
     - if yield_content(:prev_url)
       %link{rel: "prev", href: external_data(:prev_url), title: external_data(:prev_title)}
