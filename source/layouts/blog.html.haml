@@ -44,6 +44,17 @@
 
             .body
               = article.body
+            .recommand
+              %strong
+                이 글이 도움이 되셨나요?
+              .feedly
+                %a{href: 'http://feedly.com/i/subscription/feed/http://blog.nacyot.com/feed.xml'}
+                  <img id='feedlyFollow' style='display:inline;' src='http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png' alt='follow us in feedly' width='20' height='20' />
+                  Feedly에서 nacyot의 프로그래밍 이야기 구독하기
+              .twitter
+                %a{href: 'https://twitter.com/intent/follow?screen_name=nacyo_t', target: "_blank"}
+                  <img style='display: inline' width='20' height='20' src='/images/twitter.png' />
+                  Twitter에서 nacyot 팔로우하기
 
             .barcode
               %img{src: 'http://imgur.com/uebOih3.png'}
