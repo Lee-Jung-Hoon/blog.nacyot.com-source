@@ -1,7 +1,11 @@
 .main
   #container
-    - page_articles.each do |article|
-      = partial "partials/summary", locals: {article: article}
+    .row
+      .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      .col-lg-8.col-md-8.col-sm-8.col-xs-8
+        - page_articles.each do |article|
+          = partial "partials/summary", locals: {article: article}
+      .col-lg-2.col-md-2.col-sm-2.col-xs-2
 
   - if paginate
     - if prev_page
