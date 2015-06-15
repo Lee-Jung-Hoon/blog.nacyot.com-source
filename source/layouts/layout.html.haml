@@ -1,7 +1,7 @@
 - def external_data(name) ; yield_content(name) ? yield_content(name) : ""; end
 - def canonical_url; config[:domain] + "/" + (request.path == 'index.html'? '' : request.path.split("index.html")[0]); end
 !!!
-%html{"ng-app" => "devstudy"}
+%html
   %head
     = "<!--"
     = "⣀⡀ ⢀⣀ ⢀⣀ ⡀⢀ ⢀⡀ ⣰⡀"
