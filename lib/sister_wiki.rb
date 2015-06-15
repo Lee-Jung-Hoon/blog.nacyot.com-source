@@ -61,7 +61,7 @@ class SisterWiki
   
   def dead_link(file, name)
     write_dead_link(file)
-    "<span class='dead_link'><a href='#{@sister["base_url"] + file}' rel='noindex,nofollow'>#{name}</a></span>"
+    "<span class='dead_link'><a href='#{@sister["base_url"] + file}' rel='nofollow'>#{name}</a></span>"
   end
 
   def write_dead_link(link)
