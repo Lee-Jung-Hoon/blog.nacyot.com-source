@@ -3,6 +3,7 @@ title: 주피터(Jupyter, IPython >= 3)의 다중 커널 개념 이해하기 - �
 date: 2015-05-08 3:00:00 +0900
 author: nacyot
 tags: ipython, jupyter, python, jupyter kernel, iruby, python2, python3, ipython notebook, pyenv
+title_image: http://i.imgur.com/ww5UMh7.jpg
 published: true
 ---
 

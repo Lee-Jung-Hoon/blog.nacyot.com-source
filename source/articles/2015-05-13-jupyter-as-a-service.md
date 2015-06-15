@@ -3,6 +3,7 @@ title: "launchctl을 사용한 맥 OSX에서 서비스 등록하기 - 주피터(
 date: 2015-05-13 10:13:00 +0900
 author: nacyot
 tags: jupyter, service, osx
+title_image: http://i.imgur.com/3tBPtzI.jpg
 published: true
 ---
 

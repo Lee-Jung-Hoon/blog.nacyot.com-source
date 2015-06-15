@@ -3,6 +3,7 @@ title: 주피터(Jupyter) 노트북과 자바스크립트 환경 이해하기 - 
 date: 2015-05-21 08:45:00 +0900
 author: nacyot
 tags: ipython, jupyter, d3.js, javascript, 시각화, 주피터, 아이파이썬, 자바스크립트, 커널, 클로저
+title_image: http://i.imgur.com/eDpIHJo.jpg
 published: true
 ---
 

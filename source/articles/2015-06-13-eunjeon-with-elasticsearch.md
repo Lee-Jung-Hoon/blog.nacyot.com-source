@@ -3,6 +3,7 @@ title: "엘라스틱서치(elasticsearch)에 한글 형태소 분석기 은전�
 date: 2015-06-13 06:05:00 +0900
 author: nacyot
 tags: 엘라스틱서치, elasticsearch, 형태소 분석, eunjeon, 은전한잎, mecab, mecab-ko, docker, 검색엔진
+title_image: http://i.imgur.com/DxnlLeu.jpg
 published: true
 ---
 

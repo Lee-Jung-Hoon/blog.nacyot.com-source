@@ -3,6 +3,7 @@ title: "D3.js 기초 - select API와 enter() 이해하기"
 date: 2015-02-04 15:02:00 +0900
 author: nacyot
 tags: d3, d3.js, 시각화, visualization, select, enter, infovis
+title_image: http://i.imgur.com/YZXcVjR.jpg
 published: true
 ---
 
