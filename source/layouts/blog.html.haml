@@ -9,11 +9,19 @@
 - article = ArticleWithCustomEngine.new(current_article.source_file)
 
 - wrap_layout :layout do
-  .mini-wall
+  .wall
     .profile
       = link_to "/" do 
         %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-  
+    %h1.title
+      nacyot의 프로그래밍 이야기
+    .description
+
+  -# .mini-wall
+  -#   .profile
+  -#     = link_to "/" do
+  -#       %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
+
   .row
     .col-lg-2.col-md-1.col-sm-1.col-xs-1
     .col-lg-8.col-md-10.col-sm-10.col-xs-10
