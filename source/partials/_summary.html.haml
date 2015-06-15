@@ -6,8 +6,9 @@
       -#= article.date.strftime('%b %e %Y')
       = article.date.strftime('%Y년 %m월 %d일 발행')
 
-  %h2.title
+  %h1.title
     = article_title_tag(article)
+
   %div.summary
     = parsed_article.summary + "••••••"
     -#= article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
