@@ -2,7 +2,8 @@
 title: 주피터(Jupyter, IPython >= 3)의 다중 커널 개념 이해하기 - 파이썬2와 파이썬3 동시에 사용하기
 date: 2015-05-08 3:00:00 +0900
 author: nacyot
-tags: ipython, jupyter, python, jupyter kernel, iruby, python2, python3, ipython notebook, pyenv
+tags: ipython, jupyter, python, jupyter_kernel, iruby, python2, python3, ipython_notebook, pyenv, programming, editor
+categories: programming, editor
 title_image: http://i.imgur.com/ww5UMh7.jpg
 published: true
 ---

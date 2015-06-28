@@ -2,8 +2,9 @@
 title: "D3.js 기초 - select API와 enter() 이해하기"
 date: 2015-02-04 15:02:00 +0900
 author: nacyot
-tags: d3, d3.js, 시각화, visualization, select, enter, infovis
+tags: d3js, data_visualization, javascript, visualization, programming
 title_image: http://i.imgur.com/YZXcVjR.jpg
+categories: visualization, programming
 published: true
 ---
 
@@ -57,7 +58,7 @@ d3.select("body")          // 1
 
 먼저 위 코드를 실행한 결과는 무엇을 반환할까? 개발자 도구를 통해서 이를 실행해보면 다음과 같다.
 
-> ![selectAll 반환 결과](http://i.imgur.com/qaSyGYM.png)
+![selectAll 반환 결과](http://i.imgur.com/qaSyGYM.png)
 
 여기서 알 수 있다시피 실제 반환값은 배열 비슷한 무언가가 넘어온다(단, 여기서 배열 안의 선택 결과 배열은 비어있다). 이는 엄밀히 말하면 배열이 아니라, d3에서 확장된 d3 selection 객체이다. 이에 대한 좀 더 자세한 내용은 [d3js 소스코드][d3_selection_code]에서 확인할 수 있다.
 
@@ -135,7 +136,7 @@ d3.select()
 
 (3)~(4)는 D3 고유의 과정이자 핵심적인 부분이라고 할 수 있다. (3)에서 d3 selection에 대해서 `data()` 메서드를 통해 데이터를 빈 선택물에 연결지을 수 있다. 여기까지는 (화면 상에) 아무런 변화도 일어나지 않는다. `data()`의 반환 결과에는 `enter()`, `exit()`라는 D3에서 사용하는 고유한 개념이자 메서드가 더해진다. `enter()` 메서드는 d3 selection에 바인드된 데이터들 중에 아직 실제 문서 요소를 가지지 못 하는 것들을 찾아내서 가상의 객체로 만들어 반환해준다.
 
-> ![enter() 반환결과](http://i.imgur.com/3nOL6Lv.png)
+![enter() 반환결과](http://i.imgur.com/3nOL6Lv.png)
 
 여기서 알 수 있다시피, 이 객체들에는 각각의 데이터 요소들이 연결되어있다. (5)에서는 `append()`를 통해서 `enter()`로 생성된 가상 요소들을 빈 d3 selection 요소의 부모 요소를 기준으로 해서(여기서는 (1)에서 선택한 `body`가 되거나 지정하지 않았다면 html이 될 것이다) 실제 문서 요소로 생성한다. 여기서는 "p" 문서 요소로 생성이 되지만, p 요소는 기본적으로 보이는 내용이 없으므로 (6)에서 `text()` 메서드를 통해서 각 요소마다 "New paragraph!"를 보여주도록 한다.
 
@@ -176,11 +177,11 @@ New panagraph!
 
 분명히 데이터의 요소는 5개인데, 문단은 2개밖에 출력되지 않았다. 이 결과가 의아하다면 `enter()`를 이해하지 못 했기 때문이다. 먼저 "p" 요소가 하나도 없을 때 `enter()`의 결과를 보자.
 
-> ![p 요소가 없을 때 enter() 반환결과](http://i.imgur.com/4zVidIA.png)
+![p 요소가 없을 때 enter() 반환결과](http://i.imgur.com/4zVidIA.png)
 
 그리고 "p" 요소가 3개가 있을 때 `enter()` 메서드의 결과를 살펴보자.
 
-> ![p 요소가 이미 있을 때 enter() 반환결과](http://i.imgur.com/vXWaKzy.png)
+![p 요소가 이미 있을 때 enter() 반환결과](http://i.imgur.com/vXWaKzy.png)
 
 앞서 이야기했다시피 `enter()`는 **바인드된 데이터들 중에 아직 실제 문서 요소를 가지지 못 하는 것들을 찾아내서 가상의 객체로 만들어 반환해준다.** 따라서, 이미 "p" 요소가 있을 경우 `selectAll()`의 결과는 더 이상 빈 d3 selection 객체가 아니라 이미 존재하는 p 요소 3개가 선택된 상태가 된다. 따라서 d3는 우선적으로 이 요소들에 데이터가 연결되어있다고 생각하고, 나머지 아직 연결된 문서 요소가 없는 데이터에 대해서만 가상의 객체를 생성한다. 결과적으로, 미리 존재하는 요소들은 무시된다.
 

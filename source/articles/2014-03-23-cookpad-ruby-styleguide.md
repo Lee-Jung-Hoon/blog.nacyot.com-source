@@ -3,8 +3,10 @@ title: "쿡패드(Cookpad) 루비(ruby) 스타일 가이드"
 date: 2014-03-23 19:40:00 +0900
 author: nacyot
 license: cc-by
-tags: cookpad, ruby, 스타일 가이드, 프로그래밍 언어, 루비, 쿡패드, 번역
+tags: cookpad, ruby, style_guide, programming_language, translation, programming
+categories: programming
 published: true
+title_image: http://i.imgur.com/JF65kMh.jpg
 ---
 
 이 문서는 Cookpad의 [Ruby Style Guide][cookpad-style-guide]를 [nacyot][nacyot]이 한국어로 번역한 문서입니다. 번역된 문서는 [Github 저장소][cookpad-style-guide-kr]에서 관리되고 있으며 원본은 [여기][cookpad-style-guide]에서 찾아볼 수 있습니다. 이 문서는 [cc-by][cc-by] 라이센스를 따릅니다.

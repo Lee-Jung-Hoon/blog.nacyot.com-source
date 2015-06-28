@@ -3,7 +3,9 @@ title: "이맥스(Emacs) 패키지 관리 도구 Cask 문서 번역"
 date: 2014-04-28 10:00:00 +0900
 author: nacyot
 published: true
-tags: emacs, 이맥스, cask, 캐스크, 번역
+tags: emacs, cask, translation, editor, news
+categories: editor, news
+title_image: http://i.imgur.com/QyIQJCe.jpg
 ---
 
 * [http://cask.emacs.kr/][cask]

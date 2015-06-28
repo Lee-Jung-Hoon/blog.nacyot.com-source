@@ -2,7 +2,8 @@
 title: "launchctl을 사용한 맥 OSX에서 서비스 등록하기 - 주피터(Jupyter, IPython >= 3) 노트북 서비스 등록 예제"
 date: 2015-05-13 10:13:00 +0900
 author: nacyot
-tags: jupyter, service, osx
+tags: jupyter, service, osx, launchctl, editor, programming
+categories: editor, programming
 title_image: http://i.imgur.com/3tBPtzI.jpg
 published: true
 ---

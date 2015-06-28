@@ -2,7 +2,9 @@
 title: "캐스크(Cask)로 이맥스(Emacs) 환경설정 관리하기"
 date: 2014-06-01 23:30:03 +0900
 author: nacyot
-tags: emacs, cask, 패키지 관리자, pallet, 의존성, 이맥스
+tags: emacs, cask, package_management, pallet, emacs, programming, editor
+categories: programming, editor
+title_image: http://i.imgur.com/zYArOUu.jpg
 published: true
 ---
 

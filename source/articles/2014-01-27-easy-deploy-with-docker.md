@@ -3,7 +3,10 @@ title: "도커(Docker) 튜토리얼 : 깐 김에 배포까지"
 date: 2014-01-27 12:00:00 +0900
 author: nacyot
 profile: 컨테이너 나르는 프로그래머(29)
-tags: docker, 도커, 모니위키, moniwiki, dockerfile, centos, ubuntu, lxc, 튜토리얼
+tags: docker, moniwiki, dockerfile, centos, ubuntu, lxc, tutorial, infrastructure, programming
+categories: infrastructure, programming
+featured: true
+title_image: http://i.imgur.com/GEcrPFc.jpg
 ---
 
 도커(Docker)는 2013년에 등장한 새로운 컨테이너 기반 가상화 도구입니다. 도커는 계층화된 파일시스템(AUFS, BTRFS 등)을 사용해 가상화된 컨테이너의 변경사항을 모두 추적하고 관리합니다. 이를 통해서 컨테이너의 특정 상태를 항상 보존해두고, 필요할 때 언제 어디서나(단, Docker가 설치만 되어있다면) 이를 실행할 수 있도록 도와주는 도구입니다. 이 글은 Docker 입문자를 위한 튜토리얼로, 도커의 기본 개념들과 사용법에 대해서 소개합니다.

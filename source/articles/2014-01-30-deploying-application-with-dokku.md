@@ -3,7 +3,9 @@ title: "도쿠(Dokku)로 만드는 미니 히로쿠(Heroku)"
 date: 2014-01-30 01:30:00 +0900
 author: nacyot
 profile: 구름 위를 헤매는 프로그래머(29)
-tags: 도커, 도쿠, docker, dokku, heroku, 튜토리얼, nginx, 히로쿠, heroku, buildstep, buildpack, paas, iaas
+tags: docker, dokku, heroku, tutorial, nginx, buildpack, paas, iaas, infrastructure
+categories: infrastructure
+title_image: http://i.imgur.com/e8TYHYx.jpg
 ---
 
 지난 번 [도커][docker] 시리즈의 첫번째 글에서는 [도커(Docker) 튜토리얼 : 깐 김에 배포까지][docker-1] 도커를 설치하고 이미지와 컨테이너의 개념 그리고 마지막으로 Dockerfile을 통해서 이미지를 생성하고 실제로 배포하는 부분까지 다뤄봤습니다. 이번 글에서는 [[도커|docker]]를 활용해 간단히 어플리케이션 배포 서버를 구축할 수 있게 도와주는 [도쿠][dokku](Dokku)를 다루도록 하겠습니다.

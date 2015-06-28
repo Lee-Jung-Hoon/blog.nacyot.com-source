@@ -2,7 +2,9 @@
 title: "이맥스(emacs)와 자바스크립트 코드 정적 분석 도구 Tern"
 date: 2014-03-12 01:15:32 +0900
 author: nacyot
-tags: javascript, emacs, 이맥스, 자바스크립트, npm, node.js, tern, 자동완성
+tags: javascript, emacs, node_js, tern, auto_complete, programming, editor
+categories: programming, editor
+title_image: http://i.imgur.com/PYkUJs4.jpg
 ---
 
 [[텍스트 에디터|text_editor]]는 [[IDE]]에 비해서 매우 가볍고 편리한 기능들을 가진 도구입니다만 기능적인 면에서의 열세에 대해서 많이 이야기되곤 합니다. 특히 정적 분석을 통한 질 높은 자동 완성이 어렵다거나 하는 부분은 IDE 팬들에게서 오랫동안 질타받아온 부분이고, 사실 텍스트 에디터를 쓰는 사람 입장에서도 아쉬운 부분이기도 합니다. 이런 상황에서 텍스트 에디터를 사용하는 자바스크립트 개발자들에게 단비와 같은 프로그램이 바로 [[자바스크립트|javascript]] 코드 분석기 [Tern][tern]입니다.

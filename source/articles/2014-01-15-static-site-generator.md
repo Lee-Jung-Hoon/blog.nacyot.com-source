@@ -2,6 +2,9 @@
 title: "정적 웹사이트 생성기의 역습 - 동적 스크립트를 넘어 다시 정적 컨텐츠로"
 date: 2014-01-05 12:00:00 +0900
 author: nacyot
+tags: static_site_generator, www, github, programming
+categories: programming
+title_image: http://i.imgur.com/vAuIolp.jpg
 ---
 
 개인적으로 요새 화두인 주제가 바로 [[정적 웹사이트 생성기|static_site_generator]]입니다. 21세기에 정적 웹사이트라니 꽤나 뜬금없는 이야기로 들리실지 모르겠지만, 일부 블로그들에서는 이미 정적 컨텐츠로 블로그를 발행(Publish)하는 기능을 지원해왔으며 많은 오픈소스와 프로그래머들이 Github Page의 Jekyll을 통한 정적 페이지 발행 기능을 활용하고 있습니다. 이 글에서는 정적 페이지가 왜 각광을 받는지와 그 배경에 대해서 조금 이야기해보고자 합니다.

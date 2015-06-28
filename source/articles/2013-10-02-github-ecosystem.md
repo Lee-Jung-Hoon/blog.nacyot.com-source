@@ -2,7 +2,9 @@
 title: "Github 에코시스템 - Git을 둘러싼 유용한 서비스들"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
-tags: github, travis, ruby, code climate, gemnasium, rubydoc.info, coveralls, 루비
+tags: github, travis, ruby, code_climate, gemnasium, rubydoc_info, coveralls, programming, service
+categories: programming, service
+title_image: http://i.imgur.com/w1fmP2H.jpg
 published: true
 ---
 
@@ -14,7 +16,6 @@ published: true
 검토해보셔도 좋을 듯 합니다. 여기서는 코드 퀄리티 관리 서비스 Code Climate,
 의존성 버전 관리 Gemnasium, 루비 문서 서비스 rubydoc.info, CI 서비스 Trivas,
 테스트 커버리지 관리 서비스 Coveralls를 간락히 소개합니다.
-
 
 <!--more-->
 

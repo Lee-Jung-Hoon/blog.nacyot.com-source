@@ -2,7 +2,9 @@
 title: Docker Korea 스터디 그룹 두번째 모임
 author: nacyot
 date: 2014-08-05 00:15:03 +0900
-tags: Docker, Docker Korea, 도커, 스터디, Remotty, 스페이스 노아, 포럼, 토즈, 리모티, Service Discovery, Ghost, 고스트, 메트릭스, 로그, Graphite, Grafana, Elasticsearch, Kibana, 파이썬, consul, CoreOS, etcd, Fleet
+tags: docker, docker_korea, remotty, service_discovery, ghost, metrics, log, graphite, grafana, elasticsearch, kibana, python, consul, coreos, etcd, fleet, news, infrastructure, programming
+categories: news, infrastructure, programming
+title_image: http://i.imgur.com/9A89h4Y.jpg
 published: true
 ---
 

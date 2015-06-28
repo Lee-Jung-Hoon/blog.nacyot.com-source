@@ -2,7 +2,9 @@
 title: "emacs.sexy 한국어 번역 및 OmegaT + Travis + Rake + Github Pages를 활용한 번역"
 date: 2014-03-17 00:20:00 +0900
 author: nacyot
-tags: emacs, emacs.sexy, omegat, 번역, 오메가t, 이맥스, travis, 트래비스
+tags: emacs, emacs_sexy, omegat, translation, travis, programming, service, editor
+categories: programming, service, editor
+title_image: http://i.imgur.com/d2Fvsuw.jpg
 ---
 
 vim.sexy의 [[emacs]]판인 emacs.sexy를 번역했습니다. 저 또한 한 명의 행복한 이맥스 사용자이기에 >_<

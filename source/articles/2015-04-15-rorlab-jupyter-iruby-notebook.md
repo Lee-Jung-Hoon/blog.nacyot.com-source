@@ -2,7 +2,8 @@
 title: "[RORLab 발표] 주피터(Jupyter) - IRuby Notebook 보충"
 date: 2015-04-15 10:30:00 +0900
 author: nacyot
-tags: ipython, iruby, jupyter, iruby notebook, ipython notebook, literate programming, active essays
+tags: ipython, iruby, jupyter, ipython_notebook, literate_programming, active_essays, rorlab, programming, editor
+categories: programming, editor
 title_image: http://i.imgur.com/KsQGjGT.jpg
 published: true
 ---

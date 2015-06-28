@@ -2,7 +2,9 @@
 title: "Rspec과 가드(Guard)를 활용한 루비(Ruby) 테스트 자동화"
 date: 2013-10-02 12:00:00 +0900
 author: nacyot
-tags: 테스트, rspec, minitest, guard, autotest, ruby, 루비
+tags: test, rspec, minitest, guard, autotest, ruby, programming, software
+categories: programming, software
+title_image: http://i.imgur.com/g055UBi.jpg
 published: true
 ---
 

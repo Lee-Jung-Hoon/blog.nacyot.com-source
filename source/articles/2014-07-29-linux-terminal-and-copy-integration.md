@@ -3,7 +3,9 @@ title: 리눅스에서 터미널과 클립보드 연동하기 - Xclip과 Tmux
 author: nacyot
 date: 2014-07-30 00:25:00 +0900
 published: true
-tags: pbcopy, xsel, xclip, 클립보드, 복사, 붙여넣기, 터미널, tmux
+tags: pbcopy, xsel, xclip, copy_and_paste, terminal, tmux, software
+categories: software
+title_image: http://i.imgur.com/UJS03nS.jpg
 ---
 
 [[터미널|terminal]] 환경과 GUI 환경은 대개 상당히 동떨어진 환경으로 이 둘을 스무스하게 연동하는 것은 작업환경을 갖추는 데 있어서 중요한 주제 중에 하나이다. 이 연결고리가 잘 연결되어있어야 작업 효율도 올라간다. 이 글에서는 [[Xclip]]를 통해서 터미널 환경의 문자열을 리눅스 GUI 환경의 클립보드로 복사하는 법과 [[Tmux]]의 복사 모드와 Xclip을 연동하는 법을 알아본다.

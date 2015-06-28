@@ -2,8 +2,9 @@
 title: "루비와 파이썬에서 함수 호출과 함수 참조에 대한 차이"
 date: 2014-12-17 01:35:00 +0900
 author: nacyot
-tags: ruby, python, 루비, 파이썬, 문법, 함수 호출, 함수 참조
-title_image: ruby, python
+tags: ruby, python, syntax, function, programming
+categories: programming
+title_image: http://i.imgur.com/byNJqrU.jpg
 published: true
 ---
 

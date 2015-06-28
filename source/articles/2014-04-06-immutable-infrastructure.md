@@ -2,7 +2,9 @@
 title: "이미지 기반 어플리케이션 배포 패러다임 Immutable Infrastructure"
 date: 2014-04-06 03:20:32 +0900
 author: nacyot
-tags: immutable infrastructure, programer, docker, 도커
+tags: immutable_infrastructure, programer, docker, infrastructure, programming
+categories: infrastructure, programming
+title_image: http://i.imgur.com/ro7ZK8t.jpg
 ---
 
 얼마 전 4월 2일에 [프로그래머 그룹][programer]에서 [[Immutable Infrastructure|immutable_infrastructure]]을 주제로 발표했습니다. Immutable Infrastructure란 분명한 실체를 지칭하기보다는 한 번 설정하고 (거의) 변경하지 않는 이미지 기반의 어플리케이션 배포 패러다임을 뜻하는 단어입니다. 다수의 서버를 동적으로 관리하는 클라우드를 기반으로 어떻게 하면 좀 더 효과적이고 유연하게 배포할 수 있을가 하는 고민에서 나온 패러다임이라고 할 수 있습니다. 따라서 기존에 서버를 지속적으로 '관리'한다는 데서 벗어나 어떻게하면 서버를 잘 쓰고 버리는 지를 다룹니다. 지금까지는 [[AWS]] AMI를 통한 오토 스케일링에서 보듯이 이러한 패러다임이 현상적으로만 존재했는데, [[Heroku]], [[Travis]] 등에서는 이러한 패러다임을 이미 적극 채용하고 있으며, 특히 [[Chef]], [[Puppet]], [[Docker]], [[Vagrant]], [[Packer]], [[Serf]]와 같은 도구들은 Immutable Infrastructure라는 패러다임을 실제 어플리케이션 배포에 적용할 수 있도록 도와줍니다. 이 글에서는 발표자료와 관련된 관련된 리소스들을 소개합니다.

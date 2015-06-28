@@ -2,7 +2,9 @@
 title: "도커(Docker)로 루비 온 레일스 어플리케이션 배포하기 (1) 어플리케이션 이미지 만들기"
 date: 2014-08-08 05:10:00 +0900
 author: nacyot
-tags: ruby, docker, rails, deploy, devops, dockerfile, 루비, 도커, 레일스, 배포, 서버, 서버 운영, The Twelve Factor App
+tags: ruby, docker, ruby_on_rails, deployment, devops, dockerfile, the_twelve_factor_app, programming, infrastructure
+categories: programming, infrastructure
+title_image: http://i.imgur.com/8GK2rbA.jpg
 published: true
 ---
 

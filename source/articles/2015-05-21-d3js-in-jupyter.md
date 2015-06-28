@@ -2,8 +2,9 @@
 title: 주피터(Jupyter) 노트북과 자바스크립트 환경 이해하기 - 주피터 위에서 d3.js를 활용한 시각화
 date: 2015-05-21 08:45:00 +0900
 author: nacyot
-tags: ipython, jupyter, d3.js, javascript, 시각화, 주피터, 아이파이썬, 자바스크립트, 커널, 클로저
+tags: ipython, jupyter, d3js, javascript, data_visualization, jupyter_kernel, closure, jupyter_notebook, visualization, programming, editor
 title_image: http://i.imgur.com/eDpIHJo.jpg
+categories: visualization, programming, editor
 published: true
 ---
 

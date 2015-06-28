@@ -2,7 +2,9 @@
 title: "우분투(Ubuntu) 14.04에서 도커(Docker) 설치 및 사용하기"
 date: 2014-04-19 00:15:32 +0900
 author: nacyot
-tags: ubuntu, 우분투, ubuntu 14.04, 도커, docker, tugboat, 디지털 오션, digital ocean, apt-get
+tags: ubuntu, ubuntu_14_04, docker, tugboat, digital_ocean, apt_get, software
+categories: software
+title_image: http://i.imgur.com/Jag0s9f.jpg
 ---
 
 드디어 우분투 14.04 LTS가 정식 릴리즈되었습니다. 이 글에서는 우분투 14.04에서 도커(Docker)를 설치하고 사용하는 법을 다룹니다. 이 글에서는 테스트 용으로 디지털 오션에 우분투 14.04 이미지를 사용해 인스턴스를 만들고 도커를 설치하겠습니다. 

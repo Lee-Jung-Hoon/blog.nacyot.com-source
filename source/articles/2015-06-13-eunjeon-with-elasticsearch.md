@@ -2,7 +2,8 @@
 title: "엘라스틱서치(elasticsearch)에 한글 형태소 분석기 은전한잎(eunjeon) 적용하기"
 date: 2015-06-13 06:05:00 +0900
 author: nacyot
-tags: 엘라스틱서치, elasticsearch, 형태소 분석, eunjeon, 은전한잎, mecab, mecab-ko, docker, 검색엔진
+tags: elasticsearch, morphology, eunjeon, mecab, docker, search_engine, programming
+categories: programming
 title_image: http://i.imgur.com/DxnlLeu.jpg
 published: true
 ---

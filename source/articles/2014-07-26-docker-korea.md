@@ -2,7 +2,9 @@
 title: Docker Korea 스터디 그룹
 author: nacyot
 date: 2014-07-26 15:47:03 +0900
-tags: docker, Docker Korea, 도커, 스터디, Remotty, 스페이스 노아, Shomney, 포럼, immutable infrastructure
+tags: docker, docker_korea, remotty, shomney, immutable_infrastructure, infrastructure, news
+categories: infrastructure, news
+title_image: http://i.imgur.com/zl97L6z.jpg
 published: true
 ---
 

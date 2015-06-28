@@ -2,7 +2,9 @@
 title: "hub(허브)로 명령행에서 Github(깃허브) 풀리퀘스트 보내기"
 date: 2013-12-29 15:31:32 +0900
 author: nacyot
-tags: hub, github, ruby, git, 루비, 풀리퀘스트, pull request, zsh
+tags: hub, github, ruby, git, pull_request, zsh, programming, software
+categories: programming, software
+title_image: http://i.imgur.com/8oGWPDG.jpg
 ---
 
 [[오픈소스|open_source]]뿐만 아니라 [[git]]를 사용해 소스 코드의 버전관리를 하는 경우엔 원격 git 저장소로 [[Github]]를 많이 사용합니다. Github는 단순히 git 저장소 역할을 하는 것뿐만 아니라 웹 인터페이스를 통해서 저장소를 관리할 수 있게 도와주며, 소스코드를 공유하고 협업하기 위한 다양한 기능을 제공합니다. 또한 Github 고유의 기능을 명령행 인터페이스 사용할 수 있게 도와주는 hub라는 도구를 지원합니다. 이 글에서는 hub(허브)를 Git 명령어에 연동해서, 명령행에서 풀리퀘스트를 보내는 방법을 설명합니다.
