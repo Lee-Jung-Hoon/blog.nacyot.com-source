@@ -10,7 +10,7 @@ recommandation = <<REC
   </div>
   <div>
     <a href='https://twitter.com/intent/follow?screen_name=nacyo_t' target="_blank">
-      <img style='display: inline' width='20' height='20' src='/images/twitter.png' />
+      <img style='display: inline' width='20' height='20' src='http://blog.nacyot.com/images/twitter.png' />
       Twitter에서 nacyot 팔로우하기
     </a>
   </div>
