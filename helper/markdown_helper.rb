@@ -78,7 +78,7 @@ class HTMLwithPygments < Redcarpet::Render::HTML
   
   def render_toc(document)
     document.gsub(/<h([1-6]) id=['"](.*?)['"]>(.*?)<\/h[1-6]>/) do |m|
-      "<h#{$1}><a name='#{$2}'>#{$3}</a> <span class='to_toc'><a href='#toc'><i class='fa fa-flag'></i></a></span></h#{$1}>"
+      "<h#{$1}><a name='#{$2}'>#{$3}</a> <span class='to_toc'><a href='#toc'><i class='fa fa-angle-double-up'></i></a></span></h#{$1}>"
     end
   end
 
