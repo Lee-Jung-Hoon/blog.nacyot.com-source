@@ -2,9 +2,7 @@
   "name": "nacyot-blog",
   "dependencies": {
     "bootstrap": "~3",
-    "angular": "*",
-    "angular-sanitize": "*",
-    "jquery": ">2",
+    "jquery": "~1",
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
     "masonry": "*",
