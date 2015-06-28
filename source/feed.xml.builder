@@ -1,3 +1,22 @@
+recommandation = <<REC
+<br/>
+<br/>
+<div>
+  <strong>이 글이 도움이 되셨나요?</strong>
+  <div>
+    <a href='http://blog.nacyot.com' target="_blank">
+      nacyot의 프로그래밍 이야기 메인으로 이동하기
+    </a>
+  </div>
+  <div>
+    <a href='https://twitter.com/intent/follow?screen_name=nacyo_t' target="_blank">
+      <img style='display: inline' width='20' height='20' src='/images/twitter.png' />
+      Twitter에서 nacyot 팔로우하기
+    </a>
+  </div>
+</div>
+REC
+
 xml.instruct!
 xml.feed 'xmlns' => 'http://www.w3.org/2005/Atom' do
   site_url = 'http://blog.nacyot.com/'
