@@ -1,14 +1,30 @@
 .main
   #container
     .row
-      .col-lg-2.col-md-2.col-sm-2.col-xs-2
-      .col-lg-8.col-md-8.col-sm-8.col-xs-8
+      .col-lg-2.col-md-2
+      .col-lg-8.col-md-8.col-sm-12.col-xs-12
+        - if featured
+          - featured.each do |article|
+            = partial "partials/summary", locals: {article: article}
         - page_articles.each do |article|
           = partial "partials/summary", locals: {article: article}
-      .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      .col-lg-2.col-md-2
 
   - if paginate
-    - if prev_page
-      = link_to 'Prev page', prev_page
-    - if next_page
-      = link_to 'Next page', next_page
+    .pagination
+      - if prev_page
+        %span.prev_page
+          %a{href: prev_page.url}
+            .fa.fa-chevron-left
+            .fa.fa-chevron-left
+            .fa.fa-chevron-left
+            최신 글
+      - if prev_page && next_page
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      - if next_page
+        %span.next_page
+          %a{href: next_page.url}
+            이전 글
+            .fa.fa-chevron-right
+            .fa.fa-chevron-right
+            .fa.fa-chevron-right

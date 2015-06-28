@@ -5,47 +5,51 @@
 - else
   - content_for :description, current_article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub(/\n/, "")
 - content_for :keywords, current_article.data.tags
-
 - article = ArticleWithCustomEngine.new(current_article.source_file)
+- if current_article.data.categories
+  - categories = current_article.data.categories.split(',').map(&:strip)
 
 - wrap_layout :layout do
-  .wall
-    .profile
-      = link_to "/" do 
-        %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-    %h1.title
-      nacyot의 프로그래밍 이야기
-    .description
-
-  -# .mini-wall
-  -#   .profile
-  -#     = link_to "/" do
-  -#       %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-
   .row
-    .col-lg-2.col-md-2.col-sm-2.col-xs-2
-    .col-lg-8.col-md-8.col-sm-8.col-xs-8
+    .col-lg-2.col-md-2
+    .col-lg-8.col-md-8.col-sm-12.col-xs-12
       .main
         .articles
           .article
-            %div
-              %span.date
-                %i.fa.fa-calendar
-                -#= current_article.date.strftime('%b %e %Y')
-                = current_article.date.strftime('%Y년 %m월 %d일 발행')
-            %div
-              %span.tags
-                - current_article.tags.sort.each do |tag|
-                  %i.fa.fa-tag
-                  %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
-            %a{name: "toc"}
+            - if current_article.data.categories
+              %div.categories
+                
+                - categories.each do |category|
+                  - if data.categories[category]
+                    %div.category{class: data.categories[category].css_class + '-top', style: "width: #{100.0 / categories.size}%"}
+                      -# %i.fa{class: data.categories[category]['icon']}
+                      -# = data.categories[category]['ko']
+
             %h1.title
               = link_to current_article.title, current_article
 
-            .body
+            %div
+              %span.date
+                - if categories
+                  - categories.each do |category|
+                    - if data.categories[category]
+                      %a{href: "/tags/#{category}", title: "#{data.categories[category]['ko']}(#{data.categories[category]['en']}) 목록"}
+                        %i.fa{class: data.categories[category]['icon'], style: "color: #{data.categories[category]['scolor']}"}
+                        = data.categories[category]['ko']
+                    - else
+                      = category + '!'
+                %i.fa.fa-calendar
+                -#= current_article.date.strftime('%b %e %Y')
+                = current_article.date.strftime('%Y년 %m월 %d일 발행')
+
+            - if current_article.data.title_image
+              .title-image-wrapper
+                = image_tag current_article.data.title_image, class: 'title-image'
+
               -# - if current_article.data.description
               -#   .description= current_article.data.description
 
+            %a{name: "toc"}
             .toc
             - unless article.toc =~ /^\s*$/
               -# .toc
@@ -53,40 +57,54 @@
 
             .body
               = article.body
+
             .recommand
               %strong
                 이 글이 도움이 되셨나요?
-              .feedly
-                %a{href: 'http://feedly.com/i/subscription/feed/http://blog.nacyot.com/feed.xml'}
-                  <img id='feedlyFollow' style='display:inline;' src='http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png' alt='follow us in feedly' width='20' height='20' />
-                  Feedly에서 nacyot의 프로그래밍 이야기 구독하기
-              .twitter
-                %a{href: 'https://twitter.com/intent/follow?screen_name=nacyo_t', target: "_blank"}
-                  <img style='display: inline' width='20' height='20' src='/images/twitter.png' />
-                  Twitter에서 nacyot 팔로우하기
-
-            .barcode
-              %img{src: 'http://imgur.com/uebOih3.png'}
+              .links
+                .feedly
+                  %a{href: 'http://feedly.com/i/subscription/feed/http://blog.nacyot.com/feed.xml'}
+                    <img id='feedlyFollow' style='display:inline;' src='http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png' alt='follow us in feedly' width='20' height='20' />
+                    Feedly에서 nacyot의 프로그래밍 이야기 구독하기
+                .twitter
+                  %a{href: 'https://twitter.com/intent/follow?screen_name=nacyo_t', target: "_blank"}
+                    <img style='display: inline' width='20' height='20' src='/images/twitter.png' />
+                    Twitter에서 nacyot 팔로우하기
 
             .footer
               %hr
-              .author
-                %h1 nacyot
-                = current_article.data.profile ? current_article.data.profile : "프로그래머(29)"
-              .share
-                %h1 Share this post
-                <!-- AddThis Button BEGIN -->
-                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                <a class="addthis_button_facebook"></a>
-                <a class="addthis_button_twitter"></a>
-                <a class="addthis_button_google_plusone_share"></a>
-                <a class="addthis_button_pocket"></a>
-                <a class="addthis_button_print"></a>
-                <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
-                </div>
-                <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ffce6f41e2b5e2"></script>
-                <!-- AddThis Button END -->
+              .row
+                .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                  %div.tags
+                    - current_article.tags.sort.each do |tag|
+                      %div
+                        %i.fa.fa-tag
+                        %a{href: "/tags/#{tag.split(" ").join("-")}"}
+                          = generate_tagname(tag)
+                          %span.more
+                            더 보기
+              
+              %hr
+
+              .row
+                .author.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  %h1 nacyot
+                  = current_article.data.profile ? current_article.data.profile : "프로그래머"
+                .share.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  %h1 Share this post
+                  <!-- AddThis Button BEGIN -->
+                  <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                  <a class="addthis_button_facebook"></a>
+                  <a class="addthis_button_twitter"></a>
+                  <a class="addthis_button_google_plusone_share"></a>
+                  <a class="addthis_button_pocket"></a>
+                  <a class="addthis_button_print"></a>
+                  <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+                  </div>
+                  <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+                  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ffce6f41e2b5e2"></script>
+                  <!-- AddThis Button END -->
+
             %hr
             #disqus_thread
               :javascript
@@ -101,6 +119,8 @@
                 })();
               <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
               <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+          .barcode{'data-title' => current_article.title}
 
           .navigation
             .prevnav
@@ -127,7 +147,7 @@
 
             %br{style: "clear:both"}
 
-    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+    .col-lg-2.col-md-2
   :javascript
     $('.toc').toc({
       'selectors': 'h2,h3,h4,h5',

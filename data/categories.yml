@@ -1,0 +1,56 @@
+news:
+  scolor: '#bcbd22'
+  color: '#dbdb8d'
+  css_class: category-news
+  icon: fa-newspaper-o
+  en: News
+  ko: 새소식
+visualization:
+  color: '#ffbb78'
+  scolor: '#ff7f0e'
+  css_class: category-visualization
+  icon: fa-bar-chart
+  en: Visualization
+  ko: 시각화
+infrastructure:
+  color: '#98df8a'
+  scolor: '#2ca02c'
+  css_class: category-infrastructure
+  icon: fa-cloud
+  en: Infrastructure
+  ko: 시스템
+programming:
+  color: '#aec7e8'
+  scolor: '#1f77b4'
+  css_class: category-programming
+  icon: fa-desktop
+  en: Programming
+  ko: 프로그래밍
+software:
+  color: '#c7c7c7'
+  scolor: '#7f7f7f'
+  css_class: category-software
+  icon: fa-square-o
+  en: software
+  ko: 소프트웨어
+service:
+  color: '#c49c94'
+  scolor: '#8c564b'
+  css_class: category-service
+  icon: fa-cubes
+  en: Services
+  ko: 서비스
+editor:
+  color: '#c5b0d5'
+  scolor: '#9467bd'
+  css_class: category-editor
+  icon: fa-edit
+  en: Editor
+  ko: 에디터
+book:
+  color: '#ff9896'
+  scolor: '#d62728'
+  css_class: category-book
+  icon: fa-book
+  en: Book Review
+  ko: 서평

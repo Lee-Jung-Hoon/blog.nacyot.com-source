@@ -1,16 +1,16 @@
 ---
 pageable: true
-per_page: 30
+per_page: 20
 ---
-.wall
-  .profile
-    = link_to "/" do 
-      %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-  %h1.title= "태그 > #{tagname}"
 
-  .description  
-
-= partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
+- tagname = generate_tagname(tagname)
+ 
+- content_for :title, " :: #{tagname}"
+- content_for :title_image, "http://blog.nacyot.com/images/nacyot.jpeg"
+- content_for :description, "#{tagname}에 관련된 글 목록"
+- content_for :keywords, tagname
 
 
+%h1.subtitle= "#{tagname} 목록"
 
+= partial "partials/summaries", locals: {featured: nil, page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}

@@ -2,23 +2,38 @@
   .col-lg-12
     %hr
     .site-footer
-      %p
+      .search-form
+        <form role="search" id="cse-search-box" action="http://google.com/cse">
+        <input type="hidden" name="cx" value="001442510316556568987:j38kphmalos" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <div class="form-group">
+        <input class="form-control" type="text" name="q" size="15" />
+        </div>
+        -# <button class="btn btn-default" type="submit" name="sa" value="Search">Search</button>
+        </form>
+
+      .navigaiton
+        %a.icon{href: "/", title: '블로그 메인으로 이동'}
+          %i.fa-home.fa.fa-2x
+        %a.icon{href: "http://nacyot.com", title: 'nacyot.com'}
+          %i.fa-user.fa.fa-2x
+        %a.icon{href: "https://twitter.com/nacyo_t", title: 'nacyo_t 트위터'}
+          %i.fa-twitter.fa.fa-2x
+        %a.icon{href: "https://github.com/nacyot", title: 'nacyot Github'}
+          %i.fa-github.fa.fa-2x
+        %a.icon{href: "/feed.xml", style: "color: orange", title: 'nacyot의 프로그래밍 이야기 RSS feed'}
+          %i.fa-rss.fa.fa-2x
+
+      .copyright
         - if current_article and current_article.data.license
           = current_article.data.license
         - else
-
-          All content copyright 
-          %a{href: "http://nacyot.com"} nacyot
-          © 2014 • All rights reserved.
-          = "&nbsp;&nbsp;&nbsp;"
-          %a.icon{href: "http://nacyot.com"}
-            %i.fa-home.fa.fa-2x
-          %a.icon{href: "https://twitter.com/nacyo_t"}
-            %i.fa-twitter.fa.fa-2x
-          %a.icon{href: "https://github.com/nacyot"}
-            %i.fa-github.fa.fa-2x
-          %a.icon{href: "/feed.xml", style: "color: orange"}
-            %i.fa-rss.fa.fa-2x
+          %div
+            All content copyright 
+            %a{href: "http://nacyot.com"} nacyot
+            © 2013-2015
+          %div
+          All rights reserved.
 
 
 

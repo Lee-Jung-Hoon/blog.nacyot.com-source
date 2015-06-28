@@ -1,0 +1,366 @@
+news:
+  en: News
+  ko: 새소식
+infrastructure:
+  en: Infrastructure
+  ko: 시스템
+programming:
+  en: Programming
+  ko: 프로그래밍
+visualization:
+  en: Visualization
+  ko: 시각화
+service:
+  en: Services
+  ko: 서비스
+software:
+  en: software
+  ko: 소프트웨어
+editor:
+  en: Editor
+  ko: 에디터
+book:
+  en: Book Review
+  ko: 서평
+docker:
+  en: Docker
+  ko: 도커
+  featured:
+    - 2014-01-27-easy-deploy-with-docker
+dokcer_registry:
+  en: Docker Registry
+  ko: 도커 레지스트리
+elasticsearch:
+  en: Elasticsearch
+  ko: 엘라스틱서치
+eunjeon:
+  en: Eunjeon
+  ko: 은전한잎
+mecab:
+  en: mecab
+morphology:
+  ko: 형태소 분석기
+search_engine:
+  en: Search Engine
+  ko: 검색엔진
+ipython:
+  en: Ipython
+  ko: 아이파이썬
+jupyter:
+  en: Jupyter
+  ko: 주피터
+  featured: 2015-05-08-jupyter-multiple-pythons
+jupyter_notebook:
+  en: Jupyter Notebook
+  ko: 주피터 노트북
+d3js:
+  en: D3.js
+  featured: 2015-02-02-d3-selection
+javascript:
+  en: Javascript
+  ko: 자바스크립트
+data_visualization:
+  en: data visualization
+  ko: 정보시각화
+jupyter_kernel:
+  en: Jupyter kernel
+  ko: 주피터 커널
+kernnel:
+  ko: 커널
+closure:
+  ko: 클로저
+service:
+  ko: 서비스
+osx:
+  en: MAC OS X
+launchctl:
+  en: launchctl
+python:
+  en: Python
+  ko: 파이썬
+iruby:
+  ko: 아이루비
+python2:
+  en: Python2
+  ko: 파이썬2
+python3:
+  en: Python3
+  ko: 파이썬3
+ipython_notebook:
+  en: Ipython Notebook
+  ko: 아이파이썬 노트북
+pyenv:
+  en: pyenv
+literate_programming:
+  en: literate programming
+  ko: 문학적 프로그래밍
+active_essays:
+  en: active essays
+  ko: 액티브 에세이 
+rorlab:
+  en: RORLab
+ruby:
+  en: Ruby
+  ko: 루비
+syntax:
+  ko: 문법
+function:
+  ko: 함수
+ruby_on_rails:
+  en: Ruby on Rails
+  ko: 루비 온 레일스
+deployment:
+  ko: 배포
+dockerfile:
+  en: dockerfile
+server:
+  en: server
+the_twelve_factor_app:
+  en: The Twelve Factor App
+docker_korea:
+  en: Appcontainer Korea
+  ko: 앱컨테이너 코리아
+appcontainer_korea:
+  en: Appcontainer Korea
+  ko: 앱컨테이너 코리아
+remotty:
+  en: Remotty
+  ko: 리모티
+service_discovery:
+  en: service discovery
+ghost:
+  en: ghost
+  ko: 고스트
+metrics:
+  ko: 메트릭스
+log:
+  ko: 로그
+graphite:
+  en: Graphite
+  ko: 그라파이트
+grafana:
+  en: Grafana
+  ko: 그라파나
+kibana:
+  en: Kibana
+  ko: 키바나
+consul:
+  en: Consul
+etcd:
+  en: etcd
+fleet:
+  en: Fleet
+pbcopy:
+  en: pbcopy
+xsel:
+  en: xsel
+xclip:
+  en: xclip
+copy_and_paste:
+  en: copy and paster
+  ko: 복사 & 붙여넣기
+terminal:
+  en: terminal
+  ko: 터미널과
+tmux:
+  en: Tmux
+shomney:
+  en: Shomney
+  ko: 숌니
+immutable_infrastructure:
+  en: immutable infrastructure
+volume_container:
+  en: volume container
+  ko: 볼륨 컨테이너
+carbon:
+  en: carbon
+whisper:
+  en: whisper
+monitoring:
+  ko: 모니터링
+timeserise_database:
+  en: timeserise database
+  ko: 시계열 데이터베이스
+dashboard:
+  ko: 대시보드
+emacs:
+  en: Emacs
+  ko: 이맥스
+cask:
+  en: Cask
+package_management:
+  en: package management
+  ko: 패키지 관리
+pallet:
+  en: Pallet
+s3:
+  en: s3
+aws:
+  en: Amazon Web Service
+  ko: 아마존 웹 서비스
+translation:
+  ko: 번역
+enumerable:
+  ko: 열거자
+programming_language:
+  en: programming language
+  ko: 프로그래밍 언어
+ubuntu:
+  en: Ubuntu
+  ko: 우분투
+ubuntu_14_04:
+  en: Ubuntu 14.04
+  ko: 우분투 14.04
+tugboat:
+  en: Tugboat
+digital_ocean:
+  en: Digital Ocean
+  ko: 디지털 오션
+apt_get:
+  en: apt-get
+rspec:
+  en: RSpec
+programer:
+  ko: 프로그래머
+cookpad:
+  en: Cookpad
+  ko: 쿡패드
+style_guide:
+  ko: 스타일 가이드
+emacs_sexy:
+  en: emacs.sexy
+omegat:
+  en: OmegaT
+  ko: 오메가T
+travis:
+  en: Travis
+  ko: 트래비스
+node_js:
+  en: node.js
+  ko: 노드js
+tern:
+  en: Tern
+auto_complete:
+  en: auto complete
+  ko: 자동완성
+boot2docker:
+  en: Boot2docker
+lxc:
+  en: lxc
+virtual_machine:
+  en: virtual machine
+  ko: 가상머신
+coreos:
+  en: CoreOS
+  ko: 코어OS
+gollum:
+  en: Gollum
+  ko: 골룸
+github:
+  en: Github
+  ko: 깃허브
+git:
+  en: Git
+  ko: 깃
+api:
+  en: API
+slack:
+  en: Slack
+  ko: 슬랙
+hipchat:
+  en: Hipchat
+  ko: 힙챗
+padrino:
+  en: Padrino
+  ko: 파드리노
+dokku:
+  en: Dokku
+  ko: 도쿠
+heroku:
+  en: Heroku
+  ko: 히로쿠
+tutorial:
+  en: tutorial
+  ko: 튜토리얼
+nginx:
+  en: Nginx
+buildpack:
+  en: Buildpack
+  ko: 빌드팩
+paas:
+  en: Platform as a Service
+iaas:
+  en: Infrastructure as a Service
+moniwiki:
+  en: Moniwiki
+  ko: 모니위키
+centos:
+  en: CentOS
+  ko: 센트OS
+terminator:
+  en: Terminator
+  ko: 터미네이터
+nabi:
+  en: Navi
+  ko: 나비
+nvidia:
+  en: NVIDIA
+zsh:
+  en: zsh
+bash:
+  en: bash
+qd270:
+  en: QD270
+openvpn:
+  en: OpenVPN
+  ko: 오픈VPN
+hub:
+  en: hub
+wine:
+  en: Wine
+  ko: 와인
+kakaotalk:
+  en: KakaoTalk
+  ko: 카카오톡
+static_site_generator:
+  en: static site generator
+  ko: 정적 웹페이지 생성기
+www:
+  en: World Wide Web
+  ko: 월드 와이드 웹
+pull_request:
+  en: pull request
+  ko: 풀리퀘스트
+kyoendo:
+  en: kyoendo
+test:
+  ko: 테스트
+minitest:
+  en: MiniTest
+  ko: 미니테스트
+guard:
+  en: Guard
+  ko: 가드
+autotest:
+  en: Autotest
+  ko: 오토테스트
+code_climate:
+  en: Code Climate
+  ko: 코드 클라이메이트
+gemnasium:
+  en: Gemnasium
+  ko: 젬나시움
+rubydoc_info:
+  en: rubydoc.info
+coveralls:
+  en: Coveralls
+tdd:
+  en: Test Driven Development
+  ko: 테스트 주도 개발
+bdd:
+  en: Behavior Driven Development
+  ko: 행동 주도 개발
+devops:
+  en: devops
+  ko: 데브옵스
+

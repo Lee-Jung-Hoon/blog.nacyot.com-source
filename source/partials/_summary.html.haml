@@ -1,13 +1,35 @@
 - parsed_article = ArticleWithCustomEngine.new(article.source_file)
+- if article.data.categories
+  - categories = article.data.categories.split(',').map(&:strip)
+
 .summary_card
-  %div
-    %span.date
-      %i.fa.fa-calendar
-      -#= article.date.strftime('%b %e %Y')
-      = article.date.strftime('%Y년 %m월 %d일 발행')
+  - if categories
+    %div.categories
+      - categories.each do |category|
+        - if data.categories[category]
+          %div.category{class: data.categories[category].css_class + '-top', style: "width: #{100.0 / categories.size}%"}
+          -# %i.fa{class: data.categories[category]['icon']}
+          -#= data.categories[category]['ko']
 
   %h1.title
+    - if article.data.featured == true
+      %span.featured
+        %i.fa.fa-star
     = article_title_tag(article)
+
+  %div
+    %span.date
+      - if categories
+        - categories.each do |category|
+          - if data.categories[category]
+            %a{href: "/tags/#{category}", title: "#{data.categories[category]['ko']}(#{data.categories[category]['en']}) 목록"}
+              %i.fa{class: data.categories[category]['icon'], style: "color: #{data.categories[category]['scolor']}"}
+              = data.categories[category]['ko']
+          - else
+            = category + "!"
+      %i.fa.fa-calendar
+      -#= current_article.date.strftime('%b %e %Y')
+      = article.date.strftime('%Y년 %m월 %d일 발행')
 
   %div.summary
     - if article.data.title_image
@@ -23,8 +45,7 @@
       %i.fa.fa-tag
       %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
 
-  .barcode
-    %img{src: 'http://imgur.com/uebOih3.png'}
+  .barcode{'data-title' => article.title}
 
 
 

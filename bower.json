@@ -4,13 +4,13 @@
     "bootstrap": "~3",
     "angular": "*",
     "angular-sanitize": "*",
-    "jquery": "*",
+    "jquery": ">2",
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
     "masonry": "*",
     "toc": "nacyot/toc",
     "requirejs": "*",
-    "moment": "*"
+    "moment": "*",
     "d3": "*",
     "lodash": "*",
     "chance": "*"

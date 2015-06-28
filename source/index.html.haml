@@ -1,16 +1,11 @@
 ---
 pageable: true
-per_page: 30
+per_page: 10
 ---
 - content_for :description, config.site_description
 - content_for :title_image, "http://blog.nacyot.com/images/nacyot.jpeg"
 
-.wall
-  .profile
-    = link_to "/" do 
-      %img.img-rounded.profile_image{src: "/images/nacyot.jpeg"}
-  %h1.title
-    nacyot의 프로그래밍 이야기
-  .description  
+- featured = blog.articles.select{|article| article.data.featured == true}
+- normal = page_articles.select{|article| !article.data.featured}
 
-= partial "partials/summaries", locals: {page_articles: page_articles, paginate: paginate, prev_page: prev_page, next_page: next_page}
+= partial "partials/summaries", locals: {featured: featured, page_articles: normal, paginate: paginate, prev_page: prev_page, next_page: next_page}

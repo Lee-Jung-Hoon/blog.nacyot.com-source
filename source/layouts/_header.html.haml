@@ -1,32 +1,42 @@
-%nav.navbar.navbar-fixed-top{ role: "navigation" }
-  %div.navbar-header
-    %a{href: "http://nacyot.com", class: "navbar-brand"} nacyot
-  %div.collapse.navbar-collapse
-    %ul.nav.navbar-nav
-      %li
-        %a{href: "http://blog.nacyot.com"}
-          %i.fa.fa-comment
-          블로그
-      %li
-        %a{href: "http://wiki.nacyot.com"}
-          %i.fa.fa-comment
-          위키
-    %ul.nav.navbar-nav.navbar-right.profile
-      <form class="navbar-form navbar-right" role="search" id="cse-search-box" action="http://google.com/cse">
-      <input type="hidden" name="cx" value="001442510316556568987:j38kphmalos" />
-      <input type="hidden" name="ie" value="UTF-8" />
-      <div class="form-group">
-      <input class="form-control" type="text" name="q" size="15" />
-      </div>
-      <button class="btn btn-default" type="submit" name="sa" value="Search">Search</button>
-      </form>
+%div.categories#categories-title
+  - data.categories.each do |name, category|
+    %a{href: "/tags/#{name}", title: "#{data.categories[name]['ko']}(#{data.categories[name]['en']}) 목록"}
+      %div.category-title{class: category['css_class'], style: "width: #{100.0 / data.categories.size}%"}
+        %i.fa{class: category['icon']}
 
-      %li
-        %a{href: "https://twitter.com/nacyo_t"}
-          %i.fa.fa-twitter.twitter
-      %li
-        %a{href: "https://github.com/nacyot/"}
-          %i.fa.fa-github.github
+.wall
+  %h1.title
+    = link_to "/" do
+      %img.img-rounded.profile_image{src: "/images/nacyot.jpeg", alt: 'nacyot profile image'}
+      %span.hidden-sm.hidden-xs
+        nacyot의 프로그래밍 이야기
 
+-# %nav.navbar.navbar-fixed-top{ role: "navigation" }
+-#   %div.navbar-header
+-#     %a{href: "http://nacyot.com", class: "navbar-brand"} nacyot
+-#   %div.collapse.navbar-collapse
+-#     %ul.nav.navbar-nav
+-#       %li
+-#         %a{href: "http://blog.nacyot.com"}
+-#           %i.fa.fa-comment
+-#           블로그
+-#       %li
+-#         %a{href: "http://wiki.nacyot.com"}
+-#           %i.fa.fa-comment
+-#           위키
+-#     %ul.nav.navbar-nav.navbar-right.profile
+-#       <form class="navbar-form navbar-right" role="search" id="cse-search-box" action="http://google.com/cse">
+-#       <input type="hidden" name="cx" value="001442510316556568987:j38kphmalos" />
+-#       <input type="hidden" name="ie" value="UTF-8" />
+-#       <div class="form-group">
+-#       <input class="form-control" type="text" name="q" size="15" />
+-#       </div>
+-#       <button class="btn btn-default" type="submit" name="sa" value="Search">Search</button>
+-#       </form>
 
-
+-#       %li
+-#         %a{href: "https://twitter.com/nacyo_t"}
+-#           %i.fa.fa-twitter.twitter
+-#       %li
+-#         %a{href: "https://github.com/nacyot/"}
+-#           %i.fa.fa-github.github
