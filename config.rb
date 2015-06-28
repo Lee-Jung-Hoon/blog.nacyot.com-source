@@ -45,10 +45,12 @@ end
 
 load "./helper/markdown_helper.rb"
 load "./helper/article_helper.rb"
+load "./helper/tags_helper.rb"
 load "./lib/sister_wiki.rb"
 load "./lib/article_with_custom_engine.rb"
 helpers MarkdownHelper
 helpers ArticleHelper
+helpers TagsHelper
 
 # Markdown configure
 set :markdown_engine, :redcarpet
