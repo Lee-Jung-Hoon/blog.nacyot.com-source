@@ -8,7 +8,7 @@
     "font-awesome": "*",
     "bootflat": "https://github.com/flathemes/bootflat.git",
     "masonry": "*",
-    "toc": "*",
+    "toc": "nacyot/toc",
     "requirejs": "*",
     "moment": "*"
   }
