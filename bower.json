@@ -11,5 +11,8 @@
     "toc": "nacyot/toc",
     "requirejs": "*",
     "moment": "*"
+    "d3": "*",
+    "lodash": "*",
+    "chance": "*"
   }
 }
