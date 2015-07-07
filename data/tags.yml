@@ -363,4 +363,11 @@ bdd:
 devops:
   en: devops
   ko: 데브옵스
-
+serverspec:
+  en: Serverspec
+  ko: 서버스펙
+infrastructure_as_code:
+  en: infrastructure as code
+specinfra:
+  en: Specinfra
+  ko: 스펙인프라
