@@ -11,9 +11,9 @@ env:
   - secure: XB6gBEcRiNPLzs+rlcBLB7DSAtKLvEl2l9NTt2+QsFt4I3LkR9icPbiCyK6LchmJlZcgaSunEn+H+zHHt8AEf4k0tFtRUQCwVNA3O16ZPJxKc/LM6KCg45fnUTxuLameKVBnRVTQdDiflWXTR1MM7Q6dkdKWOrZapH8kUPfSNzQ=
 before_install:
   - date
-  - sudo apt-get install -qq -y python-dev python-setuptools pandoc 
-  - sudo pip install nose tornado jinja2 sphinx pyzmq
-  - sudo pip install ipython
+  - apt-get install -qq -y python-dev python-setuptools pandoc 
+  - pip install nose tornado jinja2 sphinx pyzmq
+  - pip install ipython
 before_script:
   - npm install -g bower
   - yes no | bower install
