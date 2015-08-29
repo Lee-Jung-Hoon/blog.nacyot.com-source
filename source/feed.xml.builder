@@ -49,7 +49,7 @@ xml.feed 'xmlns' => 'http://www.w3.org/2005/Atom' do
       article_body = ArticleWithCustomEngine.new(article.source_file).body
 
       if article.data.canonical
-        article_body += "<br/><br/><div><a href=#{article.data.canonical}>전문 읽기</a></div>"
+        article_body += "<br/><br/><div><a href='#{article.data.canonical}'>전문 읽기</a></div>"
       end
 
       xml.content title_image + article_body + recommandation, 'type' => 'html'
