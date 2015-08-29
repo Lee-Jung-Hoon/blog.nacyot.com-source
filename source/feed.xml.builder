@@ -31,14 +31,27 @@ xml.feed 'xmlns' => 'http://www.w3.org/2005/Atom' do
   blog.articles[0..9].each do |article|
     xml.entry do
       xml.title article.title
-      xml.link 'rel' => 'alternate', 'href' => URI.join(site_url, article.url)
-      xml.id URI.join(site_url, article.url)
+
+      if article.data.canonical
+        xml.link 'rel' => 'alternate', 'href' => article.data.canonical
+        xml.id article.data.canonical
+      else
+        xml.link 'rel' => 'alternate', 'href' => URI.join(site_url, article.url)
+        xml.id URI.join(site_url, article.url)
+
+      end
+
       xml.published article.date.to_time.localtime.iso8601
       xml.updated File.mtime(article.source_file).localtime.iso8601
       xml.author { xml.name 'nacyot(Daekwon Kim)' }
       # xml.summary article.summary, 'type' => 'html'
       title_image = "<img src='#{article.data.title_image}' />"
       article_body = ArticleWithCustomEngine.new(article.source_file).body
+
+      if article.data.canonical
+        article_body += "<br/><br/><div><a href=#{article.data.canonical}>전문 읽기</a></div>"
+      end
+
       xml.content title_image + article_body + recommandation, 'type' => 'html'
     end
   end

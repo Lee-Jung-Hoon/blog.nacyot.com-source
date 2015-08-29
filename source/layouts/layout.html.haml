@@ -29,6 +29,9 @@
     - if yield_content(:next_url)
       %link{rel: "next", href: external_data(:next_url), title: external_data(:next_title)}
 
+    - if yield_content(:canonical)
+      %link{name: "robots", content: "noindex,nofollow"}
+
     - if yield_content(:description)
       %meta{name: "description", content: external_data(:description)}
 

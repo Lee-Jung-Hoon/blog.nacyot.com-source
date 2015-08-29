@@ -5,11 +5,19 @@
 - else
   - content_for :description, current_article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub(/\n/, "")
 - content_for :keywords, current_article.data.tags
+
+- if current_article.data.canonical
+  - content_for :canonical, current_article.data.canonical
+
 - article = ArticleWithCustomEngine.new(current_article.source_file)
 - if current_article.data.categories
   - categories = current_article.data.categories.split(',').map(&:strip)
 
 - wrap_layout :layout do
+  - if current_article.data.canonical
+    :javascript
+      window.location.href='#{current_article.data.canonical}'
+
   .row
     .col-lg-2.col-md-2
     .col-lg-8.col-md-8.col-sm-12.col-xs-12

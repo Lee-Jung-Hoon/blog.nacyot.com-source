@@ -37,8 +37,11 @@
         = image_tag article.data.title_image, class: 'title-image'
     = parsed_article.summary
     %span.link
-      = link_to "계속 읽기", article
-      -#= article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
+      - if article.data.canonical
+        = link_to "계속 읽기", article.data.canonical
+      - else
+        = link_to "계속 읽기", article
+        -#= article.summary.gsub(/\[?\[((.*?)(\|.*?)?)\]?\]/, '\2').gsub(/<.*?>/, "").tr("`*", "").gsub("\n\n", "<br/>")
   -# %span.more= more_read_link_tag(article) + ""
   .tags
     - article.tags.sort.each do |tag|
@@ -46,6 +49,3 @@
       %a{href: "/tags/#{tag.split(" ").join("-")}"}= tag
 
   .barcode{'data-title' => article.title}
-
-
-
