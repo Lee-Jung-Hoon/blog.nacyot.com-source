@@ -371,3 +371,15 @@ infrastructure_as_code:
 specinfra:
   en: Specinfra
   ko: 스펙인프라
+markdown:
+  en: Markdown
+  ko: 마크다운
+deckset:
+  en: Deckset
+  ko: 덱셋
+presentation:
+  ko: 프레젠테이션
+plain_text:
+  en: plain text
+mathjax:
+  en: Mathjax
