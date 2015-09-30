@@ -383,3 +383,6 @@ plain_text:
   en: plain text
 mathjax:
   en: Mathjax
+docker_seoul_meetup:
+  ko: 도커 서울 밋업
+  en: Docker Seoul Meetup
