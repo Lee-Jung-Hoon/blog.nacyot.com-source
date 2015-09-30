@@ -1,6 +1,6 @@
 ---
 title: 패커(Packer)로 도커(Docker) 이미지 빌드 및 AMI 자동 빌드 시스템 구축
-date: 2015-09-30 11:46:00 +0900
+date: 2015-09-30 11:30:00 +0900
 author: nacyot
 tags: packer, docker, aws, docker_seoul_meetup, software, infrastructure
 categories: software, infrastructure
