@@ -1,3 +1,4 @@
+# coding: utf-8
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
@@ -31,6 +32,8 @@ page "/*", :layout => "layout"
 page "/articles/*", :layout => "blog"
 page "/feed.xml", layout: false
 page "/sitemap.xml", layout: false
+
+ignore 'presentations/*'
 
 # Directory configure
 set :css_dir, 'stylesheets'
@@ -108,5 +111,7 @@ after_build do
   end
 
   remove_tmps
-end
 
+  FileUtils.rm_f('./build/presentations')
+  FileUtils.cp_r('./source/presentations', './build')
+end
