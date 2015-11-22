@@ -1,6 +1,6 @@
 ---
 title: 기계의 한계를 결정짓는 요소. CPU 클럭 혹은 인간의 욕망
-date: 2015-11-22 15:00:00 +0900
+date: 2015-11-22 23:02:00 +0900
 author: nacyot
 tags: tool, technology, computer, cpu, machine, human, william_gibson, john_cage, vannevar_bush, article
 categories: article
