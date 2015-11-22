@@ -386,3 +386,27 @@ mathjax:
 docker_seoul_meetup:
   ko: 도커 서울 밋업
   en: Docker Seoul Meetup
+tool:
+  ko: 도구
+technology:
+  ko: 기술
+computer:
+  ko: 컴퓨터
+cpu:
+  ko: 중앙 처리 장치
+  en: CPU
+machine:
+  ko: 기계
+human:
+  ko: 사람
+william_gibson:
+  ko: 윌리엄 깁슨
+  en: William Gibson
+john_cage:
+  ko: 존 케이지
+  en: John Cage
+vannervar_bush:
+  ko: 버니바 부시
+  en: Vannervar Bush
+article:
+  ko: 이야기

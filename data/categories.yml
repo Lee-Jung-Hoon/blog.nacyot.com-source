@@ -47,10 +47,10 @@ editor:
   icon: fa-edit
   en: Editor
   ko: 에디터
-book:
+article:
   color: '#ff9896'
   scolor: '#d62728'
   css_class: category-book
   icon: fa-book
-  en: Book Review
-  ko: 서평
+  en: Articles
+  ko: 이야기
