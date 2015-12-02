@@ -47,6 +47,7 @@ xml.feed 'xmlns' => 'http://www.w3.org/2005/Atom' do
       # xml.summary article.summary, 'type' => 'html'
       title_image = "<img src='#{article.data.title_image}' />"
       article_body = ArticleWithCustomEngine.new(article.source_file).body
+      article_body = article_body.gsub(/<hr>/, '<p>----------------------</p>')
 
       if article.data.canonical
         article_body += "<br/><br/><div><a href='#{article.data.canonical}'>전문 읽기</a></div>"
