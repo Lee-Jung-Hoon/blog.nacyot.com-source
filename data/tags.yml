@@ -405,8 +405,26 @@ william_gibson:
 john_cage:
   ko: 존 케이지
   en: John Cage
-vannervar_bush:
+vannevar_bush:
   ko: 버니바 부시
   en: Vannervar Bush
 article:
   ko: 이야기
+ben_fry:
+  ko: 벤 프라이
+  en: Benjamin Fry
+edsger_dijkstra:
+  ko: 에츠허르 데이크스트라
+  en: Edsger W. Dijkstra,
+goto:
+  ko: GOTO문
+  en: GOTO statement
+atari_2600:
+  ko: 아타리 2600
+  en: Atari 2600
+abstraction:
+  ko: 추상화
+program:
+  ko: 프로그램
+process:
+  ko: 프로세스
