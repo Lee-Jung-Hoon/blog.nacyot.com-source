@@ -5,6 +5,7 @@ author: nacyot
 tags: tool, technology, computer, cpu, machine, human, william_gibson, john_cage, vannevar_bush, article
 categories: article
 published: true
+comment: false
 ---
 
 "미래는 이미 와있다. 단지 널리 퍼져있지 않을 뿐이다." - 윌리엄 깁슨
