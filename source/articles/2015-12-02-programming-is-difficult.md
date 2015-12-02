@@ -10,9 +10,11 @@ toc: false
 comment: false
 ---
 
-최근에 현대카드 디자인 라이브러리에서 열린 Designing with Data 전시를 보고 왔는데 그 중에서 Ben Fry의 [Distellamap](http://benfry.com/distellamap/)이라는 작품이 유독 인상깊었습니다.
+최근에 현대카드 디자인 라이브러리에서 열린 [Designing with Data][design_data] 전시를 보고 왔는데 그 중에서 Ben Fry의 [Distellamap](http://benfry.com/distellamap/)이라는 작품이 유독 인상깊었습니다.
 
 이 작품은 Atari 2600 게임 코드(어셈블리) 전체를 한 평면에 놓고 코드가 점프하는 지점들을 연결한 작품입니다. 얼핏 봐도 알 수 있지만 프로그램 내에서도 아주 많은 선들로 연결되어있습니다. 프로그램은 선형적으로 실행되지 않는다는 걸 노골적으로 보여주고 있죠.
+
+[design_data]: http://design.hyundaicardcapital.com/771
 
 <!--more-->
 
@@ -87,3 +89,7 @@ A Retrospective by David R. Tribble (2005)][goto_retro]
 [goto_retro]: http://david.tribble.com/text/goto.html
 [maso]:http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=old_talkbox&wr_id=289198
 [conharm]: https://en.wikipedia.org/wiki/Considered_harmful
+
+P.S. 리뷰해주신 [raccoony][raccoony] 님 감사합니다.
+
+[raccoony]: https://raccoonyy.github.io/
