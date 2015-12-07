@@ -428,3 +428,12 @@ program:
   ko: 프로그램
 process:
   ko: 프로세스
+lambda:
+  ko: 람다
+proc:
+  en: proc
+anonymous_function:
+  ko: 익명 함수
+  en: anonymous function
+block:
+  ko: 블록

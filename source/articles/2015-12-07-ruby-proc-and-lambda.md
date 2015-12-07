@@ -2,7 +2,7 @@
 title: 루비와 익명 함수 -  블록(block), Proc(절차, procedure) 객체와 람다(lambda) 함수의 차이 이해하기
 date: 2015-12-08 01:36:00 +0900
 author: nacyot
-tags: programming, lambda, ruby, proc, block, anonymous function,
+tags: programming, lambda, ruby, proc, block, anonymous_function, javascript
 categories: programming
 title_image: http://i.imgur.com/TVYlS05.png
 published: true
