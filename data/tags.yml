@@ -437,3 +437,23 @@ anonymous_function:
   en: anonymous function
 block:
   ko: 블록
+command_history:
+  ko: 명령어 히스토리
+  en: command history
+firefox:
+  ko: 파이어폭스
+  en: Firefox
+go:
+  en: Go
+incremental_search:
+  ko: 증분검색
+  en: incremental_search
+peco:
+  ko: 페코
+  en: Peco
+percol:
+  ko: 퍼콜
+  en: Percol
+shell:
+  ko: 셸
+
