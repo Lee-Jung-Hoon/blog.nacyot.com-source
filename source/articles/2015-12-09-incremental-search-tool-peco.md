@@ -1,6 +1,6 @@
 ---
 title: 증분검색을 통한 텍스트 필터링 도구 페코(Peco) - 명령어 히스토리를 비롯한 셸(shell) 어디서나 증분검색하기
-date: 2015-12-09 10:05:00 +0900
+date: 2015-12-09 10:40:00 +0900
 author: nacyot
 tags: software, peco, shell, incremental_search, percol, zsh, bash, command_history, firefox, go
 categories: software
