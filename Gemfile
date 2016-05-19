@@ -25,7 +25,7 @@ gem 'therubyracer'
 gem "less"
 # gem "redcarpet", github: "vmg/redcarpet"
 gem "redcarpet", "=3.1.1"
-gem "pygments.rb"
+gem "pygments.rb", "=0.6.3"
 
 # Watch gems
 gem "guard-rspec"

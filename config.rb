@@ -31,6 +31,7 @@ end
 page "/*", :layout => "layout"
 page "/articles/*", :layout => "blog"
 page "/feed.xml", layout: false
+page "/orifeed.xml", layout: false
 page "/sitemap.xml", layout: false
 
 ignore 'presentations/*'
