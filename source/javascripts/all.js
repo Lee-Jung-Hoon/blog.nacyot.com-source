@@ -4,7 +4,7 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require toc/dist/toc
 //= require d3/d3.min
-//= require lodash/lodash.min
+//= require lodash/dist/lodash.min
 //= require chance/chance
 //= require hr
 // require angular/angular.min

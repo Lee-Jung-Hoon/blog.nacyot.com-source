@@ -12,8 +12,8 @@ before_install:
   - export TZ=Asia/Seoul
   - date
   - sudo apt-get install -qq -y python-dev python-setuptools pandoc 
-  - sudo pip install nose tornado jinja2 sphinx pyzmq
-  - sudo pip install ipython
+  - sudo pip install nose tornado jinja2 sphinx pyzmq jsonschema mistune
+  - sudo pip install ipython==3.1
 before_script:
   - npm install -g bower
   - yes no | bower install
